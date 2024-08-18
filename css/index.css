@@ -1,0 +1,105 @@
+:root {
+    --appTitle: 'The Ark Bible';
+    --mediumGray: #c3c1c1;
+    --headlineBackground: #8e8c8c;
+    --blackText: black;
+    --whiteText: white;
+    --bannerBackground: #022a69;
+    --bodyBackground: #f3f3f3;
+    --headerBackground: #c02b31;
+    --headlineColor: white;
+    --mainBackground: white;
+    --verseNumber: #0505da;
+    --shadowColor: #07070733;
+    --searchLink: navy;
+    --searchResults: #ba0e0e;
+    --test: #530306;
+}
+html { font-size: 100%; }
+html,
+body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; overflow-y: scroll; }
+body { background-color: var(--bodyBackground); color: var(--blackText); z-index: 10; }
+p { font-size: 1.05rem; }
+.cs-header1 { position: fixed; top: 0; left: 0; width: 100%; height: 13%; background-color: var(--bannerBackground); color: var(--whiteText); padding: 0; padding-left: 2em; overflow: hidden; z-index: 0; user-select: none; }
+.cs-headerTitle { margin:0; position: absolute; top: 50%; transform: translateY(-50%); }
+.cs-search { position: absolute; right: 8%; top: 50%; height: 1.4rem; width: 1.4rem; transform: translateY(-50%); }
+.cs-menu { position: absolute; left: 0; bottom: .5em; display: flex; width: 100%; height: 25%; z-index: 1; }
+.cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); }
+.cs-menuBtn { text-decoration: none; border: none; outline: none; font-size: 1.1rem; background-color: var(--bannerBackground); color: var(--whiteText); padding: 0; }
+.cs-menuBtn1,
+.cs-menuBtn2,
+.cs-menuBtn3 { padding-right: 2em;  }
+
+.cs-bookHeader,
+.cs-verseHeader,
+.cs-versionHeader,
+.cs-chapterHeader { padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; }
+.cs-sortHeader { position: absolute; left: 50%; transform: translate(-50%); padding: .23em; font-size: .56em; font-weight: 500; background-color: var(--whiteText); color: var(--bannerBackground); border-radius: 5px; width: max-content; }
+
+.cs-books,
+.cs-verses,
+.cs-chapters,
+.cs-versions { display: none; position: absolute; top: 13%; left: 50%; height: 69%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 1; }
+.cs-books { width: 26%; }
+.cs-verses,
+.cs-chapters { height: max-content; max-height: 90%; width: 17%; overflow: hidden; overflow-y: scroll; }
+
+.cs-book,
+.cs-version { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.1rem; }
+.cs-book { width: 50%; }
+.cs-endBook { padding: .3em; padding-left: .6em; padding-right: .6em; width: 50%; font-size: 1.1rem; }
+.cs-bookRight { border-right: 1px solid black; }
+.cs-bookLine { position: relative; display: flex; width: 100%; }
+.cs-verseLine,
+.cs-chapterLine { position: relative; padding-left: .5em; display: flex; gap: .4em; width: 100%; margin-top: .5em; }
+.cs-verse,
+.cs-chapter { display: flex; align-items: center; justify-content: center; font-size: 1.1em; height: 1.9em; width: 1.9em; border: 1px solid red; border-radius: 4px; }
+.cs-lastLine { position: absolute; text-align: center; left: 50%; transform: translate(-50%); padding-bottom: .5em; }
+
+.cs-pageContainer { margin-top: 5.5em; width: 100%; z-index: 10; }
+
+.cs-searchContainer,
+.cs-mainPage { border-radius: 6px; width: 60%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
+
+.cs-searchPage,
+.cs-page { text-align: justify; margin: auto; margin-top: 3em; width: 80%; }
+
+.cs-verseNumber { color: var(--verseNumber); font-size: .9rem; font-weight: 550; }
+
+.cs-headline,
+.cs-bottomLine { height: 1.5rem; width: 100%; color: var(--whiteText); background-color: var(--headlineBackground); padding: .3em; font-size: 1.35rem; }
+.cs-headline { line-height: 1.5rem; text-align: center; color: var(--headlineColor)}
+
+.cs-bottomLine { display: flex; align-items: center; font-size: 1.2rem; user-select: none; justify-content: space-evenly; }
+.cs-bottomTitleLine { width: max-content; }
+
+.cs-settings { position: relative; bottom: 0; left: 0; height: 12%; width: 100%; background-color: var(--bannerBackground); }
+.cs-svgTheme { position: absolute; height: 1.2em; width: 1.2em; background-color: var(--bannerBackground); top: 50%; left: 3%; transform: translateY(-50%); }
+.cs-svgTheme1 { display: none; }
+
+.cs-font { position: absolute; width: max-content; background-color: var(--bannerBackground); color: var(--whiteText); top: 50%; left: 13%; transform: translateY(-50%); user-select: none; }
+.cs-adjustFont { padding-left: .3em; padding-right: .3em; text-decoration: underline; }
+.cs-adjustFont1 { display: inline-block; height: 1.2rem; width: 1.2rem; border-radius: 50%; background-color: var(--whiteText); color: var(--bannerBackground); text-align: center; line-height: 1.2em; font-size: 1.1em; vertical-align: middle; font-weight: 550; }
+
+.cs-statement { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: var(--whiteText); text-decoration: none; }
+.cs-copySign { font-size: .75em; }
+
+.cs-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 8px solid var(--mediumGray); border-top: 8px solid var(--bannerBackground); border-radius: 50%; width: 2em; height: 2em; animation: spin 2s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.cs-jq { color: #ba0e0e; }
+
+.cs-searchContainer { display: none; top: 5%; height: max-content; min-height: 80%; }
+.cs-searchTitle { width: 90%; margin: auto; text-align: center; }
+.cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
+.cs-searchBox { height: 2.5em; width: 80%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; font-size: 1.3rem; z-index: 12; }
+
+.cs-searchResult { margin-top: 5%; }
+.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--searchLink); }
+.cs-searchVerse { margin-top: -.1em; }
+
+.cs-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; }
+
+.cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--searchResults); }
+
+.cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }

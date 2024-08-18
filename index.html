@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<base href="./">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon-16.png">
+    <link rel="shortcut icon" href="images/logo-128.png">
+    <title>The Ark Bible</title>
+    <link async rel="stylesheet" type="text/css" href="css/index.css">
+    <link defer rel="stylesheet" type="text/css" href="css/lateload.css">
+    <script src="sw.js"></script>
+    <script async src="js/variables.js"></script>
+    <script async src="js/index.js"></script>
+    <script defer src="js/lateload.js"></script>
+    <script defer src="js/elasticlunr.js"></script>
+</head>
+
+<body>
+    <div id="top"></div>
+    <div class="cs-header1">
+        <svg fill="currentColor" class="cs-search" viewBox="0 0 16 16" onclick="openSearch()">
+            <title>Search the Bible</title>
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg>
+        <h1 class="cs-headerTitle">The Ark Bible</h1>
+        <div id="id-menu" class="cs-menu">
+            <div class="cs-menu1">
+                <button id="id-MenuBtn1" class="cs-menuBtn cs-menuBtn1" onclick="openBoxes()"
+                    title="Select A Version">TWF</button>
+                <button id="id-MenuBtn2" class="cs-menuBtn cs-menuBtn2" onclick="openBoxes()"
+                    title="Select A Book">Genesis</button>
+                <button id="id-MenuBtn3" class="cs-menuBtn cs-menuBtn3" onclick="openBoxes()"
+                    title="Select A Chapter">1:</button>
+                <button id="id-MenuBtn4" class="cs-menuBtn cs-menuBtn4" onclick="openBoxes()"
+                    title="Highlight the Selected Verse">1</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cs-pageContainer">
+        <div id="id-loader" class="cs-loader"> </div>
+        <div id="id-mainPage" class="cs-mainPage">
+            <div id="id-headline" class="cs-headline"></div>
+            <div id="id-page" class="cs-page">
+
+            </div>
+
+            <br><br><br><br><br>
+
+            <div class="cs-bottomLine">
+                <div id="id-bottomLastLine" class="cs-bottomLastLine" onclick="lastChapter()">‹ Last</div>
+                <div id="id-bottomTitleLine" class="cs-bottomTitleLine">Genesis 1</div>
+                <div id="id-bottomNextLine" class="cs-bottomNextLine" onclick="nextChapter()">Next ›</div>
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()">Read a Random Chapter</div>
+
+        <div id="id-searchContainer" class="cs-searchContainer">
+            <br>
+            <h2 class="cs-searchTitle">Search Bible Verses</h2>
+            <div class="cs-searchCase">case sensitive</div>
+            <div id="id-searchPage" class="cs-searchPage">
+                <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true" data-placeholder="Search..."></div>
+                <div class="cs-searchBtn" onclick="lunrSearch()">Search</div>
+                <div id="id-searchResults" class="cs-searchResult">
+
+                </div>
+            </div>
+            <br><br><br>
+        </div>
+    </div>
+    <br><br><br><br><br>
+
+    <div id="id-settings" class="cs-settings">
+        <svg id="id-svg" class="cs-svgTheme" onclick="changeTheme()" fill="white" viewBox="0 0 32 32">
+            <title>Change Theme</title>
+            <path
+                d="m29.37 11.84a13.6 13.6 0 0 0 -1.06-2.51 14.17 14.17 0 0 0 -2.41-3.23 14 14 0 1 0 0 19.8 14.17 14.17 0 0 0 2.41-3.23 13.6 13.6 0 0 0 1.06-2.51 14 14 0 0 0 0-8.32zm-25.37 4.16a12 12 0 0 1 12-12v24a12 12 0 0 1 -12-12z" />
+        </svg>
+
+        <svg id="id-svgRotate" class="cs-svgTheme cs-svgTheme1" onclick="changeTheme()" fill="white"
+            viewBox="0 0 24 24">
+            <title>Change Theme</title>
+            <path
+                d="m12 22c5.5228475 0 10-4.4771525 10-10s-4.4771525-10-10-10-10 4.4771525-10 10 4.4771525 10 10 10zm0-1.5v-17c4.6944204 0 8.5 3.80557963 8.5 8.5 0 4.6944204-3.8055796 8.5-8.5 8.5z" />
+        </svg>
+        <div class="cs-font">
+            <span class="cs-adjustFont1" onclick="changeFontSize('-')">-</span>
+            <span class="cs-adjustFont">Font</span>
+            <span class="cs-adjustFont1" onclick="changeFontSize('+')">+</span>
+        </div>
+        <br>
+        <a class="cs-statement" href="statement.html">If you love something, let it go.</a>
+    </div>
+
+
+    <div id="id-bottom"></div>
+
+</body>
+
+<div id="id-versions" class="cs-versions"></div>
+
+<div id="id-books" class="cs-books"></div>
+
+<div id="id-chapters" class="cs-chapters"></div>
+
+<div id="id-verses" class="cs-verses"></div>
+
+</html>

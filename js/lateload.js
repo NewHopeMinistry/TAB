@@ -420,16 +420,3 @@ function readRandomChapter() {
     document.getElementById('top').scrollIntoView({ block: 'start' });
     closeBoxes();
 };
-
-async function unregisterAndClearCaches() {
-    // Unregister all service workers
-    const registrations = await navigator.serviceWorker.getRegistrations();
-    const unregisterPromises = registrations.map(registration => registration.unregister());
-
-    // Clear all caches
-    const allCaches = await caches.keys();
-    const cacheDeletionPromises = allCaches.map(cache => caches.delete(cache));
-
-    // Wait for all promises to resolve
-    await Promise.all([...unregisterPromises, ...cacheDeletionPromises]);
-  }

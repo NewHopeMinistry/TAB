@@ -1,0 +1,2 @@
+### The Ark Bible
+The Ark Bible is an application designed to read, search, and study the Bible online or offline. Once the necessary files have been accessed the first time, they are cached on the client for future access, with or without access to the internet.

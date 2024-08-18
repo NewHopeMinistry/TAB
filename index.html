@@ -11,16 +11,7 @@
     <link async rel="stylesheet" type="text/css" href="css/index.css">
     <link defer rel="stylesheet" type="text/css" href="css/lateload.css">
     <script>
-        if ('serviceWorker' in navigator) {
-            (async () => {
-                try {
-                    const registration = await navigator.serviceWorker.register('sw.js');
-                    console.log('Service Worker registered with scope:', registration.scope);
-                } catch (error) {
-                    console.log('Service Worker registration failed:', error);
-                }
-            })();
-        };
+        
     </script>
     <script src="sw.js"></script>
     <script async src="js/variables.js"></script>

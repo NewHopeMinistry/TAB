@@ -1,4 +1,4 @@
-const version = '1.0';
+const version = '1.1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [

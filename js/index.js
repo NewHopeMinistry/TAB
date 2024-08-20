@@ -1,6 +1,18 @@
 window.addEventListener("load", async () => {
     let rec = false;
 
+    if ('serviceWorker' in navigator) {
+        (async () => {
+            try {
+                const registration = await navigator.serviceWorker.register('sw.js');
+                console.log('Service Worker registered with scope:', registration.scope);
+                console.log(`Version: ${version}`)
+            } catch (error) {
+                console.log('Service Worker registration failed:', error);
+            }
+        })();
+    };
+
     rec = getDefaults();
     if (rec){ loadVersions(); };
     if (rec) { LoadBooks(); };

@@ -41,6 +41,7 @@ if ('serviceWorker' in navigator) {
     });
 };
 
+
 async function needsUpdate(registration) {
     // Implement your logic to determine if an update is needed
     // This could involve checking Service Worker version, cached asset hashes, etc.

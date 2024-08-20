@@ -1,5 +1,5 @@
-const version = '2.0';
-const CACHE_NAME = 'TAB-cache';
+const version = '1.0';
+const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
     'css/index.css',
@@ -10,18 +10,6 @@ const urlsToCache = [
     'js/elasticlunr.js'
 ];
 
-if ('serviceWorker' in navigator) {
-    (async () => {
-        try {
-            const registration = await navigator.serviceWorker.register('sw.js');
-            console.log('Service Worker registered with scope:', registration.scope);
-            console.log(`Version: ${version}`)
-        } catch (error) {
-            console.log('Service Worker registration failed:', error);
-        }
-    })();
-};
-
 self.addEventListener('install', event => {
     event.waitUntil(
         (async () => {
@@ -30,6 +18,17 @@ self.addEventListener('install', event => {
             await cache.addAll(urlsToCache);
         })()
     );
+});
+
+self.addEventListener('activate', async (event) => {
+
+    const cacheAllowList = [CACHE_NAME];
+    const keys = await caches.keys();
+
+    await Promise.all(keys.map(async (key) => {
+        // Delete all caches not in allow list:
+        if (!cacheAllowList.includes(key)) { await caches.delete(key); };
+    }));
 });
 
 self.addEventListener('fetch', event => {

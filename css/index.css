@@ -103,3 +103,150 @@ p { font-size: 1.05rem; }
 .cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--searchResults); }
 
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }
+
+/** Media Queries */
+
+@media screen and (max-width: 1024px) {
+
+    html { font-size: 110%; }
+    .cs-headerTitle { font-size: 1.5rem; top: 15%; transform: none; }
+    .cs-search { right: 15%; }
+    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
+    .cs-pageContainer { margin-top: 4.5em; }
+    .cs-mainPage { width: 100%; border-radius: 0; }
+    .cs-versions,
+    .cs-books { width: 100%; }
+    .cs-verses,
+    .cs-chapters { width: 73%; }
+    .cs-book,
+    .cs-version,
+    .cs-verse,
+    .cs-chapter { font-size: 1.3rem; }
+
+    .cs-searchPage { width: 95%; }
+    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchBtn { width: 20%; }
+}
+
+@media screen and (max-height: 932px) {
+    .cs-header1 { height: 12%; }
+    .cs-books,
+    .cs-verses,
+    .cs-chapters,
+    .cs-versions { top: 12.1%; }
+}
+
+@media screen and (height: 600px) {
+    .cs-pageContainer { margin-top: 4.1em; }
+}
+
+@media screen and (height: 740px) {
+    .cs-pageContainer { margin-top: 5em; }
+}
+
+@media screen and (height: 800px) {
+    .cs-pageContainer { margin-top: 6.8em; }
+}
+
+@media screen and (height: 844px) {
+    .cs-pageContainer { margin-top: 5.7em; }
+}
+
+@media screen and (height: 882px) {
+    .cs-pageContainer { margin-top: 6em; }
+}
+
+@media screen and (height: 896px) {
+    .cs-pageContainer { margin-top: 6.1em; }
+
+}
+
+@media screen and (height: 914px) {
+    .cs-pageContainer { margin-top: 6.3em; }
+}
+
+@media screen and (min-height: 915px) {
+    .cs-pageContainer { margin-top: 6.3em; }
+}
+
+@media screen and (height: 932px) {
+    .cs-pageContainer { margin-top: 6.4em; }
+}
+
+@media screen and (height: 1024px) {
+    .cs-header1 { height: 12%; }
+    .cs-pageContainer { margin-top: 7em; }
+    .cs-verses,
+    .cs-chapters { margin-top: -.5em; }
+}
+
+@media screen and (height: 1180px) {
+    .cs-pageContainer { margin-top: 8.8em; }
+}
+
+@media screen and (height: 1280px) {
+    .cs-pageContainer { margin-top: 9.4em; }
+}
+
+@media screen and (height: 1366px) {
+    .cs-pageContainer { margin-top: 10.1em; }
+}
+
+@media screen and (height: 1368px) {
+    .cs-pageContainer { margin-top: 10.1em; }
+}
+
+@media screen and (width: 344px) {
+    .cs-verses,
+    .cs-chapters { width: 78%; }
+}
+
+@media screen and (width: 390px) {
+    .cs-verses,
+    .cs-chapters { width: 69%; }
+}
+
+@media screen and (width: 412px) {
+    .cs-verses,
+    .cs-chapters { width: 65%; }
+}
+
+@media screen and (width: 414px) {
+    .cs-verses,
+    .cs-chapters { width: 65%; }
+}
+
+@media screen and (width: 430px) {
+    .cs-verses,
+    .cs-chapters { width: 62%; }
+}
+
+@media screen and (width: 540px) {
+    .cs-verses,
+    .cs-chapters { width: 50%; }
+}
+
+@media screen and (width: 768px) {
+    .cs-verses,
+    .cs-chapters { width: 35%; }
+}
+
+@media screen and (width: 820px) {
+    .cs-verses,
+    .cs-chapters { width: 33%; }
+}
+
+@media screen and (width: 853px) {
+    .cs-verses,
+    .cs-chapters { width: 35%; }
+}
+
+@media screen and (width: 912px) {
+    .cs-verses,
+    .cs-chapters { width: 29%; }
+}
+
+@media screen and (width: 1024px) {
+    .cs-verses,
+    .cs-chapters { width: 27%; }
+}

@@ -112,7 +112,7 @@ var versions = [
         "t": "Young's Literal Translation"
     }
 ];
-const idx = 17;
+const idx = 15;
 const abr= versions[idx].ar;
 const fileName = `data\\${abr}\\${abr}Verses.json`;
 const data = fs.readFileSync(fileName, 'utf8');

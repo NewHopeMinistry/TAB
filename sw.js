@@ -1,4 +1,4 @@
-const version = '1.0';
+const version = '1.1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -11,18 +11,13 @@ const urlsToCache = [
     'js/elasticlunr.js'
 ];
 
-function customError(errorCode, errorMessage) {
-    const error =new Error(errorMessage);
-    error.code = errorCode;
-    throw error;
-};
-
 self.addEventListener('install', event => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(CACHE_NAME);
             console.log('Opened cache');
             await cache.addAll(urlsToCache);
+            console.log(CACHE_NAME);
         })()
     );
 });

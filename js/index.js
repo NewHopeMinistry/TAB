@@ -281,6 +281,8 @@ function JesusQuote(aVerse, vNum) {
     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
 
+
+
 async function changeVersion() {
 
     let id = this.event.target.id;
@@ -288,22 +290,22 @@ async function changeVersion() {
     let aVersion = document.getElementById(id);
     let idx = Number(aVersion.dataset.index);
 
-    activeVersionID = aVersion.id;
-    document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
-    document.getElementById('id-headline').textContent = versions[idx].t;
-    activeVersionAbreviation = versions[idx].ar;
     try {
         const res = await fetch(`data/${versions[idx].ar}/${versions[idx].ar}Verses.json`);
         verses = await res.json();
+        getChapter();
+        activeVersionID = aVersion.id;
+        document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
+        document.getElementById('id-headline').textContent = versions[idx].t;
+        activeVersionAbreviation = versions[idx].ar;
+        id = Number(activeVersionID.slice("id-version".length));
+        setQuerystring('verid', id);
+        searchIndex = null;
     } catch (error) {
-        console.error('Error:', error);
+        //console.error('Error:', error);
+        alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
     };
-
-    getChapter();
     closeBoxes();
-    id = Number(activeVersionID.slice("id-version".length));
-    setQuerystring('verid', id);
-    searchIndex = null;
 };
 
 async function getChapter() {

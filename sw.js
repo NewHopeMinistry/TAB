@@ -1,4 +1,4 @@
-const version = '1.0';
+const version = '1.11';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -10,6 +10,12 @@ const urlsToCache = [
     'js/lateload.js',
     'js/elasticlunr.js'
 ];
+
+function customError(errorCode, errorMessage) {
+    const error =new Error(errorMessage);
+    error.code = errorCode;
+    throw error;
+};
 
 self.addEventListener('install', event => {
     event.waitUntil(
@@ -33,15 +39,20 @@ self.addEventListener('activate', async (event) => {
 });
 
 self.addEventListener('fetch', event => {
+
     if (event.request.url.endsWith('.json')) {
+
         event.respondWith(
             (async () => {
                 const cache = await caches.open(CACHE_NAME);
                 const cachedResponse = await cache.match(event.request);
                 if (cachedResponse) { return cachedResponse; };
-                const networkResponse = await fetch(event.request);
-                await cache.put(event.request, networkResponse.clone());
-                return networkResponse;
+                if (navigator.onLine) {
+                    const networkResponse = await fetch(event.request);
+                    await cache.put(event.request, networkResponse.clone());
+                    return networkResponse;
+                } else { return 'offline'; };
+
             })()
         );
     } else {
@@ -49,7 +60,10 @@ self.addEventListener('fetch', event => {
         (async () => {
             const response = await caches.match(event.request);
             if (response) { return response; };
-            return fetch(event.request);
+            if (navigator.onLine) {
+                return fetch(event.request);
+            } else { return 'offline'; };
+
         })();
     };
 });

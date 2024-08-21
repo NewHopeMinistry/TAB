@@ -153,7 +153,7 @@ p { font-size: 1.05rem; }
 }
 
 @media screen and (min-height: 861px) {
-    .cs-pageContainer { margin-top: 6em; }
+    .cs-pageContainer { margin-top: 6.1em; }
 }
 
 @media screen and (height: 882px) {

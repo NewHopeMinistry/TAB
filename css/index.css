@@ -105,7 +105,7 @@ p { font-size: 1.05rem; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }
 
 /** Media Queries */
-@media screen and (max-width: 1920px) {
+@media screen and (min-width: 1920px) {
     html { font-size: 115%; }
     .cs-header1 { height: 9%; }
     .cs-pageContainer { margin-top: 6.5em; }
@@ -115,14 +115,14 @@ p { font-size: 1.05rem; }
     .cs-chapters { width: 13%; }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
 
     html { font-size: 110%; }
     .cs-headerTitle { font-size: 1.5rem; top: 15%; transform: none; }
     .cs-search { right: 15%; }
     .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 4.5em; }
-    .cs-mainPage { width: 100%; border-radius: 0; }
+    .cs-mainPage { width: 60%; }
     .cs-page { width: 93%; }
     .cs-versions,
     .cs-books { width: 100%; }
@@ -274,5 +274,5 @@ p { font-size: 1.05rem; }
 }
 
 @media screen and (height: 861px) and (width: 388px) {
-    .cs-pageContainer { margin-top: 5.9em; }
+    .cs-pageContainer { margin-top: 6.9em; }
 }

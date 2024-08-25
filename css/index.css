@@ -105,7 +105,7 @@ p { font-size: 1.05rem; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }
 
 /** Media Queries */
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1025px) {
     html { font-size: 115%; }
     .cs-header1 { height: 9%; }
     .cs-pageContainer { margin-top: 6.5em; }
@@ -116,7 +116,6 @@ p { font-size: 1.05rem; }
 }
 
 @media screen and (max-width: 1025px) {
-
     html { font-size: 110%; }
     .cs-headerTitle { font-size: 1.5rem; top: 15%; transform: none; }
     .cs-search { right: 15%; }
@@ -137,6 +136,10 @@ p { font-size: 1.05rem; }
     .cs-searchBtn { width: 20%; }
 }
 
+@media screen and (max-width: 912px) {
+    .cs-mainPage { width: 100%; }
+}
+
 @media screen and (max-height: 1080px) {
     .cs-books,
     .cs-verses,
@@ -146,17 +149,22 @@ p { font-size: 1.05rem; }
 
 @media screen and (max-height: 932px) {
     .cs-header1 { height: 12%; }
+    .cs-pageContainer { margin-top: 6em; }
     .cs-books,
     .cs-verses,
     .cs-chapters,
     .cs-versions { top: 12.1%; }
 }
 
-@media screen and (height: 600px) {
-    .cs-pageContainer { margin-top: 4.1em; }
+@media screen and (min-height: 660px) {
+    .cs-pageContainer { margin-top: 4.5em; }
 }
 
-@media screen and (height: 740px) {
+@media screen and (min-height: 400px) {
+    .cs-pageContainer { margin-top: 6.35em; }
+}
+
+@media screen and (height: 720px) {
     .cs-pageContainer { margin-top: 5em; }
 }
 
@@ -168,7 +176,6 @@ p { font-size: 1.05rem; }
     .cs-pageContainer { margin-top: 5.7em; }
 }
 
-
 @media screen and (height: 882px) {
     .cs-pageContainer { margin-top: 6em; }
 }
@@ -179,14 +186,6 @@ p { font-size: 1.05rem; }
 
 @media screen and (height: 914px) {
     .cs-pageContainer { margin-top: 6.3em; }
-}
-
-@media screen and (min-height: 915px) {
-    .cs-pageContainer { margin-top: 6.3em; }
-}
-
-@media screen and (height: 932px) {
-    .cs-pageContainer { margin-top: 6.4em; }
 }
 
 @media screen and (height: 1024px) {
@@ -205,7 +204,8 @@ p { font-size: 1.05rem; }
 }
 
 @media screen and (height: 1366px) {
-    .cs-pageContainer { margin-top: 10.1em; }
+    .cs-pageContainer { margin-top: 10.15em; }
+    .cs-mainPage { width: 100%; }
 }
 
 @media screen and (height: 1368px) {
@@ -273,6 +273,8 @@ p { font-size: 1.05rem; }
     .cs-chapters { width: 27%; }
 }
 
-@media screen and (height: 861px) and (width: 388px) {
-    .cs-pageContainer { margin-top: 6.9em; }
+@media screen and (width: 1280px) {
+    .cs-mainPage { width: 60%; }
+    .cs-verses,
+    .cs-chapters { width: 19.5%; }
 }

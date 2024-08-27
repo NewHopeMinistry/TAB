@@ -160,8 +160,8 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 376px) and (max-width: 390px) {
-    .cs-header1 { height: 11%; }
-    .cs-settings { height: 11%; }
+    .cs-header1 { height: 12%; }
+    .cs-settings { height: 12%; }
     .cs-search { right: 15%; }
     .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 4.9em; }

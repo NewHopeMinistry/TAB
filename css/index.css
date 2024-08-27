@@ -168,9 +168,9 @@ p { font-size: 1.05rem; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 11%; width: 100%; }
+    .cs-books { top: 12%; width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 11%; width: 73%; }
+    .cs-chapters { top: 12%; width: 73%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: -3em; }
     .cs-searchBtn { width: 20%; }

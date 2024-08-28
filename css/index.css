@@ -141,7 +141,7 @@ p { font-size: 1.05rem; }
     .cs-searchBtn { width: 20%; }
 }
 
-@media (min-width: 361px) and (max-width: 375px) {
+@media screen and (min-width: 361px) and (max-width: 376px) {
     .cs-header1 { height: 12%; }
     .cs-settings { height: 12%; }
     .cs-headerTitle { font-size: 1.5rem; top: 15%; transform: none; }
@@ -159,7 +159,7 @@ p { font-size: 1.05rem; }
     .cs-searchBtn { width: 20%; }
 }
 
-@media (min-width: 376px) and (max-width: 390px) {
+@media (min-width: 377px) and (max-width: 390px) {
     .cs-header1 { height: 12%; }
     .cs-settings { height: 12%; }
     .cs-search { right: 15%; }

@@ -259,7 +259,7 @@ p { font-size: 1.05rem; }
     .cs-searchBtn { width: 20%; }
 }
 
-@media (min-width: 821px) and (max-width: 853px) {
+@media (min-width: 821px) and (max-width: 854px) {
     .cs-header1 { height: 8%; }
     .cs-settings { height: 8%; }
     .cs-search { right: 15%; }
@@ -275,7 +275,7 @@ p { font-size: 1.05rem; }
     .cs-searchBtn { width: 20%; }
 }
 
-@media (min-width: 854px) and (max-width: 912px) {
+@media (min-width: 855px) and (max-width: 912px) {
     .cs-header1 { height: 8%; }
     .cs-settings { height: 8%; }
     .cs-search { right: 15%; }
@@ -295,7 +295,7 @@ p { font-size: 1.05rem; }
     .cs-header1 { height: 13%; }
     .cs-settings { height: 13%; }
     .cs-search { right: 15%; }
-    .cs-pageContainer { margin-top: 4.6em; }
+    .cs-pageContainer { margin-top: 4.9em; }
     .cs-mainPage { width: 90%; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
@@ -311,7 +311,7 @@ p { font-size: 1.05rem; }
     .cs-header1 { height: 7%; }
     .cs-settings { height: 7%; }
     .cs-search { right: 15%; }
-    .cs-pageContainer { margin-top: 5.5em; }
+    .cs-pageContainer { margin-top: 5.9em; }
     .cs-mainPage { width: 90%; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,

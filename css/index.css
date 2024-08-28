@@ -228,7 +228,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 541px) and (max-width: 768px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 9%; }
     .cs-settings { height: 9%; }
     .cs-search { right: 15%; }
@@ -245,7 +244,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 769px) and (max-width: 820px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 8%; }
     .cs-settings { height: 8%; }
     .cs-search { right: 15%; }
@@ -262,7 +260,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 821px) and (max-width: 853px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 8%; }
     .cs-settings { height: 8%; }
     .cs-search { right: 15%; }
@@ -279,7 +276,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 854px) and (max-width: 912px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 8%; }
     .cs-settings { height: 8%; }
     .cs-search { right: 15%; }
@@ -296,7 +292,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 913px) and (max-width: 1024px) and (max-height: 600px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 13%; }
     .cs-settings { height: 13%; }
     .cs-search { right: 15%; }
@@ -313,7 +308,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 913px) and (max-width: 1024px) and (min-height: 601px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 7%; }
     .cs-settings { height: 7%; }
     .cs-search { right: 15%; }
@@ -330,7 +324,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) and (max-height: 720px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 12%; }
     .cs-settings { height: 12%; }
     .cs-headerTitle { font-size: 2.5rem; }
@@ -348,7 +341,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) and (min-height: 721px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 12%; }
     .cs-settings { height: 12%; }
     .cs-headerTitle { font-size: 2.5rem; }
@@ -366,7 +358,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1281px) and (max-width: 1360px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 12%; }
     .cs-settings { height: 12%; }
     .cs-headerTitle { font-size: 2.5rem; }
@@ -384,7 +375,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1361px) and (max-width: 1440px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 10%; }
     .cs-settings { height: 10%; }
     .cs-headerTitle { font-size: 2.5rem; }
@@ -420,7 +410,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1537px) and (max-width: 1920px) and (max-height: 1080px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 9%; }
     .cs-settings { height: 9%; }
     .cs-headerTitle { font-size: 2.5rem; }
@@ -438,7 +427,6 @@ p { font-size: 1.05rem; }
 }
 
 @media (min-width: 1537px) and (max-width: 1920px) and (min-height: 1081px) {
-    html { font-size: 115%; }
     .cs-header1 { height: 9%; }
     .cs-settings { height: 9%; }
     .cs-headerTitle { font-size: 2.5rem; }

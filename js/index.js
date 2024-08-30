@@ -281,8 +281,6 @@ function JesusQuote(aVerse, vNum) {
     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
 
-
-
 async function changeVersion() {
 
     let id = this.event.target.id;
@@ -383,6 +381,8 @@ async function getChapter() {
     document.getElementById('id-MenuBtn3').textContent = `${document.getElementById(activeChapterID).textContent}:`;
     setQuerystring('bid', activeBook);
     setQuerystring('cn', activeChapter);
+    document.getElementById('id-MenuBtn4').textContent = '1';
+    selectedVerseID = ``;
 };
 
 function removeElements(id) {

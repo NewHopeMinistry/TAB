@@ -1,4 +1,4 @@
-const version = '1.0.3';
+const version = '1.0.7';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -8,7 +8,9 @@ const urlsToCache = [
     'js/variables.js',
     'js/index.js',
     'js/lateload.js',
-    'js/elasticlunr.js'
+    'js/elasticlunr.js',
+    'images/icons/favicon-16.png',
+    'images/icons/logo-128.png'
 ];
 
 self.addEventListener('install', event => {

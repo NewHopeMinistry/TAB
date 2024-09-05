@@ -1,4 +1,4 @@
-const version = '1.0.2';
+const version = '1.0.5';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -28,9 +28,7 @@ self.addEventListener('activate', async (event) => {
 
     const cacheAllowList = [CACHE_NAME];
     const keys = await caches.keys();
-
     await Promise.all(keys.map(async (key) => {
-        // Delete all caches not in allow list:
         if (!cacheAllowList.includes(key)) { await caches.delete(key); };
     }));
 });

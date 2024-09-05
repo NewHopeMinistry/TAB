@@ -93,7 +93,7 @@ p { font-size: 1.05rem; }
 .cs-searchContainer { display: none; top: 5%; height: max-content; min-height: 80%; }
 .cs-searchTitle { width: 90%; margin: auto; text-align: center; }
 .cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
-.cs-searchBox { height: 2.5em; width: 80%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; font-size: 1.3rem; z-index: 12; }
+.cs-searchBox { height: 2.5em; width: 80%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
 
 .cs-searchResult { margin-top: 5%; }
 .cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--searchLink); }

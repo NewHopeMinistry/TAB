@@ -4,14 +4,16 @@ html,
 .cs-chapters,
 .cs-books,
 .cs-verses,
-.cs-versions { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }
+.cs-versions,
+.cs-searchBox { overflow: hidden; overflow-y: scroll; -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar,
 html::-webkit-scrollbar,
 .cs-chapters::-webkit-scrollbar,
 .cs-books::-webkit-scrollbar,
 .cs-verses::-webkit-scrollbar,
-.cs-versions::-webkit-scrollbar { display: none; }
+.cs-versions::-webkit-scrollbar,
+.cs-searchBox::-webkit-scrollbar { display: none; }
 
 /* ********************************************/
 

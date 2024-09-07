@@ -40,7 +40,7 @@ async function getDefaults() {
     let verid = params.get('verid');
     if (verid) { activeVersionID = `id-version${verid}`; };
     if (activeVersionID === '') { activeVersionID = localStorage.getItem("activeVersionID"); };
-    if (!activeVersionID) { activeVersionID = `id-version21` };
+    if (!activeVersionID) { activeVersionID = `id-version15` }; // KJV = 15, TWF = 21
 
     let bid = params.get('bid');
     if (bid) { activeBookID = `id-book${bid}`; };

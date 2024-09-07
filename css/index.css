@@ -336,7 +336,7 @@ p { font-size: 1.05rem; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 22%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 80%; margin-top: -3em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -353,7 +353,7 @@ p { font-size: 1.05rem; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 22.5%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 80%; margin-top: -3em; }
     .cs-searchBtn { width: 20%; }
 }
 

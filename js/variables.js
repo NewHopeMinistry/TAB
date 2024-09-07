@@ -18,6 +18,11 @@ var searchIndex = null;
 var searchResults;
 var searchData;
 var searchResultIndex = 0;
+var TWF = {  // Placeholder for TWF Version
+    "ar": "TWF",
+    "id": 21,
+    "t": "Twenty-First Century Version"
+};
 
 var versions = [
     {
@@ -94,11 +99,6 @@ var versions = [
         "ar": "T4T",
         "id": 20,
         "t": "Translation for Translators"
-    },
-    {
-        "ar": "TWF",
-        "id": 21,
-        "t": "Twenty-First Century Version"
     },
     {
         "ar": "WEB",

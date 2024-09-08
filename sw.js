@@ -62,3 +62,19 @@ self.addEventListener('fetch', event => {
         })();
     };
 });
+
+
+
+/*  This goes in the html ******  <script src="sw.js"></script>
+
+    if ('serviceWorker' in navigator) {   //This goes in the client side javascript
+        (async () => {
+            try {
+                const registration = await navigator.serviceWorker.register('sw.js');
+                console.log('Service Worker registered with scope:', registration.scope);
+                console.log(`Version: ${version}`)
+            } catch (error) {
+                console.log('Service Worker registration failed:', error);
+            }
+        })();
+    };*/

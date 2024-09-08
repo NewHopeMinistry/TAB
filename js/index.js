@@ -1,17 +1,6 @@
 window.addEventListener("load", async () => {
     let rec = false;
-
-    if ('serviceWorker' in navigator) {
-        (async () => {
-            try {
-                const registration = await navigator.serviceWorker.register('sw.js');
-                console.log('Service Worker registered with scope:', registration.scope);
-                console.log(`Version: ${version}`)
-            } catch (error) {
-                console.log('Service Worker registration failed:', error);
-            }
-        })();
-    };
+    removeAllServiceWorkers();
 
     rec = getDefaults();
     if (rec){ loadVersions(); };
@@ -27,6 +16,33 @@ window.addEventListener("load", async () => {
     };
 });
 
+async function removeAllServiceWorkers() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (let registration of registrations) {
+            registration.unregister().then((boolean) => {
+                if (boolean) {
+                    console.log('Service worker unregistered successfully.');
+                } else {
+                    console.log('Service worker unregistration failed.');
+                }
+            });
+          }
+        }).catch((error) => {
+          console.error(`Error during service worker unregistration: ${error}`);
+        });
+    };
+
+    try {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(async (key) => {
+            await caches.delete(key);
+        }));
+        if (keys.length > 0 ) { console.log('Cache Deleted !'); };
+    } catch {
+        console.log('Cache not Deleted !');
+    };
+};
 async function getDefaults() {
 
     //  The default activeVersionID is 'id-version21', which is the Twenty-First Century Version.

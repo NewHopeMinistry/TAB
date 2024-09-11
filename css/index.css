@@ -106,7 +106,8 @@ p { font-size: 1.05rem; }
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }
 
 /* Media Queries */
-/*? Width breakpoints */
+/*! Width breakpoints */
+
 @media (max-width: 344px) {
     .cs-header1 { height: 9%; }
     .cs-settings { height: 9%; }

@@ -18,7 +18,8 @@ html::-webkit-scrollbar,
 /* ********************************************/
 
 /* Hovers */
-.cs-svgTheme:hover { cursor: pointer; }
+.cs-svgTheme:hover,
+.cs-dialogBtn:hover { cursor: pointer; }
 .cs-search:hover,
 .cs-menuBtn:hover,
 .cs-bottomLastLine:hover,
@@ -35,6 +36,7 @@ html::-webkit-scrollbar,
 .cs-randomChapter:hover { background-color: #ba0e0e; cursor: pointer; }
 
 .cs-searchBtn:hover { background-color: #706f6f; cursor: pointer; }
+
 
 .cs-searchChapter:hover { color: #b20303; cursor: pointer; }
 .cs-searchResults:hover { cursor: pointer; color: red; }

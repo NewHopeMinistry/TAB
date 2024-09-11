@@ -1,7 +1,6 @@
 window.addEventListener("load", async () => {
-    let rec = false;
-    removeAllServiceWorkers();
 
+    let rec = false;
     rec = getDefaults();
     if (rec){ loadVersions(); };
     if (rec) { LoadBooks(); };
@@ -16,33 +15,6 @@ window.addEventListener("load", async () => {
     };
 });
 
-async function removeAllServiceWorkers() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then((registrations) => {
-          for (let registration of registrations) {
-            registration.unregister().then((boolean) => {
-                if (boolean) {
-                    console.log('Service worker unregistered successfully.');
-                } else {
-                    console.log('Service worker unregistration failed.');
-                }
-            });
-          }
-        }).catch((error) => {
-          console.error(`Error during service worker unregistration: ${error}`);
-        });
-    };
-
-    try {
-        const keys = await caches.keys();
-        await Promise.all(keys.map(async (key) => {
-            await caches.delete(key);
-        }));
-        if (keys.length > 0 ) { console.log('Cache Deleted !'); };
-    } catch {
-        console.log('Cache not Deleted !');
-    };
-};
 async function getDefaults() {
 
     //  The default activeVersionID is 'id-version21', which is the Twenty-First Century Version.
@@ -316,7 +288,6 @@ async function changeVersion() {
         setQuerystring('verid', id);
         searchIndex = null;
     } catch (error) {
-        //console.error('Error:', error);
         alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
     };
     closeBoxes();

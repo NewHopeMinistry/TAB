@@ -11,6 +11,7 @@ var activeFontSize = 1.05;
 var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';
+
 //var activeJsonVersesIndex = 0;
 var selectedVerseID = '';
 var searchOpen = false;

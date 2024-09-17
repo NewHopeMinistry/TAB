@@ -49,6 +49,7 @@ function changeBook() {
     getChapter();
     loadChapters();
     closeBoxes();
+    document.getElementById('top').scrollIntoView({ block: 'start' });
 };
 
 function changeChapter() {

@@ -65,6 +65,7 @@ p { font-size: 1.05rem; }
 .cs-searchPage,
 .cs-page { text-align: justify; margin: auto; margin-top: 3em; width: 80%; }
 
+.cs-singleVerse { margin-top: -.5em; }
 .cs-verseNumber { color: var(--verseNumber); font-size: .9rem; font-weight: 550; }
 
 .cs-headline,

@@ -354,6 +354,7 @@ async function getChapter() {
                 sp.appendChild(spa);
                 sp.appendChild(vt);
             };
+            p.classList.add("cs-singleVerse");
             p.appendChild(sp);
             i++;
             verseCount++;

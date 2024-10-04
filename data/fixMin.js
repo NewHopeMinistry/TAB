@@ -383,6 +383,9 @@ for (const item of jsonData) {
     item.vt = item.vt.replace("!\"X", "!\" X");
     item.vt = item.vt.replace("!\"Y", "!\" Y");
     item.vt = item.vt.replace("!\"Z", "!\" Z");
+
+    item.vt = item.vt.replace(":‘", ": ‘");
+    item.vt = item.vt.replace(":“", ": “");
 };
 
 try {

@@ -33,7 +33,7 @@ html::-webkit-scrollbar,
 .cs-version:hover,
 .cs-chapter:hover { cursor: pointer; background-color: #8e8c8c; color: white; }
 
-.cs-randomChapter:hover { background-color: #ba0e0e; cursor: pointer; }
+.cs-randomChapter:hover { background-color: #706f6f; cursor: pointer; }
 
 .cs-searchBtn:hover { background-color: #706f6f; cursor: pointer; }
 

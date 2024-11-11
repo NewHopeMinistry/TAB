@@ -104,7 +104,7 @@ p { font-size: 1.05rem; }
 
 .cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--searchResults); }
 
-.cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #706f6f; color: white; border-radius: 6px; padding: 1.1em; }
+.cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: white; border-radius: 6px; padding: 1.1em; }
 
 /* Media Queries */
 /*! Width breakpoints */

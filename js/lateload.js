@@ -4,6 +4,7 @@ function closeBoxes() {
     document.getElementById('id-books').style.display = 'none';
     document.getElementById('id-chapters').style.display = 'none';
     document.getElementById('id-verses').style.display = 'none';
+    document.getElementById('id-randomChapter').style.backgroundColor = 'ba0e0e';
     boxesOpen = false;
 };
 

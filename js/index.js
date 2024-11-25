@@ -40,16 +40,9 @@ async function getDefaults() {
     if (activeChapterID === '') { activeChapterID = localStorage.getItem("activeChapterID"); };
     if (!activeChapterID) { activeChapterID = `id-chapter1` };
 
-    /*
-    activeBookID = localStorage.getItem("activeBookID");
-    if (!activeBookID) { activeBookID = `id-book1`; };
-    activeChapterID = localStorage.getItem("activeChapterID");
-    if (!activeChapterID) { activeChapterID = `id-chapter1`; };
-    */
-
     setTheme = localStorage.getItem("setTheme");
     activeFontSize = localStorage.getItem("activeFontSize");
-    if (!activeFontSize) { activeFontSize = 1.05; } else { activeFontSize = Number(activeFontSize); };
+    if (!activeFontSize) { activeFontSize = 1.06; } else { activeFontSize = Number(activeFontSize); };
     activeFontSizeCount = localStorage.getItem("activeFontSizeCount");
     if (!activeFontSizeCount) { activeFontSizeCount = 0; } else { activeFontSizeCount = Number(activeFontSizeCount); };
 
@@ -71,6 +64,7 @@ async function loadVersions() {
     let pageHeadline =  document.getElementById("id-headline");
 
     let div = document.createElement("div");
+    div.id = 'id-versionHeader';
     div.classList.add("cs-versionHeader");
     div.textContent = 'Versions';
     menuVersions.appendChild(div);
@@ -288,9 +282,11 @@ async function changeVersion() {
         setQuerystring('verid', id);
         searchIndex = null;
     } catch (error) {
-        alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
+        alert('Error Accessing Internet!')
+        //alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
     };
     closeBoxes();
+    boxOpen = 0;
 };
 
 async function getChapter() {

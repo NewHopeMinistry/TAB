@@ -14,24 +14,35 @@ function openBoxes() {
     this.event.stopPropagation();
     this.event.stopImmediatePropagation();
 
+    closeBoxes();
     let ID = this.event.target.id;
     let id = '';
+
     switch (ID) {
         case "id-MenuBtn1":
             id = 'id-versions';
+            if  (boxOpen === 1) { boxOpen = 0; return; };
+            boxOpen = 1;
             break;
         case "id-MenuBtn2":
             id = 'id-books';
+            if  (boxOpen === 2) { boxOpen = 0; return; };
+            boxOpen = 2;
             break;
         case "id-MenuBtn3":
             id = 'id-chapters';
+            if  (boxOpen === 3) { boxOpen = 0; return; };
+            boxOpen = 3;
             break;
         case "id-MenuBtn4":
             id = 'id-verses';
+            if  (boxOpen === 4) { boxOpen = 0; return; };
+            boxOpen = 4;
             break;
         default:
             break;
     };
+
     if (boxesOpen) {
         closeBoxes();
     } else {
@@ -51,6 +62,7 @@ function changeBook() {
     loadChapters();
     closeBoxes();
     document.getElementById('top').scrollIntoView({ block: 'start' });
+    boxOpen = 0;
 };
 
 function changeChapter() {
@@ -61,6 +73,7 @@ function changeChapter() {
     loadChapters();
     closeBoxes();
     document.getElementById('top').scrollIntoView({ block: 'start' });
+    boxOpen = 0;
 };
 
 function findVerse() {
@@ -77,6 +90,7 @@ function findVerse() {
     selection.addRange(range);
     spa.scrollIntoView({ block: 'center' });
     closeBoxes();
+    boxOpen = 0;
 };
 
 function lastChapter() {
@@ -84,6 +98,7 @@ function lastChapter() {
     let i = 0;
     let books = [];
     let bid = Number(document.getElementById(activeBookID).dataset.bid);
+
     if (bid < 40) {
         i = oldBooks.findIndex(rec => rec.id === bid);
         books = oldBooks;
@@ -118,7 +133,16 @@ function nextChapter() {
     if (chapter > chapters) { bid++; chapter = 1; };
     activeBookID = `id-book${bid}`;
     activeChapterID = `id-chapter${chapter}`;
+    if (bid < 40) {
+        i = oldBooks.findIndex(rec => rec.id === bid);
+        books = oldBooks;
+    } else {
+        i = newBooks.findIndex(rec => rec.id === bid);
+        books = newBooks;
+    };
+    chapterCount = books[i].c;
     getChapter();
+    loadChapters();
     document.getElementById('top').scrollIntoView({ block: 'start' });
 };
 

@@ -1,4 +1,5 @@
 var boxesOpen = false;
+var boxOpen = 0;
 var bookSort = false;
 var chapterCount = 0;
 var rotateTheme = true;
@@ -7,7 +8,7 @@ var verses = [];
 var verseCount = 0;
 
 var activeFontSizeCount = 0;
-var activeFontSize = 1.05;
+var activeFontSize = 1.06;
 var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';

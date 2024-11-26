@@ -40,7 +40,8 @@ function openBoxes() {
             boxOpen = 4;
             break;
         default:
-            break;
+            boxOpen = 0;
+            return;
     };
 
     if (boxesOpen) {

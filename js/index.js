@@ -21,7 +21,7 @@ async function getDefaults() {
     //  The default activeBookID is 'id-book1', which is Genesis.
     //  The default activeChapterID is 'id-chapter1', which is the first chapter from the book of the activeBookID.
     //  The default setTheme is '0', which is the light theme.
-    //  The default activeFontSize is 1.05
+    //  The default activeFontSize is 1.06
 
     const params = new URLSearchParams(window.location.search);
 

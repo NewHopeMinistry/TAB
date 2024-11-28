@@ -18,16 +18,19 @@ html::-webkit-scrollbar,
 /* ********************************************/
 
 /* Hovers */
+.cs-themeNote,
 .cs-svgTheme:hover,
-.cs-dialogBtn:hover { cursor: pointer; }
+.cs-dialogBtn:hover,
+.cs-adjustFont:hover { cursor: pointer; }
 .cs-search:hover,
 .cs-menuBtn:hover,
 .cs-bottomLastLine:hover,
 .cs-bottomNextLine:hover,
 .cs-statement:hover { color: red; cursor: pointer; }
 
-.cs-adjustFont1:hover,
-.cs-sortHeader:hover { background-color: #82b4fe; color: white; cursor: pointer; }
+.cs-sortHeader:hover,
+.cs-adjustFont1:hover { background-color: #82b4fe; color: white; cursor: pointer; }
+
 .cs-book:hover,
 .cs-verse:hover,
 .cs-version:hover,

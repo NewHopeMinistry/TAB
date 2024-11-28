@@ -7,8 +7,9 @@ var setTheme = '0';
 var verses = [];
 var verseCount = 0;
 
+var defaultFontSize = 1.06
 var activeFontSizeCount = 0;
-var activeFontSize = 1.06;
+var activeFontSize = defaultFontSize;
 var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';
@@ -454,3 +455,6 @@ var newBooks = [
         "t": "Revelation"
     }
 ];
+
+var dateEdited = '11-28-2024'
+if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }

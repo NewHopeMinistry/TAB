@@ -66,7 +66,8 @@
             <h2 class="cs-searchTitle">Search Bible Verses</h2>
             <div class="cs-searchCase">case sensitive</div>
             <div id="id-searchPage" class="cs-searchPage">
-                <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true" data-placeholder="Search..."></div>
+                <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true"
+                    data-placeholder="Search..."></div>
                 <div class="cs-searchBtn" onclick="lunrSearch()">Search</div>
                 <div id="id-searchResults" class="cs-searchResult">
 
@@ -75,28 +76,62 @@
             <br><br><br>
         </div>
     </div>
-    <br><br><br><br><br>
+    <br><br><br><br>
 
-    <div id="id-settings" class="cs-settings">
-        <svg id="id-svg" class="cs-svgTheme" onclick="changeTheme()" fill="white" viewBox="0 0 32 32">
-            <title>Change Theme</title>
-            <path d="m29.37 11.84a13.6 13.6 0 0 0 -1.06-2.51 14.17 14.17 0 0 0 -2.41-3.23 14 14 0 1 0 0 19.8 14.17 14.17 0 0 0 2.41-3.23 13.6 13.6 0 0 0 1.06-2.51 14 14 0 0 0 0-8.32zm-25.37 4.16a12 12 0 0 1 12-12v24a12 12 0 0 1 -12-12z" />
-        </svg>
+    <div class="cs-bottom">
+        <div id="id-settings" class="cs-settings">
 
-        <svg id="id-svgRotate" class="cs-svgTheme cs-svgTheme1" onclick="changeTheme()" fill="white"
-            viewBox="0 0 24 24">
-            <title>Change Theme</title>
-            <path d="m12 22c5.5228475 0 10-4.4771525 10-10s-4.4771525-10-10-10-10 4.4771525-10 10 4.4771525 10 10 10zm0-1.5v-17c4.6944204 0 8.5 3.80557963 8.5 8.5 0 4.6944204-3.8055796 8.5-8.5 8.5z" />
-        </svg>
-        <div class="cs-font">
-            <span class="cs-adjustFont1" onclick="changeFontSize('-')">-</span>
-            <span class="cs-adjustFont">Font</span>
-            <span class="cs-adjustFont1" onclick="changeFontSize('+')">+</span>
+            <div id="id-col1" class="cs-glossary">
+                <h4 class="cs-glossaryHeaders">Overview</h4>
+                <a class="cs-glossaryLink" href="html/about.html">About The Ark</a>
+                <br><br>
+                <a class="cs-glossaryLink" href="html/statement.html">Statement of Faith</a>
+                <br><br>
+                <a class="cs-glossaryLink" href="html/twfabout.html">About Twenty-First Century Version</a>
+            </div>
+
+            <div id="id-col2" class="cs-glossary">
+                <h4 class="cs-glossaryHeaders">Other</h4>
+                <a class="cs-glossaryLink" href="html/movies.html">Movies of Faith</a>
+                <br><br>
+                <a class="cs-glossaryLink" href="html/history.html">Versions History</a>
+                <br><br>
+                <a class="cs-glossaryLink" href="html/license.html">Licenses</a>
+                <br><br>
+                <h4 class="cs-glossaryHeaders">Settings</h4>
+                <div>
+                    <svg id="id-svg" class="cs-svgTheme" onclick="changeTheme()" fill="white" viewBox="0 0 32 32">
+                        <title>Change Theme</title>
+                        <path
+                            d="m29.37 11.84a13.6 13.6 0 0 0 -1.06-2.51 14.17 14.17 0 0 0 -2.41-3.23 14 14 0 1 0 0 19.8 14.17 14.17 0 0 0 2.41-3.23 13.6 13.6 0 0 0 1.06-2.51 14 14 0 0 0 0-8.32zm-25.37 4.16a12 12 0 0 1 12-12v24a12 12 0 0 1 -12-12z" />
+                    </svg>
+
+                    <svg id="id-svgRotate" class="cs-svgTheme cs-svgTheme1" onclick="changeTheme()" fill="white" viewBox="0 0 24 24">
+                        <title>Change Theme</title>
+                        <path
+                            d="m12 22c5.5228475 0 10-4.4771525 10-10s-4.4771525-10-10-10-10 4.4771525-10 10 4.4771525 10 10 10zm0-1.5v-17c4.6944204 0 8.5 3.80557963 8.5 8.5 0 4.6944204-3.8055796 8.5-8.5 8.5z" />
+                    </svg>
+                    <span id="id-themeNote" class="cs-themeNote" onclick="changeTheme()" title="Change Theme">Theme</span>
+                </div>
+
+                <div class="cs-font">
+                    <span class="cs-adjustFont1" onclick="changeFontSize('-')" title="Increase Font Size">-</span>
+                    <span class="cs-adjustFont" onclick="changeFontSize('d')" title="Default Font Size">Font</span>
+                    <span class="cs-adjustFont1" onclick="changeFontSize('+')" title="Decrease Font Size">+</span>
+                </div>
+            </div>
         </div>
-        <br>
-        <a class="cs-statement" href="about.html">About</a>
-    </div>
 
+        <hr>
+            <br><br>
+            <div class="cs-GodLovesYou">
+                <div>God loves you, Jesus loves you, I love you, and this is God's free gift for you!</div>
+                <div>The TWF version is being actively edited and is subject to change daily.</div>
+                <div>If you prefer to read older Bible versions, please feel free to do so.</div><br>
+                <a  href="./html/license.html">Copyright ©2024 <span class="cs-copySign">●</span> Public Domain <span class="cs-copySign">●</span> MIT License</a>
+                <div id="id-lastEdited">Last Edited:</div>
+            </div>
+    </div>
     <div id="id-bottom"></div>
 
 </body>
@@ -110,4 +145,5 @@
 <div id="id-verses" class="cs-verses"></div>
 
 <div id="id-loader" class="cs-loader"> </div>
+
 </html>

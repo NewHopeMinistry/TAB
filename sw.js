@@ -70,7 +70,7 @@ self.addEventListener('fetch', event => {
     if ('serviceWorker' in navigator) {   //This goes in the client side javascript
         (async () => {
             try {
-                const registration = await navigator.serviceWorker.register('sw.js');
+                const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
                 console.log('Service Worker registered with scope:', registration.scope);
                 console.log(`Version: ${version}`)
             } catch (error) {

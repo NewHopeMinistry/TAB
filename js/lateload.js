@@ -189,18 +189,19 @@ function changeTheme() {
     const svg1 = document.getElementById('id-svgRotate');
 
     if (rotateTheme) {
-        svg.style.display = 'block';
-        svg1.style.display = 'none';
+        svg.style.visibility = 'visible';
+        svg1.style.visibility = 'hidden';
         darkTheme();
         rotateTheme = false;
         localStorage.setItem("setTheme", '1');
     } else {
-        svg.style.display = 'none';
-        svg1.style.display = 'block';
+        svg.style.visibility = 'hidden';
+        svg1.style.visibility = 'visible';
         lightTheme();
         rotateTheme = true;
         localStorage.setItem("setTheme", '0');
     };
+
 };
 
 function changeFontSize(direction) {
@@ -209,10 +210,13 @@ function changeFontSize(direction) {
         if (activeFontSizeCount > 3) { return; };
         activeFontSize = activeFontSize * 1.15;
         activeFontSizeCount++;
-    } else {
+    } else if (direction === '-') {
         if (activeFontSizeCount < 1) { return; };
         activeFontSize = activeFontSize / 1.15;
         activeFontSizeCount--;
+    } else if (direction === 'd') {
+        activeFontSize = defaultFontSize;
+        activeFontSizeCount = 0;
     };
     setFontSize();
 

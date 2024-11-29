@@ -1,3 +1,6 @@
+var dateEdited = '11-29-2024'
+if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
+
 var boxesOpen = false;
 var boxOpen = 0;
 var bookSort = false;
@@ -456,5 +459,3 @@ var newBooks = [
     }
 ];
 
-var dateEdited = '11-28-2024'
-if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }

@@ -105,15 +105,14 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-GodLovesYouPages { color: var(--blackText); }
 
 .cs-copyright { color: var(--whiteText); }
-.cs-copyright:visited {
-    color: blue;
-}
+.cs-copyright:visited { color: blue; }
 .cs-copySign { font-size: .75em; }
 .cs-hrCopyright { width: 98%; margin: auto; }
 
 .cs-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 8px solid var(--mediumGray); border-top: 8px solid var(--bannerBackground); border-radius: 50%; width: 2em; height: 2em; animation: spin 2s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+.cs-emphasis { color: #ba0e0e; }
 .cs-jq { color: #ba0e0e; }
 
 .cs-searchContainer { display: none; top: 5%; height: max-content; min-height: 80%; }

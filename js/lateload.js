@@ -168,7 +168,7 @@ function lightTheme() {
     document.documentElement.style.setProperty('--blackText', 'black');
     document.documentElement.style.setProperty('--whiteText', 'white');
     document.documentElement.style.setProperty('--verseNumber', '#0505da');
-    document.documentElement.style.setProperty('--searchLink', 'navy');
+    document.documentElement.style.setProperty('--navyEmphasis', 'navy');
     document.documentElement.style.setProperty('--searchResults', '#ba0e0e');
 };
 
@@ -179,7 +179,7 @@ function darkTheme() {
     document.documentElement.style.setProperty('--blackText', '#dcdde4');
     document.documentElement.style.setProperty('--whiteText', '#dcdde4');
     document.documentElement.style.setProperty('--verseNumber', '#fa4d4d');
-    document.documentElement.style.setProperty('--searchLink', '#709cdf');
+    document.documentElement.style.setProperty('--navyEmphasis', '#709cdf');
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
 };
 
@@ -231,18 +231,30 @@ function openSearch() {
 
     closeBoxes();
     if (searchOpen) {
+        document.getElementById('id-searchContainer').style.display = 'none';
+        document.getElementById('id-pageContainer').style.display = 'block';
         document.getElementById('id-menu').style.display = 'block';
+        searchOpen = false;
+        return;
+
+
+
         document.getElementById('id-mainPage').style.display = 'block';
         document.getElementById('id-settings').style.display = 'block';
         document.getElementById('id-randomChapter').style.display = 'block';
-        document.getElementById('id-searchContainer').style.display = 'none';
         searchOpen = false;
     } else {
+        document.getElementById('id-pageContainer').style.display = 'none';
+        document.getElementById('id-searchContainer').style.display = 'block';
         document.getElementById('id-menu').style.display = 'none';
+        searchOpen = true;
+        return;
+
+
+
         document.getElementById('id-mainPage').style.display = 'none';
         document.getElementById('id-settings').style.display = 'none';
         document.getElementById('id-randomChapter').style.display = 'none';
-        document.getElementById('id-searchContainer').style.display = 'block';
         searchOpen = true;
     };
 };

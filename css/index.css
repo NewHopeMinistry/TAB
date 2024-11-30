@@ -11,9 +11,11 @@
     --mainBackground: white;
     --verseNumber: #0505da;
     --shadowColor: #07070733;
-    --searchLink: navy;
-    --searchResults: #ba0e0e;
-    --test: #530306;
+
+    --greenEmphasis: #045004;
+    --lightMaroonEmphasis: #ba0e0e;
+    --maroonEmphasis: #530306;
+    --navyEmphasis: navy;
 }
 html { font-size: 110%; }
 html,
@@ -83,7 +85,18 @@ p { font-size: 1.06rem; }
 .cs-glossary { position: relative; margin-top: 1.2em; margin-bottom: 1.2em; color: var(--whiteText); width: 99%; }
 
 .cs-pagesBody { background-color: var(--mainBackground); }
-.cs-licenseTitle { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
+.cs-title { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
+
+.cs-movieBox { height: max-content; width: 100%; margin: auto; }
+.cs-movieDist { color: var(--greenEmphasis); width: 100%; text-align: center; }
+.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%; }
+.csmovieTagImg { text-decoration: none; }
+.cs-movieTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none;}
+.cs-movieTitleWiki { color: navy;  }
+.cs-movieTitle:hover,
+.cs-movieTitleWiki:hover { color: var(--maroonEmphasis); }
+.cs-movieTitle:visited,
+.cs-movieTitleWiki:visited { color: #5151ad; }
 
 table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid black; padding: .2em; text-align: left; }
@@ -112,21 +125,20 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 8px solid var(--mediumGray); border-top: 8px solid var(--bannerBackground); border-radius: 50%; width: 2em; height: 2em; animation: spin 2s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.cs-emphasis { color: #ba0e0e; }
-.cs-jq { color: #ba0e0e; }
+.cs-emphasis { color: var(--lightMaroonEmphasis); }
 
-.cs-searchContainer { display: none; top: 5%; height: max-content; min-height: 80%; }
+.cs-searchContainer { display: none; margin-top: 5.5em;  height: max-content; min-height: 100%; }
 .cs-searchTitle { width: 90%; margin: auto; text-align: center; }
 .cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
 .cs-searchBox { height: 2.5em; width: 80%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
 
 .cs-searchResult { margin-top: 5%; }
-.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--searchLink); }
+.cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }
 .cs-searchVerse { margin-top: -.1em; }
 
 .cs-searchBtn { color: white; background-color: red; padding: .6em; border-radius: 6px; width: 10%; margin: auto; margin-top: .6em; font-size: 1.1em; z-index: 12; text-align: center; border: 2px solid black; }
 
-.cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--searchResults); }
+.cs-searchResults { font-size: 1.2rem; text-decoration: underline; color: var(--lightMaroonEmphasis); }
 
 .cs-randomChapter { width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: white; border-radius: 6px; padding: 1.1em; }
 
@@ -145,7 +157,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 9%; width: 80%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -161,7 +173,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 10%; width: 75%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.2em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -178,7 +190,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 73%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -194,7 +206,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 73%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.9em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -210,7 +222,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 10%; width: 67%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.8em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -226,7 +238,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 9%; width: 64%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.8em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -242,7 +254,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 11%; width: 50%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -257,7 +269,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 9%; width: 38%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -272,7 +284,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 8%; width: 35%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5.1em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -287,7 +299,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 8%; width: 34%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5.6em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -302,7 +314,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 8%; width: 32%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 6em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -317,7 +329,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 13%; width: 28%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 4.9em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -332,7 +344,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 7%; width: 28%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5.9em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -348,7 +360,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 22%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 80%; margin-top: -3em; }
+    .cs-searchContainer { width: 80%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -364,7 +376,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 22.5%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 80%; margin-top: -3em; }
+    .cs-searchContainer { width: 80%; margin-top: 5.7em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -380,7 +392,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 12%; width: 21%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5.4em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -396,7 +408,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 10%; width: 20%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 6.5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -413,7 +425,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 11%; width: 19%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5.2m; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -429,7 +441,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 9%; width: 15%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -445,7 +457,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-verses,
     .cs-chapters { top: 9%; width: 15%; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 6.3em; }
     .cs-searchBtn { width: 20%; }
 }
 
@@ -463,6 +475,6 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-chapters { top: 9%; width: 11.5%; }
     .cs-chapter { font-size: 1.3rem; }
     .cs-searchPage { width: 95%; }
-    .cs-searchContainer { width: 100%; margin-top: -3em; }
+    .cs-searchContainer { width: 100%; margin-top: 7.3em; }
     .cs-searchBtn { width: 20%; }
 }

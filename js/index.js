@@ -258,7 +258,7 @@ async function loadVerses() {
 
 function JesusQuote(aVerse, vNum) {
 
-    aVerse = aVerse.replace('`', '<span class="cs-jq">');
+    aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
     aVerse = aVerse.replace('´', '</span>');
     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };

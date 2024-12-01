@@ -88,15 +88,15 @@ p { font-size: 1.06rem; }
 .cs-title { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
 
 .cs-movieBox { height: max-content; width: 100%; margin: auto; }
-.cs-movieDist { color: var(--greenEmphasis); width: 100%; text-align: center; }
+.cs-movieContents { color: var(--greenEmphasis); width: 100%; }
 .cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%; }
 .csmovieTagImg { text-decoration: none; }
-.cs-movieTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none;}
-.cs-movieTitleWiki { color: navy;  }
+.cs-movieTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
+.cs-movieTitleWiki { color: var(--lightMaroonEmphasis); }
+
 .cs-movieTitle:hover,
-.cs-movieTitleWiki:hover { color: var(--maroonEmphasis); }
-.cs-movieTitle:visited,
-.cs-movieTitleWiki:visited { color: #5151ad; }
+.cs-movieTitleWiki:hover { color: var(--navyEmphasis); }
+.cs-aMovieBox { display: none; }
 
 table { border-collapse: collapse; width: 100%; }
 th, td { border: 1px solid black; padding: .2em; text-align: left; }

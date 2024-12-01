@@ -1,4 +1,4 @@
-var dateEdited = '11-30-2024'
+var dateEdited = '12-1-2024'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var boxesOpen = false;
@@ -6,6 +6,8 @@ var boxOpen = 0;
 var bookSort = false;
 var chapterCount = 0;
 var rotateTheme = true;
+var serviceMovieBoxOpen = false;
+var serviceMovieBox = '';
 var setTheme = '0';
 var verses = [];
 var verseCount = 0;

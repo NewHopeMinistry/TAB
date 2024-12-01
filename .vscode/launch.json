@@ -19,6 +19,13 @@
             "name": "Launch index.html",
             "url": "http://localhost:5500/index.html",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch movies.html",
+            "url": "http://localhost:5500/html/movies.html",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

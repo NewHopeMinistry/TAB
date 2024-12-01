@@ -92,10 +92,13 @@ p { font-size: 1.06rem; }
 .cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%; }
 .csmovieTagImg { text-decoration: none; }
 .cs-movieTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
-.cs-movieTitleWiki { color: var(--lightMaroonEmphasis); }
 
+.cs-movieTitleWiki,
+.cs-movieTitle:visited,
+.cs-movieTitleWiki:visited { color: var(--lightMaroonEmphasis); }
 .cs-movieTitle:hover,
 .cs-movieTitleWiki:hover { color: var(--navyEmphasis); }
+
 .cs-aMovieBox { display: none; }
 
 table { border-collapse: collapse; width: 100%; }

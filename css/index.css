@@ -14,6 +14,7 @@
 
     --greenEmphasis: #045004;
     --lightMaroonEmphasis: #ba0e0e;
+    --paleMaroonEmphasis: #f85e5e;
     --maroonEmphasis: #530306;
     --navyEmphasis: navy;
 }
@@ -126,8 +127,9 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-GodLovesYou { width: 80%; margin-left: auto; margin-right: auto; bottom: 0; font-size: .8rem; color: var(--whiteText); text-align: center; }
 .cs-GodLovesYouPages { color: var(--blackText); }
 
-.cs-copyright { color: var(--whiteText); }
+.cs-copyright,
 .cs-copyright:visited { color: var(--whiteText); }
+.cs-copyright:hover { color: var(--paleMaroonEmphasis); }
 .cs-copySign { font-size: .75em; }
 .cs-hrCopyright { width: 98%; margin: auto; }
 

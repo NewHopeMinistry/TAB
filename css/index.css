@@ -89,10 +89,11 @@ p { font-size: 1.06rem; }
 .cs-iconLink:hover { background-color: #eeeea5; }
 .cs-pagesBody { background-color: var(--mainBackground); }
 .cs-title { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
+
 .cs-movieBox,
 .cs-historyBox { height: max-content; width: 100%; margin: auto; }
 .cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
-.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%; }
+.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px; }
 .csmovieTagImg { text-decoration: none; }
 .cs-movieTitle,
 .cs-historyTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }

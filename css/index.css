@@ -90,21 +90,41 @@ p { font-size: 1.06rem; }
 .cs-pagesBody { background-color: var(--mainBackground); }
 .cs-title { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
 
+.cs-showBox,
 .cs-movieBox,
 .cs-historyBox { height: max-content; width: 100%; margin: auto; }
 .cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
+
+.cs-showImg,
 .cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px; }
+.cs-showTagImg,
 .csmovieTagImg { text-decoration: none; }
+
+
+.cs-showTitle,
 .cs-movieTitle,
 .cs-historyTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
+
+.cs-underline { text-decoration: underline; font-size: 1em; }
+
+.cs-showTitleWiki,
+.cs-showTitle:visited,
+.cs-showTitleWiki:visited,
 .cs-movieTitleWiki,
+.cs-movieTitle:visited,
+.cs-movieTitleWiki:visited,
 .cs-historyTitleWiki,
 .cs-historyTitle:visited,
 .cs-historyTitleWiki:visited { color: var(--lightMaroonEmphasis); }
+
+.cs-showTitle:hover,
+.cs-showTitleWiki:hover,
 .cs-movieTitle:hover,
 .cs-movieTitleWiki:hover,
 .cs-historyTitle:hover,
 .cs-historyTitleWiki:hover { color: var(--navyEmphasis); }
+
+.cs-showCopyrights,
 .cs-movieCopyrights { width: 90%; margin: auto; text-align: center; font-size: .5rem; }
 
 .cs-aMovieBox { display: none; }

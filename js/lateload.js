@@ -1,4 +1,15 @@
 
+window.addEventListener('beforeinstallprompt', function(event) {
+    // Prevent the default install prompt
+    event.preventDefault();
+    // Remove the query string from the URL
+    var url = new URL(window.location.href);
+    url.search = '';
+    window.history.replaceState({}, '', url);
+    // Show the install prompt
+    event.prompt();
+});
+
 function closeBoxes() {
     document.getElementById('id-versions').style.display = 'none';
     document.getElementById('id-books').style.display = 'none';
@@ -17,7 +28,7 @@ function openBoxes() {
     closeBoxes();
     let ID = this.event.target.id;
     let id = '';
-
+    
     switch (ID) {
         case "id-MenuBtn1":
             id = 'id-versions';
@@ -50,7 +61,6 @@ function openBoxes() {
         boxesOpen = true;
         document.getElementById(id).style.display = 'block';
     };
-
 };
 
 function changeBook() {
@@ -80,7 +90,7 @@ function changeChapter() {
 function findVerse() {
 
     let id = this.event.target.id;
-    let vn = document.getElementById(id).textContent
+    let vn = document.getElementById(id).textContent;
     selectedVerseID = `id-versNumber${vn}`;
     document.getElementById('id-MenuBtn4').textContent = vn;
     const spa = document.getElementById(selectedVerseID);
@@ -92,6 +102,7 @@ function findVerse() {
     spa.scrollIntoView({ block: 'center' });
     closeBoxes();
     boxOpen = 0;
+    setQuerystring('fv', vn);
 };
 
 function lastChapter() {

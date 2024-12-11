@@ -389,3 +389,9 @@ function setQuerystring(key, value) {
         window.history.pushState({}, '', url);
     };
 };
+
+function removeQueryParam(param) {
+    var url = new URL(window.location.href);
+    url.searchParams.delete(param);
+    window.history.replaceState({}, '', url);
+};

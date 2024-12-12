@@ -273,6 +273,12 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchBtn { width: 20%; }
 }
 
+@media (max-width: 431px) {
+    .cs-showImg,
+    .cs-movieImg { max-width: 28%; }
+    .cs-iconLink { width: 15%; }
+}
+
 @media (min-width: 431px) and (max-width: 540px) {
     .cs-headerTitle { font-size: 1.6rem; }
     .cs-search { right: 15%; }

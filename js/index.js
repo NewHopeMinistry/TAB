@@ -1,3 +1,15 @@
+window.addEventListener('beforeinstallprompt', function(event) {
+    console.log('beforeinstallprompt event fired');
+    // Prevent the default install prompt
+    event.preventDefault();
+    // Remove the query string from the URL
+    var url = new URL(window.location.href);
+    url.search = '';
+    window.history.replaceState({}, '', url);
+    // Show the install prompt
+    event.prompt();
+});
+
 window.addEventListener("load", async () => {
 
     let rec = false;

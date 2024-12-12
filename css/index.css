@@ -274,6 +274,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 }
 
 @media (max-width: 431px) {
+    /*Images for mobile movies and shows pages*/
     .cs-showImg,
     .cs-movieImg { max-width: 28%; }
     .cs-iconLink { width: 15%; }

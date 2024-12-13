@@ -1,15 +1,4 @@
 
-window.addEventListener('beforeinstallprompt', function(event) {
-    // Prevent the default install prompt
-    event.preventDefault();
-    // Remove the query string from the URL
-    var url = new URL(window.location.href);
-    url.search = '';
-    window.history.replaceState({}, '', url);
-    // Show the install prompt
-    event.prompt();
-});
-
 function closeBoxes() {
     document.getElementById('id-versions').style.display = 'none';
     document.getElementById('id-books').style.display = 'none';
@@ -28,7 +17,7 @@ function openBoxes() {
     closeBoxes();
     let ID = this.event.target.id;
     let id = '';
-    
+
     switch (ID) {
         case "id-MenuBtn1":
             id = 'id-versions';
@@ -90,19 +79,8 @@ function changeChapter() {
 function findVerse() {
 
     let id = this.event.target.id;
-    let vn = document.getElementById(id).textContent;
-    selectedVerseID = `id-versNumber${vn}`;
-    document.getElementById('id-MenuBtn4').textContent = vn;
-    const spa = document.getElementById(selectedVerseID);
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(spa);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    spa.scrollIntoView({ block: 'center' });
-    closeBoxes();
-    boxOpen = 0;
-    setQuerystring('fv', vn);
+    verseHighlight(id);
+    return;
 };
 
 function lastChapter() {
@@ -248,8 +226,6 @@ function openSearch() {
         searchOpen = false;
         return;
 
-
-
         document.getElementById('id-mainPage').style.display = 'block';
         document.getElementById('id-settings').style.display = 'block';
         document.getElementById('id-randomChapter').style.display = 'block';
@@ -260,9 +236,6 @@ function openSearch() {
         document.getElementById('id-menu').style.display = 'none';
         searchOpen = true;
         return;
-
-
-
         document.getElementById('id-mainPage').style.display = 'none';
         document.getElementById('id-settings').style.display = 'none';
         document.getElementById('id-randomChapter').style.display = 'none';

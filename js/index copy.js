@@ -1,8 +1,12 @@
-window.addEventListener('beforeinstallprompt', (event) => {
+window.addEventListener('beforeinstallprompt', function(event) {
+    console.log('beforeinstallprompt event fired');
+    // Prevent the default install prompt
     event.preventDefault();
+    // Remove the query string from the URL
     var url = new URL(window.location.href);
     url.search = '';
     window.history.replaceState({}, '', url);
+    // Show the install prompt
     event.prompt();
 });
 
@@ -402,21 +406,4 @@ function removeQueryParam(param) {
     var url = new URL(window.location.href);
     url.searchParams.delete(param);
     window.history.replaceState({}, '', url);
-};
-
-function verseHighlight(id) {
-
-    let vh = document.getElementById(id).textContent;
-    selectedVerseID = `id-versNumber${vh}`;
-    document.getElementById('id-MenuBtn4').textContent = vh;
-    const spa = document.getElementById(selectedVerseID);
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(spa);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    spa.scrollIntoView({ block: 'center' });
-    closeBoxes();
-    boxOpen = 0;
-    setQuerystring('vh', vh);
 };

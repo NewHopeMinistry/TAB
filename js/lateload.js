@@ -14,7 +14,13 @@ function openBoxes() {
     this.event.stopPropagation();
     this.event.stopImmediatePropagation();
 
+    const params = new URLSearchParams(window.location.search);
+    let vh = params.get('vh');
+    let holdSelectedVerseID;
+    if (vh) { holdSelectedVerseID = `id-verse${vh}`; };
     closeBoxes();
+    removeQueryParam('vh');
+    selectedVerseID = ``;
     let ID = this.event.target.id;
     let id = '';
 
@@ -22,6 +28,10 @@ function openBoxes() {
         case "id-MenuBtn1":
             id = 'id-versions';
             if  (boxOpen === 1) { boxOpen = 0; return; };
+            if (vh) {
+                setQuerystring('vh', vh);
+                selectedVerseID = holdSelectedVerseID;
+            };
             boxOpen = 1;
             break;
         case "id-MenuBtn2":
@@ -80,7 +90,6 @@ function findVerse() {
 
     let id = this.event.target.id;
     verseHighlight(id);
-    return;
 };
 
 function lastChapter() {
@@ -432,6 +441,7 @@ function getSearchChapter() {
     selection.removeAllRanges();
     selection.addRange(range);
     spa.scrollIntoView({ block: 'center' });
+    setQuerystring('vh', vn);
 };
 
 function readRandomChapter() {

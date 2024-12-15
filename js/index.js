@@ -32,6 +32,9 @@ async function getDefaults() {
     //  The default activeFontSize is 1.06
 
     const params = new URLSearchParams(window.location.search);
+    
+    let vh = params.get('vh');
+    if (vh) { selectedVerseID = `id-verse${vh}`; };
 
     let verid = params.get('verid');
     if (verid) { activeVersionID = `id-version${verid}`; };
@@ -281,7 +284,9 @@ async function changeVersion() {
     try {
         const res = await fetch(`data/${versions[idx].ar}/${versions[idx].ar}Verses.json`);
         verses = await res.json();
+        let holdSelectedVerseID = selectedVerseID;
         getChapter();
+        selectedVerseID = holdSelectedVerseID;
         activeVersionID = aVersion.id;
         document.getElementById('id-MenuBtn1').textContent = versions[idx].ar;
         document.getElementById('id-headline').textContent = versions[idx].t;
@@ -294,8 +299,14 @@ async function changeVersion() {
         //alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
     };
     closeBoxes();
+    if (selectedVerseID) {
+        if (isNumeric(selectedVerseID)) { selectedVerseID = `id-verse${selectedVerseID}`};
+        verseHighlight(selectedVerseID);
+    };
     boxOpen = 0;
 };
+
+function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); }
 
 async function getChapter() {
 
@@ -374,6 +385,7 @@ async function getChapter() {
     setQuerystring('bid', activeBook);
     setQuerystring('cn', activeChapter);
     document.getElementById('id-MenuBtn4').textContent = '1';
+    removeQueryParam('vh');
     selectedVerseID = ``;
 };
 
@@ -407,9 +419,9 @@ function removeQueryParam(param) {
 function verseHighlight(id) {
 
     let vh = document.getElementById(id).textContent;
-    selectedVerseID = `id-versNumber${vh}`;
     document.getElementById('id-MenuBtn4').textContent = vh;
-    const spa = document.getElementById(selectedVerseID);
+    let selectedVerseNumberID = `id-versNumber${vh}`;
+    const spa = document.getElementById(selectedVerseNumberID);
     const selection = window.getSelection();
     const range = document.createRange();
     range.selectNodeContents(spa);

@@ -168,6 +168,8 @@ function lightTheme() {
     document.documentElement.style.setProperty('--verseNumber', '#0505da');
     document.documentElement.style.setProperty('--navyEmphasis', 'navy');
     document.documentElement.style.setProperty('--searchResults', '#ba0e0e');
+    document.documentElement.style.setProperty('--gradientLight', '#0064d9');
+    document.documentElement.style.setProperty('--gradientDark', '#11428c');
 };
 
 function darkTheme() {
@@ -179,6 +181,8 @@ function darkTheme() {
     document.documentElement.style.setProperty('--verseNumber', '#fa4d4d');
     document.documentElement.style.setProperty('--navyEmphasis', '#709cdf');
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
+    document.documentElement.style.setProperty('--gradientLight', '#5d656e');
+    document.documentElement.style.setProperty('--gradientDark', '#010914');
 };
 
 function changeTheme() {
@@ -223,6 +227,38 @@ function changeFontSize(direction) {
 
     const bottom = document.getElementById("id-bottom");
     bottom.scrollIntoView({ behavior: "instant", block: "end" });
+};
+
+function updateQueryParams(removeParams, addParams) {
+    var url = new URL(window.location.href);
+    // Remove specified query parameters
+    removeParams.forEach(param => url.searchParams.delete(param));
+    // Add new query parameters
+    Object.keys(addParams).forEach(key => url.searchParams.set(key, addParams[key]));
+    // Update the URL without reloading the page
+    window.history.replaceState({}, '', url);
+};
+
+function resetDefaults() {
+
+    const svg = document.getElementById('id-svg');
+    const svg1 = document.getElementById('id-svgRotate');
+    svg.style.visibility = 'hidden';
+    svg1.style.visibility = 'visible';
+    lightTheme();
+    rotateTheme = true;
+    changeFontSize('d');
+    localStorage.removeItem('setTheme');
+    localStorage.removeItem('activeFontSizeCount');
+    localStorage.removeItem('activeFontSize');
+    localStorage.removeItem('activeBookID');
+    localStorage.removeItem('activeChapterID');
+    localStorage.removeItem('activeVersionID');
+    removeQueryParam('vh');
+    activeVersionID = defaultVersionID;
+    activeBookID = defaultBookID;
+    activeChapterID = defaultChapterID;
+    changeVersion();
 };
 
 function openSearch() {

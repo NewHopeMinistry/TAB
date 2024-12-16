@@ -21,7 +21,8 @@ html::-webkit-scrollbar,
 .cs-themeNote,
 .cs-svgTheme:hover,
 .cs-dialogBtn:hover,
-.cs-adjustFont:hover { cursor: pointer; }
+.cs-adjustFont:hover,
+.cs-resetDefaults:hover { cursor: pointer; }
 .cs-search:hover,
 .cs-menuBtn:hover,
 .cs-bottomLastLine:hover,

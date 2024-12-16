@@ -1,4 +1,4 @@
-var dateEdited = '12-15-2024'
+var dateEdited = '12-16-2024'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var boxesOpen = false;
@@ -12,7 +12,11 @@ var setTheme = '0';
 var verses = [];
 var verseCount = 0;
 
-var defaultFontSize = 1.06
+var defaultBookID = `id-book1`;
+var defaultChapterID = `id-chapter1`;
+var defaultFontSize = 1.06;
+var defaultVersionID = `id-version21`; // Version Defaults: KJV = 15, TWF = 21
+
 var activeFontSizeCount = 0;
 var activeFontSize = defaultFontSize;
 var activeBookID = '';

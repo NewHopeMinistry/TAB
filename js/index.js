@@ -32,24 +32,23 @@ async function getDefaults() {
     //  The default activeFontSize is 1.06
 
     const params = new URLSearchParams(window.location.search);
-    
+
     let vh = params.get('vh');
     if (vh) { selectedVerseID = `id-verse${vh}`; };
 
     let verid = params.get('verid');
     if (verid) { activeVersionID = `id-version${verid}`; };
     if (activeVersionID === '') { activeVersionID = localStorage.getItem("activeVersionID"); };
-    if (!activeVersionID) { activeVersionID = `id-version21` }; // KJV = 15, TWF = 21
+    if (!activeVersionID) { activeVersionID = defaultVersionID };
 
     let bid = params.get('bid');
     if (bid) { activeBookID = `id-book${bid}`; };
     if (activeBookID === '') { activeBookID = localStorage.getItem("activeBookID"); };
-    if (!activeBookID) { activeBookID = `id-book1` };
-
+    if (!activeBookID) { activeBookID = defaultBookID; };
     let cn = params.get('cn');
     if (cn) { activeChapterID = `id-chapter${cn}`; };
     if (activeChapterID === '') { activeChapterID = localStorage.getItem("activeChapterID"); };
-    if (!activeChapterID) { activeChapterID = `id-chapter1` };
+    if (!activeChapterID) { activeChapterID = defaultChapterID; };
 
     setTheme = localStorage.getItem("setTheme");
     activeFontSize = localStorage.getItem("activeFontSize");
@@ -277,7 +276,7 @@ function JesusQuote(aVerse, vNum) {
 async function changeVersion() {
 
     let id = this.event.target.id;
-    if (!id) { id = activeVersionID };
+    if (!id || id === 'id-resetDefaults') { id = activeVersionID };
     let aVersion = document.getElementById(id);
     let idx = Number(aVersion.dataset.index);
 

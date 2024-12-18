@@ -179,8 +179,9 @@ function darkTheme() {
     document.documentElement.style.setProperty('--mainBackground', '#473e3e');
     document.documentElement.style.setProperty('--blackText', '#dcdde4');
     document.documentElement.style.setProperty('--whiteText', '#dcdde4');
-    document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#f8878b');
-    document.documentElement.style.setProperty('--verseNumber', '#fa4d4d');
+    document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#f3d3d3');
+
+    document.documentElement.style.setProperty('--verseNumber', '#709cdf');
     document.documentElement.style.setProperty('--navyEmphasis', '#709cdf');
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
     document.documentElement.style.setProperty('--gradientLight', '#5d656e');

@@ -15,6 +15,7 @@
     --lightGreenEmphasis: #07f007;
     --greenEmphasis: #045004;
     --lightMaroonEmphasis: #ba0e0e;
+    --lighterMaroonEmphasis: #f10e0e;
     --paleMaroonEmphasis: #f85e5e;
     --maroonEmphasis: #530306;
     --navyEmphasis: navy;
@@ -165,7 +166,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 8px solid var(--mediumGray); border-top: 8px solid var(--bannerBackground); border-radius: 50%; width: 2em; height: 2em; animation: spin 2s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.cs-emphasis { color: var(--lightMaroonEmphasis); }
+.cs-emphasis { color: var(--lighterMaroonEmphasis); }
 
 .cs-searchContainer { display: none; margin-top: 5.5em;  height: max-content; min-height: 100%; }
 .cs-searchTitle { width: 90%; margin: auto; text-align: center; }

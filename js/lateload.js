@@ -166,6 +166,7 @@ function lightTheme() {
     document.documentElement.style.setProperty('--blackText', 'black');
     document.documentElement.style.setProperty('--whiteText', 'white');
     document.documentElement.style.setProperty('--verseNumber', '#0505da');
+    document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#ba0e0e');
     document.documentElement.style.setProperty('--navyEmphasis', 'navy');
     document.documentElement.style.setProperty('--searchResults', '#ba0e0e');
     document.documentElement.style.setProperty('--gradientLight', '#0064d9');
@@ -178,6 +179,7 @@ function darkTheme() {
     document.documentElement.style.setProperty('--mainBackground', '#473e3e');
     document.documentElement.style.setProperty('--blackText', '#dcdde4');
     document.documentElement.style.setProperty('--whiteText', '#dcdde4');
+    document.documentElement.style.setProperty('--lighterMaroonEmphasis', '#f8878b');
     document.documentElement.style.setProperty('--verseNumber', '#fa4d4d');
     document.documentElement.style.setProperty('--navyEmphasis', '#709cdf');
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');

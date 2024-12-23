@@ -1,10 +1,12 @@
-var dateEdited = '12-19-2024'
+var dateEdited = '12-23-2024'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var boxesOpen = false;
 var boxOpen = 0;
 var bookSort = false;
 var chapterCount = 0;
+var paragraphLayoutDefault = 0;
+var redLetterDefault = 0;
 var rotateTheme = true;
 var serviceMovieBoxOpen = false;
 var serviceMovieBox = '';

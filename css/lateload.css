@@ -22,7 +22,9 @@ html::-webkit-scrollbar,
 .cs-svgTheme:hover,
 .cs-dialogBtn:hover,
 .cs-adjustFont:hover,
-.cs-resetDefaults:hover { cursor: pointer; }
+.cs-redLetter:hover,
+.cs-resetDefaults:hover,
+.cs-paragraphLayout:hover { cursor: pointer; }
 .cs-search:hover,
 .cs-menuBtn:hover,
 .cs-bottomLastLine:hover,

@@ -33,6 +33,9 @@ async function getDefaults() {
 
     const params = new URLSearchParams(window.location.search);
 
+    let ltr = localStorage.getItem('redLetter');
+    if (ltr) { redLetterDefault = ltr; };
+
     let vh = params.get('vh');
     if (vh) { selectedVerseID = `id-verse${vh}`; };
 
@@ -268,8 +271,14 @@ async function loadVerses() {
 
 function JesusQuote(aVerse, vNum) {
 
-    aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
-    aVerse = aVerse.replace('´', '</span>');
+    if (redLetterDefault) {
+        aVerse = aVerse.replace('`', '<span class="cs-emphasis">');
+        aVerse = aVerse.replace('´', '</span>');
+    } else {
+        aVerse = aVerse.replace('`', '');
+        aVerse = aVerse.replace('´', '');
+    };
+
     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
 
@@ -302,6 +311,13 @@ async function changeVersion() {
         if (isNumeric(selectedVerseID)) { selectedVerseID = `id-verse${selectedVerseID}`};
         verseHighlight(selectedVerseID);
     };
+    if (versions[idx].ar === 'TWF') {
+        document.getElementById('id-redLetter').style.display = 'block';
+        document.getElementById('id-paragraphLayout').style.display = 'block';
+    } else {
+        document.getElementById('id-redLetter').style.display = 'none';
+        document.getElementById('id-paragraphLayout').style.display = 'none';
+    };
     boxOpen = 0;
 };
 
@@ -333,7 +349,7 @@ async function getChapter() {
         p = document.createElement('p');
         p.id = `p${verses[i].vid}`;
         pn = verses[i].pn;
-        if (pn > 0) {
+        if (pn > 0 && paragraphLayoutDefault) {
             while (verses[i].pn === pn) {
                 sp = document.createElement('span');
                 sp.id = `id-versNumber${verses[i].vn}`;

@@ -257,6 +257,12 @@ function resetDefaults() {
     localStorage.removeItem('activeBookID');
     localStorage.removeItem('activeChapterID');
     localStorage.removeItem('activeVersionID');
+    localStorage.removeItem('redLetter');
+    document.getElementById('id-redLetter').textContent = 'Red Letter';
+    redLetterDefault = 0;
+    localStorage.removeItem('paragraphLayout');
+    document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+    paragraphLayoutDefault = 0;
     removeQueryParam('vh');
     activeVersionID = defaultVersionID;
     activeBookID = defaultBookID;
@@ -495,4 +501,30 @@ function readRandomChapter() {
     getChapter();
     document.getElementById('top').scrollIntoView({ block: 'start' });
     closeBoxes();
+};
+
+function redLetter() {
+
+    if (redLetterDefault) {
+        document.getElementById('id-redLetter').textContent = 'Red Letter';
+        redLetterDefault = 0;
+    } else {
+        document.getElementById('id-redLetter').textContent = 'Black Letter';
+        redLetterDefault = 1;
+    };
+    getChapter();
+    localStorage.setItem("redLetter", redLetterDefault);
+};
+
+function paragraphLayout() {
+
+    if (paragraphLayoutDefault) {
+        document.getElementById('id-paragraphLayout').textContent = 'Paragraph Layout';
+        paragraphLayoutDefault = 0;
+    } else {
+        document.getElementById('id-paragraphLayout').textContent = 'Line Layout';
+        paragraphLayoutDefault = 1;
+    };
+    getChapter();
+    localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };

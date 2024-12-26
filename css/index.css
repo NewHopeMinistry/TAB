@@ -13,6 +13,7 @@
     --shadowColor: #07070733;
 
     --lightGreenEmphasis: #07f007;
+    --lightGrayEmphasis: #757575;
     --greenEmphasis: #045004;
     --lightMaroonEmphasis: #ba0e0e;
     --lighterMaroonEmphasis: #f10e0e;
@@ -102,7 +103,7 @@ p { font-size: 1.06rem; }
 .cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
 
 .cs-showImg,
-.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px;  border: 4px solid rgb(117, 117, 117); }
+.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px;  border: 4px solid var(--lightGrayEmphasis); }
 .cs-showTagImg,
 .cs-movieTagImg { text-decoration: none; }
 

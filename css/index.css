@@ -102,9 +102,9 @@ p { font-size: 1.06rem; }
 .cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
 
 .cs-showImg,
-.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px; }
+.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px;  border: 4px solid rgb(117, 117, 117); }
 .cs-showTagImg,
-.csmovieTagImg { text-decoration: none; }
+.cs-movieTagImg { text-decoration: none; }
 
 
 .cs-showTitle,

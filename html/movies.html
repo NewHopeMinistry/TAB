@@ -9,6 +9,32 @@
     <title>Ark Bible: Faithful Movies</title>
     <link async rel="stylesheet" type="text/css" href="../css/index.css">
     <script async src="../js/variables.js"></script>
+    <script>
+        var collectionID = '';
+        var collectionOpen = false;
+        function openCollection() {
+
+            this.event.preventDefault();
+            this.event.stopPropagation();
+            this.event.stopImmediatePropagation();
+            let id = this.event.target.id;
+            id = id.slice(0, -1);
+
+            if (collectionID !== id) {
+                if (collectionID) { document.getElementById(collectionID).style.display = 'none'; };
+                collectionOpen = false;
+                collectionID = '';
+            };
+            if (collectionOpen) {
+                document.getElementById(id).style.display = 'none';
+                collectionOpen = false;
+            } else {
+                document.getElementById(id).style.display = 'block';
+                collectionOpen = true;
+            };
+            collectionID = id;
+        };
+    </script>
 </head>
 
 <body>
@@ -127,50 +153,101 @@
 
         <hr>
         <br><br>
-        <div id="Bible Collection: Esther" class="cs-movieBox">
-            <a href="https://tubitv.com/movies/486938/bible-collection-esther" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Esther">
-                <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/Yu6bQpNQ18D1-g==/4723fb91-6669-4740-9286-426e2ed0a4d8/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Esther Image" class="cs-movieImg">
-            </a>
-            <a class="cs-movieTitle" href="https://tubitv.com/movies/486938/bible-collection-esther" target="_blank" title="Watch - Bible Collection: Esther">Bible Collection: Esther</a><br><br>
-            Drama · 1999 · 1 hr 31 min · TV-PG<br>
-            Starring: Louise Lombard, F. Murray Abraham, Jürgen Prochnow<br>
-            Directed by: Raffaele Mertes
+        <div id="Bible Collection" class="cs-movieBox">
+            <div id="id-bibleCollection1" class="cs-movieCollection" onclick="openCollection()" title="Open - Bible Collection">
+                <img id="id-bibleCollection2" async loading="lazy" src="https://artworks.thetvdb.com/banners/posters/275604-1.jpg" alt="Bible Collection Image" class="cs-movieImg">
+            </div>
+            <div id="id-bibleCollection3"class="cs-movieCollection" onclick="openCollection()" title="Open - Bible Collection">Bible Collection</div>
+            <br><br>
             <p>
-                Following the conquest of Babylon, the Biblical tale of Ahasuerus, Vashti, and Esther comes alive with this inspiring story of hope, mercy, and faith.
+                The Bible Collection is a series of films produced for the TNT television network, starting with Abraham in April 1994 and ending with Thomas in April 2001. The Bible Collection consists of a 27-part miniseries in 17 volumes, some of which are available to stream and are listed here.
             </p>
-            <a href="https://en.wikipedia.org/wiki/Esther_(1999_film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Esther">More About - Bible Collection: Esther</a>
-        </div>
+            <a href="https://en.wikipedia.org/wiki/Bible_Collection" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection">More About - Bible Collection</a>
 
-        <hr>
-        <br><br>
-        <div id="Bible Collection: Jeremiah" class="cs-movieBox">
-            <a href="https://tubitv.com/movies/655779/the-bible-collection-jeremiah" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Jeremiah">
-                <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/07KDhUd0gk2wtg==/68b07daa-35bd-4443-b824-bf76ff0451b7/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Jeremiah Image" class="cs-movieImg">
-            </a>
-            <a class="cs-movieTitle" href="https://tubitv.com/movies/655779/the-bible-collection-jeremiah" target="_blank" title="Watch - Bible Collection: Jeremiah">Bible Collection: Jeremiah</a><br><br>
-            Drama · 2017 · 1 hr 36 min · TV-14<br>
-            Starring: Patrick Dempsey, Oliver Reed, Klaus Maria Brandauer<br>
-            Directed by: Harry Winer
-            <p>
-                The prophet who abandoned his family to relay God's message to Jerusalem sees his prophecy fulfilled, then experiences Jerusalem's destruction.
-            </p>
-            <a href="https://en.wikipedia.org/wiki/Jeremiah_(film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Jeremiah">More About - Bible Collection: Jeremiah</a>
-        </div>
+            <br><br>
+            <div id="id-bibleCollection" class="cs-movieCollections">
+                <hr><hr>
+                <br><br>
+                <div id="Bible Collection: Esther" class="cs-movieBox">
+                    <a href="https://tubitv.com/movies/486938/bible-collection-esther" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Esther">
+                        <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/Yu6bQpNQ18D1-g==/4723fb91-6669-4740-9286-426e2ed0a4d8/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Esther Image" class="cs-movieImg">
+                    </a>
+                    <a class="cs-movieTitle" href="https://tubitv.com/movies/486938/bible-collection-esther" target="_blank" title="Watch - Bible Collection: Esther">Bible Collection: Esther</a><br><br>
+                    Drama · 1999 · 1 hr 31 min · TV-PG<br>
+                    Starring: Louise Lombard, F. Murray Abraham, Jürgen Prochnow<br>
+                    Directed by: Raffaele Mertes
+                    <p>
+                        Following the conquest of Babylon, the Biblical tale of Ahasuerus, Vashti, and Esther comes alive with this inspiring story of hope, mercy, and faith.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Esther_(1999_film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Esther">More About - Bible Collection: Esther</a>
+                </div>
 
-        <hr>
-        <br><br>
-        <div id="Bible Collection: Solomon" class="cs-movieBox">
-            <a href="https://tubitv.com/movies/487375/bible-collection-solomon" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Solomon">
-                <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/WQEYLTv--pdpJw==/723c6500-bd97-4c79-85b4-48cbec2bc38f/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Solomon Image" class="cs-movieImg">
-            </a>
-            <a class="cs-movieTitle" href="https://tubitv.com/movies/487375/bible-collection-solomon" target="_blank" title="Watch - Bible Collection: Solomon">Bible Collection: Solomon</a><br><br>
-            Drama · 1997 · 1 hr 51 min · PG-13<br>
-            Starring: Ben Cross, Anouk Aimée, Vivica A. Fox<br>
-            Directed by: Roger Young
-            <p>
-                Experience the epic story of King Solomon of Israel, the beautiful Queen of Sheba, and a kingdom under threat of collapse in this biblical tale.
-            </p>
-            <a href="https://en.wikipedia.org/wiki/Solomon_(film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Solomon">More About - Bible Collection: Solomon</a>
+                <hr>
+                <br><br>
+                <div id="Bible Collection: Genesis" class="cs-movieBox">
+                    <a href="https://tubitv.com/movies/652503/the-bible-collection-genesis" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Genesis">
+                        <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/vO6ysZeHg2_ZIg==/4470e623-6528-4c40-8955-15dc47eb980f/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Genesis Image" class="cs-movieImg">
+                    </a>
+                    <a class="cs-movieTitle" href="https://tubitv.com/movies/652503/the-bible-collection-genesis" target="_blank" title="Watch - Bible Collection: Genesis">Bible Collection: Genesis</a><br><br>
+                    Drama · 1994 · 1 hr 38 min · TV-PG<br>
+                    Starring: Omero Antonutti, Paul Scofield, Annabi Abdelialil, B. Haddan Mohammed, Haddou Zoubida<br>
+                    Directed by: Ermanno Olmi
+                    <p>
+                        Outlines the key stories in the Book of Genesis and features stunning visuals and a beautiful score from Oscar-winning composer Ennio Morricone.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Genesis:_The_Creation_and_the_Flood" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Genesis">More About - Bible Collection: Genesis</a>
+                </div>
+
+                <hr>
+                <br><br>
+                <div id="Bible Collection: Jeremiah" class="cs-movieBox">
+                    <a href="https://tubitv.com/movies/655779/the-bible-collection-jeremiah" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Jeremiah">
+                        <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/07KDhUd0gk2wtg==/68b07daa-35bd-4443-b824-bf76ff0451b7/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Jeremiah Image" class="cs-movieImg">
+                    </a>
+                    <a class="cs-movieTitle" href="https://tubitv.com/movies/655779/the-bible-collection-jeremiah" target="_blank" title="Watch - Bible Collection: Jeremiah">Bible Collection: Jeremiah</a><br><br>
+                    Drama · 2017 · 1 hr 36 min · TV-14<br>
+                    Starring: Patrick Dempsey, Oliver Reed, Klaus Maria Brandauer<br>
+                    Directed by: Harry Winer
+                    <p>
+                        The prophet who abandoned his family to relay God's message to Jerusalem sees his prophecy fulfilled, then experiences Jerusalem's destruction.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Jeremiah_(film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Jeremiah">More About - Bible Collection: Jeremiah</a>
+                </div>
+
+                <hr>
+                <br><br>
+                <div id="Bible Collection: Jesus" class="cs-movieBox">
+                    <a href="https://tubitv.com/movies/487377/bible-collection-jesus" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Jesus">
+                        <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/u0Ney7oyHxBV3A==/10d710a9-3ab7-4d5b-a5fc-1dd718099405/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Jesus Image" class="cs-movieImg">
+                    </a>
+                    <a class="cs-movieTitle" href="https://tubitv.com/movies/487377/bible-collection-jesus" target="_blank" title="Watch - Bible Collection: Jesus">Bible Collection: Jesus</a><br><br>
+                    Drama · 2000 · 1 hr 50 min · TV-PG<br>
+                    Starring: Jeremy Sisko, Debra Messing, Armin Mueller-Stahl, Jacqueline Bisset<br>
+                    Directed by: Roger Young
+                    <p>
+                        An inspirational look at the life of Jesus Christ, from His humble beginnings as a carpenter through His extraordinary life and spiritual destiny.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Jesus_(1999_film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Jesus">More About - Bible Collection: Jesus</a>
+                </div>
+
+                <hr>
+                <br><br>
+                <div id="Bible Collection: Solomon" class="cs-movieBox">
+                    <a href="https://tubitv.com/movies/487375/bible-collection-solomon" target="_blank" class="cs-movieTagImg" title="Watch - Bible Collection: Solomon">
+                        <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/WQEYLTv--pdpJw==/723c6500-bd97-4c79-85b4-48cbec2bc38f/CJgDEMcEOgUxLjEuMg==" alt="Bible Collection: Solomon Image" class="cs-movieImg">
+                    </a>
+                    <a class="cs-movieTitle" href="https://tubitv.com/movies/487375/bible-collection-solomon" target="_blank" title="Watch - Bible Collection: Solomon">Bible Collection: Solomon</a><br><br>
+                    Drama · 1997 · 1 hr 51 min · PG-13<br>
+                    Starring: Ben Cross, Anouk Aimée, Vivica A. Fox<br>
+                    Directed by: Roger Young
+                    <p>
+                        Experience the epic story of King Solomon of Israel, the beautiful Queen of Sheba, and a kingdom under threat of collapse in this biblical tale.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Solomon_(film)" target="_blank" class="cs-movieTitle cs-movieTitleWiki" title="More About - Bible Collection: Solomon">More About - Bible Collection: Solomon</a>
+                </div>
+                <br>
+                <hr>
+            </div>
         </div>
 
         <hr>
@@ -353,7 +430,7 @@
         <br><br>
         <div id="I am Gabriel" class="cs-movieBox">
             <a href="https://www.youtube.com/watch?v=QaJz0Zr7VAk" target="_blank" class="cs-movieTagImg" title="Watch - I am Gabriel">
-                <img async loading="lazy" src="https://th.bing.com/th/id/OIP.u3GDHiPXcF-_6Bl3QdJmOgHaKj?rs=1&pid=ImgDetMain" alt="I am Gabriel Image" class="cs-movieImg">
+                <img async loading="lazy" src="https://canvas-lb.tubitv.com/opts/SP75ymH0iB-geQ==/32cae29e-4dd2-49a4-8d87-8c42688c95fa/CJgDEMcEOgUxLjEuMg==" alt="I am Gabriel Image" class="cs-movieImg">
             </a>
             <a class="cs-movieTitle" href="https://www.youtube.com/watch?v=QaJz0Zr7VAk" target="_blank" title="Watch - I am Gabriel">I am Gabriel</a><br><br>
             Drama · 2012 · 1 hr 33 min · NR<br>

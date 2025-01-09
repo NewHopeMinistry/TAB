@@ -113,14 +113,16 @@ p { font-size: 1.06rem; }
 
 .cs-showTitle,
 .cs-movieTitle,
-.cs-historyTitle { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
+.cs-historyTitle,
+.cs-movieCollection { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
 
 .cs-underline { text-decoration: underline; font-size: 1em; }
 
 .cs-showTitleWiki,
+.cs-movieCollection,
 .cs-showTitle:visited,
 .cs-showTitleWiki:visited,
-.cs-movieTitleWiki,
+.cs-movieTitleWiki:visited,
 .cs-movieTitle:visited,
 .cs-movieTitleWiki:visited,
 .cs-historyTitleWiki,
@@ -128,11 +130,15 @@ p { font-size: 1.06rem; }
 .cs-historyTitleWiki:visited { color: var(--lightMaroonEmphasis); }
 
 .cs-showTitle:hover,
+.cs-movieCollection:hover,
 .cs-showTitleWiki:hover,
 .cs-movieTitle:hover,
 .cs-movieTitleWiki:hover,
 .cs-historyTitle:hover,
 .cs-historyTitleWiki:hover { color: var(--navyEmphasis); }
+.cs-movieCollection:hover { cursor: pointer; }
+
+.cs-movieCollections { display: none; width: 80%; margin: auto; }
 
 .cs-showCopyrights,
 .cs-movieCopyrights { width: 90%; margin: auto; text-align: center; font-size: .5rem; }

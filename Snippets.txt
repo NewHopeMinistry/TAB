@@ -27,4 +27,3 @@ function customError(errorCode, errorMessage) {
     error.code = errorCode;
     throw error;
 };
-

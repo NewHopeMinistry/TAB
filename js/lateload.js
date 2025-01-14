@@ -371,6 +371,7 @@ function getSearchVerses() {
     let hr;
     let vt;
     let br;
+    let nt;
     let i = searchResultIndex + 30;
 
     let aSearch = document.getElementById('id-searchResults');
@@ -399,7 +400,10 @@ function getSearchVerses() {
         p.appendChild(a);
         br = document.createElement('br');
         p.appendChild(br);
-        vt = document.createTextNode(result[searchResultIndex].vt);
+        nt = result[searchResultIndex].vt.replace('`', '');
+        nt = nt.replace('´', '');
+        vt = document.createTextNode(nt);
+        //vt = document.createTextNode(result[searchResultIndex].vt);
         p.appendChild(vt);
         aSearch.appendChild(p);
         searchResultIndex++;

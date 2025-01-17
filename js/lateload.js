@@ -311,5 +311,5 @@ function paragraphLayout() {
 };
 
 function warning() {
-    alert('Pardon the interruption, but it was recently discovered that the open source full text search engine used to create searches in "The Ark Bible" was created by Alibaba which is a Chinese government owned company. I have decided that it is too risky for me to use obfuscated code written by the Chinese government in an American Christian website.')
-}
+    alert('Pardon the interruption, but I have recently discovered that the elasticlunr.js open source full text search engine used to create searches in "The Ark Bible" was possibly created by company named Alibaba which is owned by the Chinese government. I have decided that it is too risky for me to use unreadable obfuscated code written by the Chinese government in an American Christian website. They may simply be trying to steal open source uncopyrighted software and copyright it, but I do not have the resources to make that determination. So with all the foreign government hacking going on against America today, I do not want to take the chance that my website may help them steal from, hurt, or damage America, Americans, or American infrastructure.')
+};

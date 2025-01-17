@@ -25,13 +25,9 @@ var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';
 
-//var activeJsonVersesIndex = 0;
+
 var selectedVerseID = '';
-var searchOpen = false;
-var searchIndex = null;
-var searchResults;
-var searchData;
-var searchResultIndex = 0;
+
 var TWF = {  // Placeholder for TWF Version
     "ar": "TWF",
     "id": 21,

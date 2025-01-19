@@ -25,10 +25,15 @@ var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';
 
-
+var searchOpen = false;
+var searchIndex = null;
+var searchResults;
+var searchData;
+var searchResultIndex = 0;
 var selectedVerseID = '';
 
-var TWF = {  // Placeholder for TWF Version
+var TWF = {
+    // Placeholder for TWF Version
     "ar": "TWF",
     "id": 21,
     "t": "Twenty-First Century Version"

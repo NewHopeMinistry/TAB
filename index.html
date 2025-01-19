@@ -15,16 +15,15 @@
     <script async src="js/variables.js"></script>
     <script async src="js/index.js"></script>
     <script defer src="js/lateload.js"></script>
-    <!--id-searcher goes here-->
-    
+    <script defer src="js/elasticlunr.js"></script>
+
 </head>
 
 <body>
     <div id="top"></div>
 
     <div id="id-header1" class="cs-header1" onclick="openBoxes()">
-        <!--id-magnifyingGlass goes here - the onclick event is set to openSearch() when the sercher.js is built-->
-        <svg id="id-magnifyingGlass" fill="currentColor" class="cs-search" viewBox="0 0 16 16" onclick="warning()">
+        <svg id="id-magnifyingGlass" fill="currentColor" class="cs-search" viewBox="0 0 16 16" onclick="openSearch()">
             <title>Search the Bible</title>
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
@@ -64,7 +63,7 @@
         <div id="id-randomChapter" class="cs-randomChapter" onclick="readRandomChapter()">Read a Random Chapter</div>
 
     </div>
-    <!--id-searchContainer goes here -->
+
     <div id="id-searchContainer" class="cs-searchContainer">
         <br>
         <h2 class="cs-searchTitle">Search Bible Verses</h2>
@@ -72,7 +71,7 @@
         <div id="id-searchPage" class="cs-searchPage">
             <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true"
                 data-placeholder="Search..."></div>
-            <div class="cs-searchBtn" onclick="lunrSearch()">Search</div>
+            <div class="cs-searchBtn" onclick="search()">Search</div>
             <div id="id-searchResults" class="cs-searchResult">
 
             </div>

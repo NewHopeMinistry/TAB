@@ -310,6 +310,205 @@ function paragraphLayout() {
     localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };
 
-function warning() {
-    alert('Pardon the interruption, but I have recently discovered that the elasticlunr.js open source full text search engine used to create searches in "The Ark Bible" was possibly created by company named Alibaba which is owned by the Chinese government. I have decided that it is too risky for me to use unreadable obfuscated code written by the Chinese government in an American Christian website. They may simply be trying to steal open source uncopyrighted software and copyright it, but I do not have the resources to make that determination. So with all the foreign government hacking going on against America today, I do not want to take the chance that my website may help them steal from, hurt, or damage America, Americans, or American infrastructure.')
-};
+// elasticlunr search code
+    function openSearch() {
+        closeBoxes();
+        if (searchOpen) {
+            document.getElementById('id-searchContainer').style.display = 'none';
+            document.getElementById('id-pageContainer').style.display = 'block';
+            document.getElementById('id-menu').style.display = 'block';
+            searchOpen = false;
+            return;
+        } else {
+            document.getElementById('id-pageContainer').style.display = 'none';
+            document.getElementById('id-searchContainer').style.display = 'block';
+            document.getElementById('id-menu').style.display = 'none';
+            searchOpen = true;
+            return;
+        };
+    };
+    function search() {
+
+        //This is the function called to initiate a search from the id-searchBtn heml element
+        searchData = document.getElementById('id-searchBox').textContent;
+        if (searchData === '') { return; };
+        document.getElementById("id-loader").style.display = 'block';
+        setTimeout(function() {
+            searchResultIndex = 0;
+            if (!searchIndex) { createIndex(); };
+            searchResults = searchIndex.search(searchData, {});
+            removeElements('id-searchResults');
+            getSearchVerses();
+            document.getElementById("id-loader").style.display = 'none';
+        }, 30);
+    };
+    function createIndex() {
+
+        searchIndex = elasticlunr(function () {
+            this.addField('vid');
+            this.addField('vt');
+            this.addField('bid');
+            this.addField('cn');
+            this.addField('vn');
+            this.setRef('vid');
+        });
+        verses.forEach(verse => {
+            let doc = {
+                "vid": verse.vid,
+                "vt": verse.vt,
+                "bid": verse.bid,
+                "cn": verse.cn,
+                "vn": verse.vn
+            };
+            searchIndex.addDoc(doc);
+        });
+    };
+    function getSearchVerses() {
+
+        let a;
+        let p;
+        let hr;
+        let vt;
+        let br;
+        let nt;
+        let i = searchResultIndex + 30;
+
+        let aSearch = document.getElementById('id-searchResults');
+
+        let result = getFinalResults();
+
+        if (result.length - searchResultIndex < 30) {
+            i = result.length;
+        };
+        while (searchResultIndex < i && i <= result.length) {
+            p = document.createElement('p');
+            p.classList.add('cs-searchVerse');
+            a = document.createElement('a');
+            a.addEventListener("click", () => {
+                getSearchChapter();
+                this.event.preventDefault();
+                this.event.stopPropagation();
+                this.event.stopImmediatePropagation();
+            });
+            a.id = `id-searchVerse${result[searchResultIndex].vid}`;
+            a.textContent = setSearchChapter(result[searchResultIndex]);
+            a.dataset.bid = result[searchResultIndex].bid;
+            a.dataset.cn = result[searchResultIndex].cn;
+            a.dataset.vn = result[searchResultIndex].vn;
+            a.classList.add('cs-searchChapter');
+            p.appendChild(a);
+            br = document.createElement('br');
+            p.appendChild(br);
+            nt = result[searchResultIndex].vt.replace('`', '');
+            nt = nt.replace('´', '');
+            vt = document.createTextNode(nt);
+            p.appendChild(vt);
+            aSearch.appendChild(p);
+            searchResultIndex++;
+        };
+        hr = document.createElement('hr');
+        aSearch.appendChild(hr);
+        br = document.createElement('br');
+        aSearch.appendChild(br);
+
+        let z = result.length - searchResultIndex;
+        if (z === 0) {
+            p = document.createElement('p');
+            p.textContent = `There are no more results.`;
+        } else {
+            a = document.createElement('a');
+            a.addEventListener("click", () => {
+                getMoreResults();
+                this.event.preventDefault();
+                this.event.stopPropagation();
+                this.event.stopImmediatePropagation();
+            });
+
+            a.textContent = 'More Results';
+            a.classList.add('cs-searchResults');
+            aSearch.appendChild(a);
+            br = document.createElement('br');
+            aSearch.appendChild(br);
+            br = document.createElement('br');
+            aSearch.appendChild(br);
+            p = document.createElement('p');
+            p.textContent = `There are ${z} more results.`;
+        };
+        aSearch.appendChild(p);
+        br = document.createElement('br');
+        aSearch.appendChild(br);
+        br = document.createElement('br');
+        aSearch.appendChild(br);
+    };
+    function getFinalResults() {
+
+        let doc;
+        let i = 0;
+        let str = '';
+        let str1 = '';
+        let startResults = [];
+        let finalResults = [];
+
+        searchResults.forEach(function(result) {
+            doc = searchIndex.documentStore.getDoc(result.ref);
+            str = doc.vt;
+            str = str.toUpperCase();
+            str1 = searchData.toUpperCase();
+            if (str.includes(str1)) { finalResults.push(doc);
+            } else { startResults.push(doc); }
+        });
+        startResults.forEach(function(result) {
+            finalResults.push(startResults[i]);
+            i++;
+        });
+        return finalResults;
+    };
+    function getSearchChapter() {
+
+        let id = this.event.target.id;
+        let bid = document.getElementById(id).dataset.bid;
+        let cn = document.getElementById(id).dataset.cn;
+        let vn = document.getElementById(id).dataset.vn;
+        document.getElementById('id-MenuBtn4').textContent = vn;
+
+        activeBookID = `id-book${bid}`;
+        activeChapterID = `id-chapter${cn}`;
+        getChapter();
+        openSearch();
+        selectedVerseID = `id-versNumber${vn}`;
+        const spa = document.getElementById(selectedVerseID);
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(spa);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        spa.scrollIntoView({ block: 'center' });
+        setQuerystring('vh', vn);
+    };
+    function setSearchChapter(result) {
+
+        let i;
+        let books;
+        let bid = result.bid;
+        let cn = result.cn;
+        let vn = result.vn;
+
+        if (bid < 40) {
+            i = oldBooks.findIndex(rec => rec.id === bid );
+            books = oldBooks;
+        } else {
+            i = newBooks.findIndex(rec => rec.id === bid );
+            books = newBooks;
+        };
+        return `${books[i].t} ${cn}:${vn}`;
+    };
+    function getMoreResults() {
+
+        document.getElementById("id-loader").style.display = 'block';
+        setTimeout(function() {
+            getSearchVerses();
+            document.getElementById("id-loader").style.display = 'none';
+        }, 30);
+
+    };
+// End of elasticlunr search code

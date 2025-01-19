@@ -323,6 +323,7 @@ function paragraphLayout() {
             document.getElementById('id-pageContainer').style.display = 'none';
             document.getElementById('id-searchContainer').style.display = 'block';
             document.getElementById('id-menu').style.display = 'none';
+            document.getElementById('id-searchBox').focus();
             searchOpen = true;
             return;
         };
@@ -510,5 +511,11 @@ function paragraphLayout() {
             document.getElementById("id-loader").style.display = 'none';
         }, 30);
 
+    };
+    function searchKeyDown() {
+        if (this.event.key === 'Enter') {
+            this.event.preventDefault();
+            search();
+        };
     };
 // End of elasticlunr search code

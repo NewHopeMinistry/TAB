@@ -1,4 +1,4 @@
-var dateEdited = '1-19-2025'
+var dateEdited = '1-21-2025'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var boxesOpen = false;
@@ -32,8 +32,8 @@ var searchData;
 var searchResultIndex = 0;
 var selectedVerseID = '';
 
+// Placeholder for TWF Version
 var TWF = {
-    // Placeholder for TWF Version
     "ar": "TWF",
     "id": 21,
     "t": "Twenty-First Century Version"

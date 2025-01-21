@@ -15,7 +15,7 @@
     <script async src="js/variables.js"></script>
     <script async src="js/index.js"></script>
     <script defer src="js/lateload.js"></script>
-    <script defer src="js/elasticlunr.js"></script>
+    <script defer src="js/searcher.js"></script>
 
 </head>
 
@@ -66,12 +66,12 @@
 
     <div id="id-searchContainer" class="cs-searchContainer">
         <br>
-        <h2 class="cs-searchTitle">Search Bible Verses</h2>
+        <h2 class="cs-searchTitle">Search Bible Verses <span style="color: red;">Fixed!!!</span></h2>
         <div class="cs-searchCase">spelling & case sensitive</div>
         <div id="id-searchPage" class="cs-searchPage">
             <div id="id-searchBox" class="cs-searchBox" type="text" contentEditable="true"
-                data-placeholder="Search..." onkeydown="searchKeyDown()" tabindex="0"></div>
-            <div class="cs-searchBtn" onclick="search()">Search</div>
+                data-placeholder="Search..." onkeydown="searchKeyDown()" tabindex="0" onfocus="searchFocus()"></div>
+            <div class="cs-searchBtn" onclick="searcher()">Search</div>
             <div id="id-searchResults" class="cs-searchResult">
 
             </div>

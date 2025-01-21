@@ -318,6 +318,9 @@ async function changeVersion() {
         document.getElementById('id-redLetter').style.display = 'none';
         document.getElementById('id-paragraphLayout').style.display = 'none';
     };
+    removeElements('id-searchResults');
+    document.getElementById('id-searchBox').textContent = '';
+    searchIndex = null;
     boxOpen = 0;
 };
 

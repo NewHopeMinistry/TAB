@@ -384,6 +384,33 @@ for (const item of jsonData) {
     item.vt = item.vt.replace("!\"Y", "!\" Y");
     item.vt = item.vt.replace("!\"Z", "!\" Z");
 
+    item.vt = item.vt.replace(",´\"a", ",´\" a");
+    item.vt = item.vt.replace(",´\"b", ",´\" b");
+    item.vt = item.vt.replace(",´\"c", ",´\" c");
+    item.vt = item.vt.replace(",´\"d", ",´\" d");
+    item.vt = item.vt.replace(",´\"e", ",´\" e");
+    item.vt = item.vt.replace(",´\"f", ",´\" f");
+    item.vt = item.vt.replace(",´\"g", ",´\" g");
+    item.vt = item.vt.replace(",´\"h", ",´\" h");
+    item.vt = item.vt.replace(",´\"i", ",´\" i");
+    item.vt = item.vt.replace(",´\"j", ",´\" j");
+    item.vt = item.vt.replace(",´\"k", ",´\" k");
+    item.vt = item.vt.replace(",´\"l", ",´\" l");
+    item.vt = item.vt.replace(",´\"m", ",´\" m");
+    item.vt = item.vt.replace(",´\"n", ",´\" n");
+    item.vt = item.vt.replace(",´\"o", ",´\" o");
+    item.vt = item.vt.replace(",´\"p", ",´\" p");
+    item.vt = item.vt.replace(",´\"q", ",´\" q");
+    item.vt = item.vt.replace(",´\"r", ",´\" r");
+    item.vt = item.vt.replace(",´\"s", ",´\" s");
+    item.vt = item.vt.replace(",´\"t", ",´\" t");
+    item.vt = item.vt.replace(",´\"u", ",´\" u");
+    item.vt = item.vt.replace(",´\"v", ",´\" v");
+    item.vt = item.vt.replace(",´\"w", ",´\" w");
+    item.vt = item.vt.replace(",´\"x", ",´\" x");
+    item.vt = item.vt.replace(",´\"y", ",´\" y");
+    item.vt = item.vt.replace(",´\"z", ",´\" z");
+
     item.vt = item.vt.replace(":'", ": '");
     item.vt = item.vt.replace(':"', ': "');
     item.vt = item.vt.replace(":‘", ": ‘");

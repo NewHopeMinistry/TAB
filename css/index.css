@@ -185,7 +185,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 .cs-searchContainer { display: none; margin-top: 5.5em;  height: max-content; min-height: 100%; }
 .cs-searchTitle { width: 90%; margin: auto; text-align: center; }
 .cs-searchCase { width: 90%; margin: auto; text-align: center; font-size: .9em; }
-.cs-searchBox { height: 2.5em; width: 80%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
+.cs-searchBox { height: 2.5em; width: 74%; background-color: var(--mediumGray); color: black; border-radius: 6px; border: 1px solid red; margin: auto; line-height: 2.5em; padding-left: 1em; padding-right: 3em; font-size: 1.3rem; z-index: 12; white-space: nowrap; overflow-x: scroll; overflow-y: hidden; }
 
 .cs-searchResult { margin-top: 5%; }
 .cs-searchChapter { font-size: 1.2rem; text-decoration: underline; color: var(--navyEmphasis); }
@@ -305,17 +305,19 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 
 @media (min-width: 431px) and (max-width: 540px) {
     .cs-headerTitle { font-size: 1.6rem; }
+    .cs-header1 { height: 10%; }
     .cs-search { right: 15%; }
     .cs-pageContainer { margin-top: 5.7em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 13.5%; width: 74%; }
+    .cs-books { top: 10%; width: 82%; }
     .cs-verses,
-    .cs-chapters { top: 13.5%; width: 50%; }
+    .cs-chapters { top: 10%; width: 63%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
+    .cs-menu1 { position: absolute; left: 25%; transform: translate(-25%); }
 }
 
 @media (min-width: 541px) and (max-width: 768px) {
@@ -537,4 +539,8 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 7.3em; }
     .cs-searchBtn { width: 20%; }
+}
+
+@media (max-height: 720px) {
+    .cs-header1 { height: 12%; }
 }

@@ -296,7 +296,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchBtn { width: 20%; }
 }
 
-@media (max-width: 431px) {
+@media (max-width: 432px) {
     /*Images for mobile movies and shows pages*/
     .cs-showImg,
     .cs-movieImg { max-width: 28%; }

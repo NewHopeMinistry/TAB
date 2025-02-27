@@ -1,4 +1,4 @@
-var dateEdited = '2-23-2025'
+var dateEdited = '2-27-2025'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var boxesOpen = false;

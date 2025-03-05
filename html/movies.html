@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="../images/icons/favicon-16.png">
     <title>Ark Bible: Faithful Movies</title>
     <link async rel="stylesheet" type="text/css" href="../css/index.css">
+    <!--<link async rel="stylesheet" type="text/css" href="../css/lateload.css">-->
     <script async src="../js/variables.js"></script>
     <script>
         var collectionID = '';
@@ -55,9 +56,12 @@
         <a class="cs-showTitle cs-underline" href="./easter-movies.html" title="Faithful Easter Movies">Faithful Easter Movies</a><br><br>
 
         <style>
-            .cs-alphLine { display: flex; justify-content: space-between; width: 80%; margin: auto; }
+            body { overflow-y: scroll;}
+            a { padding: .5em; }
+            .cs-alphLine { justify-content: space-between; width: 80%; margin: auto; }
             .cs-alph { height: auto; width: 100%; background-color: aquamarine; border-radius: 6px; padding: 1em; }
             .cs-alphHeader { max-width: max-content; margin: auto; }
+            @media (max-width: 540px) { .cs-alph { width: 93%; } }
         </style>
         <div id="id-Alph" class="cs-alph">
             <h5 class="cs-alphHeader">Index</h5>
@@ -1361,6 +1365,25 @@
         Most of these movies are not in the public domain, and they are copyrighted by their owners as well as the promotional images shown with each listing are also copyrighted. New Hope Ministries does not claim any rights to these movies and images, we just provide you with a link to watch them.
     </div>
     <br><br>
+    <style>
+
+        html { scrollbar-width: none; -ms-overflow-style: none; }
+        html::-webkit-scrollbar { display: none; }
+        .cs-arrowUp { display: none; position: fixed; bottom: 0; left: 50%; transform: translateY(-50%); height: auto;  width: auto; border-radius: 6px; cursor: pointer; font-size: 1.3em; padding: 0; text-decoration: none; }
+    </style>
+    <script>
+        document.body.addEventListener("scroll", function () {
+            const myElement = document.getElementById("id-arrowUp");
+            const scrollPosition = myElement.scrollTop || document.body.scrollTop
+            if (scrollPosition > 200) {
+                myElement.style.display = "block"; // Show the element
+            } else {
+                myElement.style.display = "none"; // Hide the element
+            };
+        });
+
+    </script>
+    <a id="id-arrowUp" class="cs-arrowUp" href="#top">🔝</a>
 </body>
 
 </html>

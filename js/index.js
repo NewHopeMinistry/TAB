@@ -72,6 +72,8 @@ async function setFontSize() {
 async function loadVersions() {
 
     let i = 0;
+    let nonEnglish = true;
+    let strongs = true;
     let menuVersions = document.getElementById("id-versions");
     let menuVersion = document.getElementById("id-MenuBtn1");
     let pageHeadline =  document.getElementById("id-headline");
@@ -82,6 +84,25 @@ async function loadVersions() {
     div.textContent = 'Versions';
     menuVersions.appendChild(div);
     for (const version of versions) {
+
+        if (Number(version.id) > 200 && nonEnglish) {
+            let div = document.createElement("div");
+            div.id = 'id-nonEnglishHeader';
+            div.classList.add("cs-nonEnglishHeader");
+            div.textContent = 'Non-English Versions';
+            menuVersions.appendChild(div);
+            nonEnglish = false;
+        };
+
+        if (Number(version.id) > 300 && strongs) {
+            let div = document.createElement("div");
+            div.id = 'id-strongshHeader';
+            div.classList.add("cs-strongsHeader");
+            div.textContent = `Strong's Versions`;
+            menuVersions.appendChild(div);
+            strongs = false;
+        };
+
         div = document.createElement("div");
         div.addEventListener("click", () => {
             changeVersion();

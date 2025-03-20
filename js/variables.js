@@ -32,106 +32,6 @@ var searchData;
 var searchResultIndex = 0;
 var selectedVerseID = '';
 
-// Placeholder for TWF Version
-var TWF = {
-    "ar": "TWF",
-    "id": 21,
-    "t": "Twenty-First Century Version"
-};
-
-var versions = [
-    {
-        "ar": "AKJ",
-        "id": 1,
-        "t": "American King James Version"
-    },
-    {
-        "ar": "ASV",
-        "id": 2,
-        "t": "American Standard Version"
-    },
-    {
-        "ar": "AKV",
-        "id": 3,
-        "t": "Authorized King James Version"
-    },
-    {
-        "ar": "BSB",
-        "id": 4,
-        "t": "Berean Standard Bible"
-    },
-    {
-        "ar": "BBE",
-        "id": 5,
-        "t": "Bible in Basic English"
-    },
-    {
-        "ar": "BBB",
-        "id": 6,
-        "t": "Bishop's Bible"
-    },
-    {
-        "ar": "CBV",
-        "id": 7,
-        "t": "Coverdale Bible"
-    },
-    {
-        "ar": "DBY",
-        "id": 8,
-        "t": "Darby English Bible"
-    },
-    {
-        "ar": "DRB",
-        "id": 10,
-        "t": "Douay-Rheims Bible"
-    },
-    {
-        "ar": "FBV",
-        "id": 12,
-        "t": "Free Bible Version"
-    },
-    {
-        "ar": "GNV",
-        "id": 13,
-        "t": "Geneva Bible"
-    },
-    {
-        "ar": "KJV",
-        "id": 15,
-        "t": "King James Version"
-    },
-    {
-        "ar": "NWB",
-        "id": 18,
-        "t": "Noah Webster's Bible"
-    },
-    {
-        "ar": "SLT",
-        "id": 19,
-        "t": "Smith's Literal Translation"
-    },
-    {
-        "ar": "T4T",
-        "id": 20,
-        "t": "Translation for Translators"
-    },
-    {  // Placeholder for TWF Version
-        "ar": "TWF",
-        "id": 21,
-        "t": "Twenty-First Century Version"
-    },
-    {
-        "ar": "WEB",
-        "id": 25,
-        "t": "World English Bible"
-    },
-    {
-        "ar": "YLT",
-        "id": 26,
-        "t": "Young's Literal Translation"
-    }
-];
-
 var oldBooks = [
     {
         "c": 50,
@@ -468,3 +368,358 @@ var newBooks = [
     }
 ];
 
+// Placeholder for TWF Version
+var TWF = {
+    "ar": "TWF",
+    "id": 21,
+    "t": "Twenty-First Century Version"
+};
+var versions = [
+    {
+        "ar": "AKJ",
+        "id": 1,
+        "t": "American King James Version"
+    },
+    {
+        "ar": "ASV",
+        "id": 2,
+        "t": "American Standard Version"
+    },
+    {
+        "ar": "AKV",
+        "id": 3,
+        "t": "Authorized King James Version"
+    },
+    {
+        "ar": "BSB",
+        "id": 4,
+        "t": "Berean Standard Bible"
+    },
+    {
+        "ar": "BBE",
+        "id": 5,
+        "t": "Bible in Basic English"
+    },
+    {
+        "ar": "BBB",
+        "id": 6,
+        "t": "Bishop's Bible"
+    },
+    {
+        "ar": "CBV",
+        "id": 7,
+        "t": "Coverdale Bible"
+    },
+    {
+        "ar": "DBY",
+        "id": 8,
+        "t": "Darby English Bible"
+    },
+    {
+        "ar": "DRB",
+        "id": 10,
+        "t": "Douay-Rheims Bible"
+    },
+    {
+        "ar": "FBV",
+        "id": 12,
+        "t": "Free Bible Version"
+    },
+    {
+        "ar": "GNV",
+        "id": 13,
+        "t": "Geneva Bible"
+    },
+    {
+        "ar": "KJV",
+        "id": 15,
+        "t": "King James Version"
+    },
+    {
+        "ar": "NWB",
+        "id": 18,
+        "t": "Noah Webster's Bible"
+    },
+    {
+        "ar": "SLT",
+        "id": 19,
+        "t": "Smith's Literal Translation"
+    },
+    {
+        "ar": "T4T",
+        "id": 20,
+        "t": "Translation for Translators"
+    },
+    {  // Placeholder for TWF Version
+        "ar": "TWF",
+        "id": 21,
+        "t": "Twenty-First Century Version"
+    },
+    {
+        "ar": "WEB",
+        "id": 25,
+        "t": "World English Bible"
+    },
+    {
+        "ar": "YLT",
+        "id": 26,
+        "t": "Young's Literal Translation"
+    },
+    // Non-English Versions begin at 200
+    {
+        "ar": "AFR",
+        "id": 201,
+        "t": "Afrikaans Bible (1953)"
+    },
+    {
+        "ar": "ALB",
+        "id": 202,
+        "t": "Albanian (Shqip) Bible"
+    },
+    {
+        "ar": "AVD",
+        "id": 203,
+        "t": "Arabic (العربية) Smith Van Dyke"
+    },
+    {
+        "ar": "CKS",
+        "id": 204,
+        "t": "Chinese KJV (Simplified) Shangdi 中文英皇钦定本上帝版 - 简体中文"
+    },
+    {
+        "ar": "CKT",
+        "id": 205,
+        "t": "Chinese KJV (Traditional) Shangdi 中文英皇欽定本上帝版 - 繁體中文"
+    },
+    {
+        "ar": "CUS",
+        "id": 206,
+        "t": "Chinese Union (Simplified)"
+    },
+    {
+        "ar": "CUT",
+        "id": 207,
+        "t": "Chinese Union (Traditional)"
+    },
+    {
+        "ar": "CZK",
+        "id": 208,
+        "t": "Czech Bible Kralicka"
+    },
+    {
+        "ar": "DSV",
+        "id": 209,
+        "t": "Dutch Staten Vertaling"
+    },
+    {
+        "ar": "FIN",
+        "id": 210,
+        "t": "Finnish Bible Version (1776)"
+    },
+    {
+        "ar": "FLB",
+        "id": 211,
+        "t": "French La Bible de l'Épée (2005)"
+    },
+    {
+        "ar": "FLS",
+        "id": 212,
+        "t": "French Louis Segond Version (1910)"
+    },
+    {
+        "ar": "FMT",
+        "id": 213,
+        "t": "French Martin Version (1744)"
+    },
+    {
+        "ar": "FOS",
+        "id": 214,
+        "t": "French Ostervald Version (1996)"
+    },
+    {
+        "ar": "GEL",
+        "id": 215,
+        "t": "German Elberfelder Version (1871)"
+    },
+    {
+        "ar": "GER",
+        "id": 216,
+        "t": "German Elberfelder Version (1905)"
+    },
+    {
+        "ar": "GLB",
+        "id": 217,
+        "t": "German Luther Bible (1545)"
+    },
+    {
+        "ar": "GLU",
+        "id": 218,
+        "t": "German Luther Bible (1912)"
+    },
+    {
+        "ar": "GSH",
+        "id": 219,
+        "t": "German Schlachter Bibel (1951)"
+    },
+    {
+        "ar": "HIR",
+        "id": 223,
+        "t": "Hindi Indian Revised Version (2017/2018)"
+    },
+    {
+        "ar": "HKV",
+        "id": 224,
+        "t": "Hungarian Karoli Version"
+    },
+    {
+        "ar": "ITB",
+        "id": 225,
+        "t": "Indonesian Terjemahan Baru (1994)"
+    },
+    {
+        "ar": "ITL",
+        "id": 226,
+        "t": "Indonesian Terjemahan Lama"
+    },
+    {
+        "ar": "ITV",
+        "id": 227,
+        "t": "Italian Diodati Version (1649)"
+    },
+    {
+        "ar": "JBY",
+        "id": 228,
+        "t": "Japanese Bungo-yaku: Taisho-kaiyaku (NT) (1950), Meiji-yaku (OT) (1950/1953)"
+    },
+    {
+        "ar": "JKY",
+        "id": 229,
+        "t": "Japanese Kougo-yaku (1954/1955)"
+    },
+    {
+        "ar": "KBV",
+        "id": 230,
+        "t": "Korean Bible Version"
+    },
+    {
+        "ar": "MAO",
+        "id": 231,
+        "t": "Maori Bible Version"
+    },
+    {
+        "ar": "PAT",
+        "id": 232,
+        "t": "Persian Old Translation (1895)"
+    },
+    {
+        "ar": "PBN",
+        "id": 233,
+        "t": "Polish NOWEJ BIBLII GDANSKIEJ (2012)"
+    },
+    {
+        "ar": "PBU",
+        "id": 234,
+        "t": "Polish Uwspółcześniona Biblia Gdańska (2017)"
+    },
+    {
+        "ar": "PBV",
+        "id": 235,
+        "t": "Polska Biblia Gdanska (1881)"
+    },
+    {
+        "ar": "PTA",
+        "id": 236,
+        "t": "Portuguese Tradução de João Ferreira de Almeida (Versão Revista e Atualizada)"
+    },
+    {
+        "ar": "PTB",
+        "id": 237,
+        "t": "Portuguese Biblia Livre"
+    },
+    {
+        "ar": "PTC",
+        "id": 238,
+        "t": "Portuguese Tradução de João Ferreira de Almeida Revista e Corrigida"
+    },
+    {
+        "ar": "RCV",
+        "id": 239,
+        "t": "Romanian Cornilescu Version"
+    },
+    {
+        "ar": "RFB",
+        "id": 240,
+        "t": "Romanian Fidela Biblia în limba română (2011/2016)"
+    },
+    {
+        "ar": "RSB",
+        "id": 241,
+        "t": "Russian Synodal Bible (1876)"
+    },
+    {
+        "ar": "SRG",
+        "id": 243,
+        "t": "Spanish Reina Valera Gómez (2004)"
+    },
+    {
+        "ar": "SRV",
+        "id": 244,
+        "t": "Spanish Reina Valera (1909)"
+    },
+    {
+        "ar": "SRZ",
+        "id": 245,
+        "t": "Spanish Reina Valera Gómez (2010)"
+    },
+    {
+        "ar": "SSE",
+        "id": 246,
+        "t": "Spanish Sagradas Escrituras (1569)"
+    },
+    {
+        "ar": "TAB",
+        "id": 248,
+        "t": "Tagalog Ang Biblia (1905)"
+    },
+    {
+        "ar": "TKJ",
+        "id": 249,
+        "t": "Thai King James Version"
+    },
+    {
+        "ar": "TVB",
+        "id": 250,
+        "t": "Turkish Bible Version"
+    },
+    {
+        "ar": "VCV",
+        "id": 251,
+        "t": "Vietnamese Cadman Version (1934)"
+    },
+    //  Strong's Versions begin at 300
+    {
+        "ar": "CUSS",
+        "id": 301,
+        "t": "Chinese Union (Simplified) w/Strong's - 中國聯合會（簡體）Zhōngguó liánhé huì (jiǎntǐ)"
+    },
+    {
+        "ar": "CUTS",
+        "id": 302,
+        "t": "Chinese Union (Traditional) w/Strong's - 繁体中文聯合 Fántǐ zhōngwén liánhé"
+    },
+    {
+        "ar": "SASV",
+        "id": 303,
+        "t": "American Standard Version w/Strong's"
+    },
+    {
+        "ar": "SKJV",
+        "id": 304,
+        "t": "King James Version w/Strong's (1611/1769)"
+    },
+    {
+        "ar": "SRVS",
+        "id": 305,
+        "t": "Spanish Reina Valera w/Strong's - Reina Valera española (1909)"
+    }
+];

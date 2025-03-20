@@ -49,7 +49,13 @@ p { font-size: 1.06rem; }
 .cs-bookHeader,
 .cs-verseHeader,
 .cs-versionHeader,
-.cs-chapterHeader { position: sticky; top: 0; padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; z-index: 1; }
+.cs-chapterHeader,
+.cs-nonEnglishHeader,
+.cs-strongsHeader { position: sticky; top: 0; padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; z-index: 1; }
+
+.cs-strongsHeader,
+.cs-nonEnglishHeader {position: relative };
+
 .cs-sortHeader { position: absolute; left: 50%; transform: translate(-50%); padding: .23em; font-size: .56em; font-weight: 500; background-color: var(--whiteText); color: var(--bannerBackground); border-radius: 5px; width: max-content; }
 
 .cs-books,

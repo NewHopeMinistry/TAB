@@ -5,8 +5,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Node fixMin.js",
-            "program": "${workspaceFolder}/data/fixMin.js",
+            "name": "Launch Node afixMin.js",
+            "program": "${workspaceFolder}/data/afixMin.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"

@@ -545,7 +545,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchContainer { width: 100%; margin-top: 7.3em; }
     .cs-searchBtn { width: 20%; }
 }
-
+/*
 @media (max-height: 720px) {
     .cs-header1 { height: 12%; }
-}
+}*/

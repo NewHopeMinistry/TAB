@@ -335,6 +335,11 @@ async function changeVersion() {
     if (versions[idx].ar === 'TWF') {
         document.getElementById('id-redLetter').style.display = 'block';
         document.getElementById('id-paragraphLayout').style.display = 'block';
+        if (redLetterDefault) {
+            document.getElementById('id-redLetter').textContent = 'Black Letter';
+        } else {
+            document.getElementById('id-redLetter').textContent = 'Red Letter';
+        };
     } else {
         document.getElementById('id-redLetter').style.display = 'none';
         document.getElementById('id-paragraphLayout').style.display = 'none';

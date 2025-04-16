@@ -10,17 +10,22 @@ window.addEventListener("load", async () => {
 
     let rec = false;
     rec = getDefaults();
-    if (rec){ loadVersions(); };
-    if (rec) { LoadBooks(); };
-    if (rec) { loadChapters(); };
-    if (rec) { changeVersion(); };
-    if (rec) { document.getElementById("id-loader").style.display = 'none'; };
+    if (rec) { rec = false; rec = loadVersions(); allLoaded = false; };
+    if (rec) { rec = false; rec = LoadBooks(); allLoaded = false; };
+    if (rec) { rec = false; rec = loadChapters(); allLoaded = false; };
+    if (rec) { rec = false; rec = changeVersion(); allLoaded = true; };
+    if (rec && allLoaded) {
+        setTimeout(() => {
+            document.getElementById("id-loader").style.display = 'none';
+        }, 130);
+    };
     if (rec) {
         if (setTheme === '1') {
             darkTheme();
             rotateTheme = false;
         };
     };
+
 });
 
 async function getDefaults() {
@@ -348,6 +353,7 @@ async function changeVersion() {
     document.getElementById('id-searchBox').textContent = '';
     searchIndex = null;
     boxOpen = 0;
+    Promise.resolve(true);
 };
 
 function isNumeric(value) { return !isNaN(value) && !isNaN(parseFloat(value)); }

@@ -10,13 +10,14 @@ window.addEventListener("load", async () => {
 
     let rec = false;
     rec = getDefaults();
-    if (rec) { rec = false; rec = loadVersions(); allLoaded = false; };
-    if (rec) { rec = false; rec = LoadBooks(); allLoaded = false; };
-    if (rec) { rec = false; rec = loadChapters(); allLoaded = false; };
+    if (rec) { rec = false; rec = loadVersions(); };
+    if (rec) { rec = false; rec = LoadBooks(); };
+    if (rec) { rec = false; rec = loadChapters(); };
     if (rec) { rec = false; rec = changeVersion(); allLoaded = true; };
     if (rec && allLoaded) {
         setTimeout(() => {
             document.getElementById("id-loader").style.display = 'none';
+            document.getElementById("id-randomChapter").style.display = 'block';
         }, 130);
     };
     if (rec) {
@@ -25,7 +26,6 @@ window.addEventListener("load", async () => {
             rotateTheme = false;
         };
     };
-
 });
 
 async function getDefaults() {
@@ -121,7 +121,7 @@ async function loadVersions() {
             pageHeadline.textContent = version.t;
         };
         div.dataset.index = i;
-        div.textContent = version.t;
+        div.textContent = `${version.t} - ${version.ar}`;
         div.classList.add("cs-version");
         menuVersions.appendChild(div);
         i++;

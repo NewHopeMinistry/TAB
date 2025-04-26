@@ -245,11 +245,12 @@ function updateQueryParams(removeParams, addParams) {
 
 async function unregisterServiceWorkers() {
     try {
+        deleteCache();
         const registrations = await navigator.serviceWorker.getRegistrations();
         for (const registration of registrations) {
             const unregistered = await registration.unregister();
             console.log('Service worker unregistered:', unregistered);
-        }
+        };
     } catch (error) {
         console.error('Error during unregistering:', error);
     };

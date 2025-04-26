@@ -24,6 +24,14 @@ self.addEventListener('install', event => {
     );
 });
 
+async function deleteCache() {
+
+    const keys = await caches.keys();
+    await Promise.all(keys.map(async (key) => {
+        await caches.delete(key);
+    }));
+};
+
 self.addEventListener('activate', async (event) => {
 
     const cacheAllowList = [CACHE_NAME];

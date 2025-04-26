@@ -186,6 +186,7 @@ function darkTheme() {
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
     document.documentElement.style.setProperty('--gradientLight', '#5d656e');
     document.documentElement.style.setProperty('--gradientDark', '#010914');
+    document.getElementById('id-endLine').style.color = '#010914';
 };
 
 function changeTheme() {
@@ -228,7 +229,7 @@ function changeFontSize(direction) {
     localStorage.setItem("activeFontSizeCount", activeFontSizeCount);
     localStorage.setItem("activeFontSize", activeFontSize);
 
-    const bottom = document.getElementById("id-bottom");
+    const bottom = document.getElementById("id-end");
     bottom.scrollIntoView({ behavior: "instant", block: "end" });
 };
 
@@ -242,6 +243,18 @@ function updateQueryParams(removeParams, addParams) {
     window.history.replaceState({}, '', url);
 };
 
+async function unregisterServiceWorkers() {
+    try {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const registration of registrations) {
+            const unregistered = await registration.unregister();
+            console.log('Service worker unregistered:', unregistered);
+        }
+    } catch (error) {
+        console.error('Error during unregistering:', error);
+    };
+};
+
 function resetDefaults() {
 
     const svg = document.getElementById('id-svg');
@@ -252,6 +265,7 @@ function resetDefaults() {
     rotateTheme = true;
     changeFontSize('d');
     localStorage.removeItem('setTheme');
+    localStorage.removeItem('savedLocal');
     localStorage.removeItem('activeFontSizeCount');
     localStorage.removeItem('activeFontSize');
     localStorage.removeItem('activeBookID');
@@ -268,6 +282,7 @@ function resetDefaults() {
     activeBookID = defaultBookID;
     activeChapterID = defaultChapterID;
     changeVersion();
+    unregisterServiceWorkers();
 };
 
 function readRandomChapter() {

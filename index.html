@@ -18,7 +18,28 @@
     <script async src="js/index.js"></script>
     <script defer src="js/lateload.js"></script>
     <script defer src="js/searcher.js"></script>
-    
+    <script src="sw.js"></script>
+    <script>
+        async function saveLocal() {
+            if ('serviceWorker' in navigator) {   //This goes in the client side javascript
+                (async () => {
+                    try {
+                        const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
+                        console.log('Service Worker registered with scope:', registration.scope);
+                        console.log(`Version: ${version}`)
+                    } catch (error) {
+                        console.log('Service Worker registration failed:', error);
+                    }
+                })();
+            };
+            document.getElementById('id-end').style.display = 'none';
+            localStorage.setItem("savedLocal", true);
+        };
+        function closeSave() {
+            document.getElementById('id-end').style.display = 'none';
+            localStorage.setItem("savedLocal", true);
+        };
+    </script>
 </head>
 
 <body>
@@ -99,9 +120,9 @@
             <div id="id-col2" class="cs-glossary">
                 <h4 class="cs-glossaryHeaders">Other</h4>
                 <!-- Use .cs-hide to hide links-->
-                <a class="cs-glossaryLink" href="html/movies.html">Faithful Movies<br><br></a>
+                <a class="cs-glossaryLink" href="html/movies.html">Good Movies<br><br></a>
 
-                <a class="cs-glossaryLink" href="html/shows.html">Faithful TV Shows<br><br></a>
+                <a class="cs-glossaryLink" href="html/shows.html">Good TV Shows<br><br></a>
 
                 <a class="cs-glossaryLink" href="html/history.html">Versions History<br><br></a>
 
@@ -148,7 +169,22 @@
             <div id="id-lastEdited">Last Edited:</div>
         </div>
     </div>
-    <div id="id-bottom"></div>
+    <style>
+
+    </style>
+    <div id="id-end" class="cs-end">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="cs-xcircle" viewBox="0 0 16 16" fill="#d41b06" fill-opacity="0.8" onclick="closeSave()">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+        <br>
+        <p id="id-endLine" class="cs-endLine">
+            By clicking OK, you agree to allow the app to use local storage to store Bible verse files locally to improve performance. The Ark Bible app does not collect or store any personal or tracking data. This can be reset by clicking the reset defaults button.
+        </p>
+        <br>
+        <button class="cs-endBtn" onclick="saveLocal()">OK</button>
+        <br><br>
+    </div>
 
 </body>
 

@@ -10,10 +10,12 @@ window.addEventListener("load", async () => {
 
     let rec = false;
     rec = getDefaults();
+    if (rec) { if(savedLocal) { document.getElementById('id-end').style.display = 'none'; } };
     if (rec) { rec = false; rec = loadVersions(); };
     if (rec) { rec = false; rec = LoadBooks(); };
     if (rec) { rec = false; rec = loadChapters(); };
     if (rec) { rec = false; rec = changeVersion(); allLoaded = true; };
+
     if (rec && allLoaded) {
         setTimeout(() => {
             document.getElementById("id-loader").style.display = 'none';
@@ -64,13 +66,16 @@ async function getDefaults() {
     activeFontSizeCount = localStorage.getItem("activeFontSizeCount");
     if (!activeFontSizeCount) { activeFontSizeCount = 0; } else { activeFontSizeCount = Number(activeFontSizeCount); };
 
+    let svd = localStorage.getItem('savedLocal');
+    if (svd) { savedLocal = svd; };
+
     Promise.resolve(true);
 };
 
 async function setFontSize() {
     const allP = document.querySelectorAll('p');
     for (const ps of allP) {
-        ps.style.fontSize = `${activeFontSize}rem`;
+        if (ps.id !== 'id-endLine') { ps.style.fontSize = `${activeFontSize}rem`; };
     };
 };
 

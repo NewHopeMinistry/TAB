@@ -1,4 +1,4 @@
-var dateEdited = '4-24-2025'
+var dateEdited = '4-26-2025'
 if (document.getElementById('id-lastEdited')) { document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`; }
 
 var allLoaded = false;
@@ -26,6 +26,7 @@ var activeBookID = '';
 var activeChapterID = '';
 var activeVersionID = '';
 
+var savedLocal = false;
 var searchOpen = false;
 var searchIndex = null;
 var searchResults;

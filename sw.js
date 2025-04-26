@@ -8,7 +8,7 @@ const urlsToCache = [
     'js/variables.js',
     'js/index.js',
     'js/lateload.js',
-    'js/elasticlunr.js',
+    'js/searcher.js',
     'images/icons/favicon-16.png',
     'images/icons/logo-128.png'
 ];
@@ -64,17 +64,18 @@ self.addEventListener('fetch', event => {
 });
 
 
+/*  This goes in the index.html file ******  <script src="sw.js"></script>
 
-/*  This goes in the html ******  <script src="sw.js"></script>
-
-    if ('serviceWorker' in navigator) {   //This goes in the client side javascript
-        (async () => {
-            try {
-                const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
-                console.log('Service Worker registered with scope:', registration.scope);
-                console.log(`Version: ${version}`)
-            } catch (error) {
-                console.log('Service Worker registration failed:', error);
-            }
-        })();
-    };*/
+    <script>
+        if ('serviceWorker' in navigator) {   //This goes in the client side javascript
+            (async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
+                    console.log('Service Worker registered with scope:', registration.scope);
+                    console.log(`Version: ${version}`)
+                } catch (error) {
+                    console.log('Service Worker registration failed:', error);
+                }
+            })();
+        };
+    </script>*/

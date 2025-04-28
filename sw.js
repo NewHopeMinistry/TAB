@@ -1,4 +1,4 @@
-const version = '1.0.9';
+const version = '1.1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -20,7 +20,7 @@ self.addEventListener('install', event => {
             await cache.addAll(urlsToCache);
             console.log(CACHE_NAME);
             try {
-                const response = await fetch('manifest.json');
+                const response = await fetch(`manifest.json?version=${version}`);
                 const manifest = await response.json();
                 if (manifest.icons) {
                     const iconUrls = manifest.icons.map(icon => icon.src);
@@ -60,7 +60,7 @@ self.addEventListener('fetch', event => {
     const url = new URL(event.request.url);
     const filename = url.pathname.split('/').pop();
 
-    if (filename !== 'manifest.json' && event.request.url.endsWith('.json')) {
+    if (filename !== 'manifest.json' && filename.endsWith('.json')) {
         event.respondWith(
             (async () => {
                 const cache = await caches.open(CACHE_NAME);
@@ -73,7 +73,8 @@ self.addEventListener('fetch', event => {
                     });
                 };
                 if (navigator.onLine) {
-                    const networkResponse = await fetch(event.request.url);
+                    const newurl = removeQueryString(event.request.url);
+                    const networkResponse = await fetch(`${newurl}?version=${version}`);
                     const returnResponse = networkResponse.clone();
                     const jsonData = await networkResponse.text();
                     const compressedBlob = await compressJson(jsonData);
@@ -90,7 +91,8 @@ self.addEventListener('fetch', event => {
             const response = await caches.match(event.request);
             if (response) { return response; };
             if (navigator.onLine) {
-                const networkResponse = await fetch(event.request.url);
+                const newurl = removeQueryString(event.request.url);
+                const networkResponse = await fetch(`${newurl}?version=${version}`);
                 return networkResponse;
             } else { return 'offline'; };
         })();

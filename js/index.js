@@ -3,7 +3,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
     var url = new URL(window.location.href);
     url.search = '';
     window.history.replaceState({}, '', url);
-    event.prompt();
+    //event.prompt();
 });
 
 window.addEventListener("load", async () => {

@@ -3,10 +3,14 @@
     "short_name": "Ark Bible",
     "description": "Searchable Bible App",
     "start_url": "/index.html",
-    "display": "browser",
+    "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#022a69",
     "icons": [
+        {
+            "src": "/images/icons/favicon-16.png",
+            "sizes": "16x16", "type": "image/png"
+        },
         {
             "src": "/images/icons/logo-96.png",
             "sizes": "96x96", "type": "image/png"
@@ -23,5 +27,15 @@
             "src": "/images/icons/logo-512.png",
             "sizes": "512x512", "type": "image/png"
         }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/laptop.png",
+            "sizes": "735x320",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Laptop Screen"
+        }
     ]
 }
+

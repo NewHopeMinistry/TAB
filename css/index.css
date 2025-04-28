@@ -315,8 +315,8 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 }
 
 @media (min-width: 431px) and (max-width: 540px) {
-    .cs-headerTitle { font-size: 1.6rem; }
-    .cs-header1 { height: 10%; }
+    .cs-headerTitle { font-size: 1.4rem; }
+    .cs-header1 { height: 11%; }
     .cs-search { right: 15%; }
     .cs-pageContainer { margin-top: 5.7em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
@@ -332,7 +332,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
 }
 
 @media (min-width: 541px) and (max-width: 768px) {
-    .cs-header1 { height: 9%; }
+    .cs-header1 { height: 10%; }
     .cs-search { right: 15%; }
     .cs-pageContainer { margin-top: 5.5em; }
     .cs-mainPage { width: 100%; border-radius: 0; }

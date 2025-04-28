@@ -1,4 +1,4 @@
-const version = '1.1';
+const version = '1.0.1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -74,7 +74,12 @@ self.addEventListener('fetch', event => {
                 };
                 if (navigator.onLine) {
                     const newurl = removeQueryString(event.request.url);
-                    const networkResponse = await fetch(`${newurl}?version=${version}`);
+                    let networkResponse;
+                    if (filename === 'TWFVerses.json') {
+                        networkResponse = await fetch(`${newurl}?version=${version}`);
+                    } else {
+                        networkResponse = await fetch(newurl);
+                    };
                     const returnResponse = networkResponse.clone();
                     const jsonData = await networkResponse.text();
                     const compressedBlob = await compressJson(jsonData);

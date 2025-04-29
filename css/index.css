@@ -98,14 +98,14 @@ p { font-size: 1.06rem; }
 
 .cs-bottom { bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; background: linear-gradient(180deg, var(--gradientLight) 0%, var(--gradientDark) 100%); z-index: 2; }
 
-.cs-end { position: fixed; bottom: 0; left: 0; width: 100%; height: max-content; background-color: #f7f9fa; border-top: 3px solid #9b9a9a; color: #010914 }
-.cs-endLine { position: relative; width: 60%; top: 10%; margin: auto; font-size: .9rem; }
-.cs-endBtn { position: relative; display: block; background-color: #9b9a9a; color: white; width: 3em; height: 2em; top: 10%; border: none; cursor: pointer; margin: auto; font-weight: 550; }
-.cs-xcircle { position: absolute; top: 20px; right: 30px; cursor: pointer; }
-.cs-xcircle:hover { fill: black; }
+.cs-end { position: fixed; bottom: 0; left: 0; width: 100%; height: max-content; background-color: #f1f2f3; border-top: 3px solid #9b9a9a; color: #010914 }
+.cs-endLine { position: relative; width: 60%; top: 10%; margin: auto; font-size: .9rem; text-align: justify; }
+.cs-endBtn { position: relative; display: block; background-color: #9b9a9a; color: white; width: 5em; height: 2em; border: none; cursor: pointer; margin: auto; font-weight: 550; }
+.cs-endBtnLine { display: flex; justify-content: space-evenly; top: 10%; width: 50%; margin: auto; }
 
 .cs-settings { display: flex; justify-content: space-evenly; bottom: 0; left: 0; height: max-content; width: 100%; padding-bottom: 2em; padding-left: .8em; background-color: var(--bannerBackground); }
 .cs-glossary { position: relative; margin-top: 1.2em; margin-bottom: 1.2em; color: var(--whiteText); width: 99%; }
+.cs-chat { display: flex; text-decoration: none; height: 2em; width: 20em; background-color: #ba0e0e; color: white; border-radius: 6px; margin: auto; justify-content:center; align-items: center; }
 
 .cs-iconLink { float: left; width: 3%; margin-right: 1em; height: auto; border-radius: 8px; padding-bottom: .3em; }
 .cs-iconLink:hover { background-color: #eeeea5; }
@@ -330,6 +330,8 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchBtn { width: 20%; }
     .cs-menu1 { position: absolute; left: 20%; transform: translate(-20%); }
 }
+
+@media (max-width: 768px) { .cs-endLine { width: 85%; } }
 
 @media (min-width: 541px) and (max-width: 768px) {
     .cs-header1 { height: 10%; }

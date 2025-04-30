@@ -11,7 +11,9 @@
     <script async src="../js/variables.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('id-lastEdited').textContent = `Last Edited On: ${dateEdited}`;
+            setTimeout(function() {
+                document.getElementById('id-lastEdited').textContent = `Last Edited On: ${dateEdited}`;
+            }, 200);
         });
     </script>
 </head>
@@ -41,7 +43,7 @@
         The status field in the following tables indicates the editing status of each book and chapter of the Twenty-First Century version of the Bible. The status field indicates the chapters and verses that have been edited. An asterick * in the Book column indicates the book that is currently being edited. "Rough Draft" in the Status field means that the initial editing on that chapter is finished and ready except for final edits, grammar, and spell checking. "Altered by algorythm, but not human edited" in the Status field indicates that certain phrases have been altered by computer algorythm but not human edited, these chapters could be inaccurate. The "Chapters" field indicates which chapters of the actively edited book have been edited to the "Rough Draft" stage. The "Total Verses" field lists the number of verses for each book of each version of the Bible that has a total of 31,102 verses.
 
         <h5>Old Testament:</h5>
-        <table id="id-oldTable" border="1">
+        <table id="id-oldTable" border="1" class="cs-tbl">
             <thead>
                 <tr>
                     <th>BookID</th>
@@ -330,7 +332,7 @@
 
         <hr>
         <h5>New Testament:</h5>
-        <table id="id-newTable" border="1">
+        <table id="id-newTable" border="1"  class="cs-tbl" >
             <thead>
                 <tr>
                     <th>BookID</th>

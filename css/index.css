@@ -335,7 +335,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-menu1 { position: absolute; left: 20%; transform: translate(-20%); }
 }
 
-@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } }
+@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } }
 
 @media (min-width: 541px) and (max-width: 768px) {
     .cs-header1 { height: 10%; }

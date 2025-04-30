@@ -39,6 +39,12 @@
             "type": "image/png",
             "form_factor": "wide",
             "label": "Laptop Screen"
+        },
+        {
+            "src": "/images/screenshots/moto-432.png",
+            "sizes": "320x711",
+            "type": "image/png",
+            "label": "Moto-432 Screen"
         }
     ]
 }

@@ -9,6 +9,13 @@
     <title>The Ark Bible Help</title>
     <script async src="../js/variables.js"></script>
     <link async rel="stylesheet" type="text/css" href="../css/index.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('id-lastEdited').textContent = `Last Edited On: ${dateEdited}`;
+            }, 200);
+        });
+    </script>
 </head>
 
 <body>

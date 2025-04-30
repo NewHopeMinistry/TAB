@@ -80,6 +80,10 @@ p { font-size: 1.06rem; }
 
 .cs-pageContainer { margin-top: 5.5em; width: 100%; z-index: 10; }
 
+
+.cs-TWF { display: none; height: max-content; width: 70%; background-color: #dedcdc; color: rgb(71, 70, 70); border-radius: 6px; margin: auto; justify-content:center; align-items: center; padding-top: .5em; padding-bottom: .8em; }
+.cs-TWFspan { display: flex; width: 95%; margin: auto; justify-content:center; align-items: center; }
+
 .cs-searchContainer,
 .cs-mainPage { border-radius: 6px; width: 60%; margin: auto; background-color: var(--mainBackground); color: var(--blackText); overflow: hidden; }
 
@@ -331,7 +335,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-menu1 { position: absolute; left: 20%; transform: translate(-20%); }
 }
 
-@media (max-width: 768px) { .cs-endLine { width: 85%; } }
+@media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } }
 
 @media (min-width: 541px) and (max-width: 768px) {
     .cs-header1 { height: 10%; }

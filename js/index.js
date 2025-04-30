@@ -343,6 +343,7 @@ async function changeVersion() {
         verseHighlight(selectedVerseID);
     };
     if (versions[idx].ar === 'TWF') {
+        document.getElementById('id-TWF').style.display = 'flex';
         document.getElementById('id-redLetter').style.display = 'block';
         document.getElementById('id-paragraphLayout').style.display = 'block';
         if (redLetterDefault) {
@@ -351,6 +352,7 @@ async function changeVersion() {
             document.getElementById('id-redLetter').textContent = 'Red Letter';
         };
     } else {
+        document.getElementById('id-TWF').style.display = 'none';
         document.getElementById('id-redLetter').style.display = 'none';
         document.getElementById('id-paragraphLayout').style.display = 'none';
     };

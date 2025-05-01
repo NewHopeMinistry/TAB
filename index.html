@@ -40,6 +40,11 @@
             document.getElementById('id-end').style.display = 'none';
             localStorage.setItem("savedLocal", true);
         };
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`;
+            }, 200);
+        });
     </script>
 </head>
 

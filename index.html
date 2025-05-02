@@ -40,11 +40,7 @@
             document.getElementById('id-end').style.display = 'none';
             localStorage.setItem("savedLocal", true);
         };
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(function() {
-                document.getElementById('id-lastEdited').textContent = `Last Edited: ${dateEdited}`;
-            }, 200);
-        });
+        
     </script>
 </head>
 
@@ -177,7 +173,7 @@
             <br>
             <a href="./html/license.html" class="cs-copyright">Copyright ©2024 New Hope Ministries <span class="cs-copySign">●</span> MIT License <span class="cs-copySign">●</span> Public Domain</a>
             <br><br>
-            <div id="id-lastEdited">Last Edited:</div>
+
         </div>
     </div>
 

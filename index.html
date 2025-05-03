@@ -36,11 +36,14 @@
             document.getElementById('id-end').style.display = 'none';
             localStorage.setItem("savedLocal", true);
         };
+
         function closeSave() {
             document.getElementById('id-end').style.display = 'none';
             localStorage.setItem("savedLocal", true);
         };
-        
+        function closeTWF() {
+            document.getElementById('id-TWFcontainer').style.display = 'none';
+        };
     </script>
 </head>
 
@@ -69,7 +72,14 @@
 
     <div id="id-pageContainer" class="cs-pageContainer" onclick="openBoxes()">
 
-        <div id="id-TWF" class="cs-TWF"><span id="id-TWFspan" class="cs-TWFspan"></span></div>
+        <div id="id-TWFcontainer" class="cs-TWFcontainer">
+            <div id="id-TWF" class="cs-TWF">
+                <span id="id-TWFspan" class="cs-TWFspan"></span>
+
+            </div>
+            <span id="id-TWFedited" class="cs-TWFspan">Last Edited:</span>
+            <div id="id-closeTWF" class="cs-closeTWF cs-TWFspan" onclick="closeTWF()" title="Close Box">&#x2715</div>
+        </div>
         <br>
 
         <div id="id-mainPage" class="cs-mainPage">

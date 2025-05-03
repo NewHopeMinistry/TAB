@@ -20,6 +20,8 @@ window.addEventListener("load", async () => {
         setTimeout(() => {
             document.getElementById("id-loader").style.display = 'none';
             document.getElementById("id-randomChapter").style.display = 'block';
+            document.getElementById('id-TWFspan').textContent = TWFmsg;
+            document.getElementById('id-TWFedited').textContent = `Last Edited: ${dateEdited}`;
         }, 130);
     };
     if (rec) {

@@ -1,4 +1,5 @@
 var dateEdited = '5-3-2025';
+var TWFopen = true;
 if (document.getElementById('id-TWFspan')) {
     document.getElementById('id-TWFspan').textContent = `The Twenty-First Century version of the Bible is being actively edited. You may not want to use it as your definitive source for God's word just yet. If you click on the About Twenty-First Century Version link below, you will find a table that lists the editing status of each chapter.`;
     document.getElementById('id-TWFedited').textContent = `Last Edited: ${dateEdited}`;

@@ -318,11 +318,7 @@ async function changeVersion() {
 
     try {
         const res = await fetch(`data/${versions[idx].ar}/${versions[idx].ar}Verses.json`);
-        if (!res.ok) {
-            let error = new Error('fetch failed');
-            error.statusCode = res.status;
-            throw error;
-        };
+        if (!res.ok) { throw new Error(res.status); };
         verses = await res.json();
         let holdSelectedVerseID = selectedVerseID;
         getChapter();
@@ -335,15 +331,16 @@ async function changeVersion() {
         setQuerystring('verid', id);
         searchIndex = null;
     } catch (error) {
-        let errorMessage = 'An error occurred while fetching the version data.';
-        if (error.statusCode === 500) {
-            errorMessage = 'Network Error: Problem with the Server.';
-        } else if (error.statusCode === 503) {
-            errorMessage = 'No Internet Connection: Service Unavailable.';
-        } else if (error.message) {
-            errorMessage = error.message; // Use the default error message if no specific status
-        };
-        alert(errorMessage);
+        let err = error.message;
+        switch (error.message) {
+            case '500':
+                err = 'Network error: 500';
+                break;
+            case '503':
+                err = 'No internet connection error: 503';
+                break;
+        }
+        alert(err);
     };
     closeBoxes();
     if (selectedVerseID) {

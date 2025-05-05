@@ -1,4 +1,4 @@
-const version = '1.0.10';
+const version = '1.0.9';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -16,6 +16,7 @@ self.addEventListener('install', event => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(CACHE_NAME);
+            console.log('Opened cache');
             await cache.addAll(urlsToCache);
             console.log(CACHE_NAME);
             try {
@@ -23,10 +24,12 @@ self.addEventListener('install', event => {
                 const manifest = await response.json();
                 if (manifest.icons) {
                     const iconUrls = manifest.icons.map(icon => icon.src);
+                    console.log('Caching manifest icons:', iconUrls);
                     await cache.addAll(iconUrls);
                 };
                 if (manifest.screenshots) {
                     const screenshotUrls = manifest.screenshots.map(screenshot => screenshot.src);
+                    console.log('Caching manifest screenshots:', screenshotUrls);
                     await cache.addAll(screenshotUrls);
                 };
             } catch (error) {
@@ -56,7 +59,6 @@ self.addEventListener('fetch', event => {
     const filename = url.pathname.split('/').pop();
 
     if (filename !== 'manifest.json' && filename.endsWith('.json')) {
-
         event.respondWith(
             (async () => {
                 const cache = await caches.open(CACHE_NAME);
@@ -71,25 +73,18 @@ self.addEventListener('fetch', event => {
                 if (navigator.onLine) {
                     let newurl = removeQueryString(event.request.url);
                     if (filename === 'TWFVerses.json') { newurl = `${newurl}?version=${version}`};
-                    try {
-                        const networkResponse = await fetch(newurl);
-                        if (!networkResponse.ok) { throw new Error(networkResponse.status); };
-                        const returnResponse = networkResponse.clone();
-                        event.waitUntil((async () => {
-                            const jsonData = await networkResponse.text();
-                            const compressedBlob = await compressJson(jsonData);
-                            const response = new Response(compressedBlob, {
-                                headers: { 'Content-Encoding': 'gzip', 'Content-Type': 'application/json' }
-                            });
-                            await cache.put(event.request, response.clone());
-                        })());
-                        return returnResponse;
-                    } catch (error) {
-                        return new Response('Network fetch error: 500', { status: 500 });
-                    };
-                } else {
-                    return new Response('No internet connection error: 503', { status: 503 });
-                };
+                    const networkResponse = await fetch(newurl);
+                    const returnResponse = networkResponse.clone();
+                    event.waitUntil((async () => {
+                        const jsonData = await networkResponse.text();
+                        const compressedBlob = await compressJson(jsonData);
+                        const response = new Response(compressedBlob, {
+                            headers: { 'Content-Encoding': 'gzip', 'Content-Type': 'application/json' }
+                        });
+                        await cache.put(event.request, response.clone());
+                    })());
+                    return returnResponse;
+                } else { return 'offline'; };
             })()
         );
     } else {
@@ -99,16 +94,10 @@ self.addEventListener('fetch', event => {
                 const response = await cache.match(event.request);
                 if (response) { return response; };
                 if (navigator.onLine) {
-                    try {
-                        const newurl = removeQueryString(event.request.url);
-                        const networkResponse = await fetch(`${newurl}?version=${version}`);
-                        return networkResponse;
-                    } catch (error) {
-                        return new Response('Network error: 500', { status: 500 });
-                };
-            } else {
-                return new Response('No internet connection error: 503', { status: 503 });
-            };
+                    const newurl = removeQueryString(event.request.url);
+                    const networkResponse = await fetch(`${newurl}?version=${version}`);
+                    return networkResponse;
+                } else { return 'offline'; };
             })()
         );
     };
@@ -161,7 +150,6 @@ function removeQueryString(url) {
             })();
         };
     </script>*/
-
 
 
 

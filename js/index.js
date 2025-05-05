@@ -1,10 +1,4 @@
-window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    var url = new URL(window.location.href);
-    url.search = '';
-    window.history.replaceState({}, '', url);
-    //event.prompt();
-});
+
 
 window.addEventListener("load", async () => {
 
@@ -324,6 +318,11 @@ async function changeVersion() {
 
     try {
         const res = await fetch(`data/${versions[idx].ar}/${versions[idx].ar}Verses.json`);
+        if (!res.ok) {
+            let error = new Error('fetch failed');
+            error.statusCode = res.status;
+            throw error;
+        };
         verses = await res.json();
         let holdSelectedVerseID = selectedVerseID;
         getChapter();
@@ -336,8 +335,15 @@ async function changeVersion() {
         setQuerystring('verid', id);
         searchIndex = null;
     } catch (error) {
-        alert('Error Accessing Internet!')
-        //alert('The file for this Bible version has not been retrieved from the server yet. To access this file you must connect to the internet. Once it has been fetched from the internet, it will then be available offline for future use.');
+        let errorMessage = 'An error occurred while fetching the version data.';
+        if (error.statusCode === 500) {
+            errorMessage = 'Network Error: Problem with the Server.';
+        } else if (error.statusCode === 503) {
+            errorMessage = 'No Internet Connection: Service Unavailable.';
+        } else if (error.message) {
+            errorMessage = error.message; // Use the default error message if no specific status
+        };
+        alert(errorMessage);
     };
     closeBoxes();
     if (selectedVerseID) {

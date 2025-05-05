@@ -244,15 +244,22 @@ function updateQueryParams(removeParams, addParams) {
 };
 
 async function unregisterServiceWorkers() {
-    try {
-        deleteCache();
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (const registration of registrations) {
-            const unregistered = await registration.unregister();
-            console.log('Service worker unregistered:', unregistered);
-        };
-    } catch (error) {
-        console.error('Error during unregistering:', error);
+
+    if ('serviceWorker' in navigator) {
+            try {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                if (registrations.length > 0) {
+                    const keys = await caches.keys();
+                    await Promise.all(keys.map(async (key) => { await caches.delete(key); }));
+                    for (const registration of registrations) {
+                        const unregistered = await registration.unregister();
+                        console.log('Service worker unregistered:', unregistered);
+                    };
+                    alert('Changes to your data storage will take effect after you restart the browser with an active internet connection!');
+                };
+            } catch (error) {
+                console.error('Error during unregistering:', error);
+            };
     };
 };
 
@@ -283,6 +290,7 @@ function resetDefaults() {
     activeBookID = defaultBookID;
     activeChapterID = defaultChapterID;
     changeVersion();
+    document.getElementById('top').scrollIntoView({ block: 'start' });
     unregisterServiceWorkers();
 };
 

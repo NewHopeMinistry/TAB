@@ -1,4 +1,4 @@
-const version = '1.0.8';
+const version = '1.0.9';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -42,9 +42,7 @@ self.addEventListener('install', event => {
 async function deleteCache() {
 
     const keys = await caches.keys();
-    await Promise.all(keys.map(async (key) => {
-        await caches.delete(key);
-    }));
+    await Promise.all(keys.map(async (key) => { await caches.delete(key); }));
 };
 
 self.addEventListener('activate', async (event) => {
@@ -77,26 +75,31 @@ self.addEventListener('fetch', event => {
                     if (filename === 'TWFVerses.json') { newurl = `${newurl}?version=${version}`};
                     const networkResponse = await fetch(newurl);
                     const returnResponse = networkResponse.clone();
-                    const jsonData = await networkResponse.text();
-                    const compressedBlob = await compressJson(jsonData);
-                    const response = new Response(compressedBlob, {
-                        headers: { 'Content-Encoding': 'gzip', 'Content-Type': 'application/json' }
-                    });
-                    await cache.put(event.request, response.clone());
+                    event.waitUntil((async () => {
+                        const jsonData = await networkResponse.text();
+                        const compressedBlob = await compressJson(jsonData);
+                        const response = new Response(compressedBlob, {
+                            headers: { 'Content-Encoding': 'gzip', 'Content-Type': 'application/json' }
+                        });
+                        await cache.put(event.request, response.clone());
+                    })());
                     return returnResponse;
                 } else { return 'offline'; };
             })()
         );
     } else {
-        (async () => {
-            const response = await caches.match(event.request);
-            if (response) { return response; };
-            if (navigator.onLine) {
-                const newurl = removeQueryString(event.request.url);
-                const networkResponse = await fetch(`${newurl}?version=${version}`);
-                return networkResponse;
-            } else { return 'offline'; };
-        })();
+        event.respondWith(
+            (async () => {
+                const cache = await caches.open(CACHE_NAME);
+                const response = await cache.match(event.request);
+                if (response) { return response; };
+                if (navigator.onLine) {
+                    const newurl = removeQueryString(event.request.url);
+                    const networkResponse = await fetch(`${newurl}?version=${version}`);
+                    return networkResponse;
+                } else { return 'offline'; };
+            })()
+        );
     };
 });
 
@@ -147,3 +150,7 @@ function removeQueryString(url) {
             })();
         };
     </script>*/
+
+
+
+

@@ -1,4 +1,4 @@
-const version = '1.0.10';
+const version = '1.0.11';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -105,9 +105,14 @@ self.addEventListener('fetch', event => {
                         return networkResponse;
                     } catch (error) {
                         return new Response('Network error: 500', { status: 500 });
-                };
+                    };
             } else {
-                return new Response('No internet connection error: 503', { status: 503 });
+                const cache = await caches.open(CACHE_NAME);
+                let newurl = new URL(event.request.url);
+                if (filename === 'index.html') { newurl.search = ''; };
+                const response = await cache.match(newurl.toString());
+                if (response) { return response; };
+                return new Response(`${filename}: No internet connection error: 503-1`, { status: 503 });
             };
             })()
         );

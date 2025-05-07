@@ -1,4 +1,4 @@
-const version = '1.0.9';
+const version = '1.1.0';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -113,7 +113,7 @@ self.addEventListener('fetch', event => {
             } else {
                 const cache = await caches.open(CACHE_NAME);
                 let newurl = new URL(event.request.url);
-                if (filename === 'index.html') { newurl.search = ''; };
+                if (filename === 'index.html' || filename === 'sw.js') { newurl.search = ''; };
                 const response = await cache.match(newurl.toString());
                 if (response) { return response; };
                 return new Response(`${filename}: No internet connection error: 503-1`, { status: 503 });

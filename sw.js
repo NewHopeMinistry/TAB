@@ -1,7 +1,8 @@
-const version = '1.0.11';
+const version = '1.0.9';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
+    'sw.js',
     'index.html',
     'manifest.json',
     'css/index.css',
@@ -19,15 +20,17 @@ self.addEventListener('install', event => {
             await cache.addAll(urlsToCache);
             console.log(CACHE_NAME);
             try {
-                const response = await fetch(`manifest.json?version=${version}`);
-                const manifest = await response.json();
-                if (manifest.icons) {
-                    const iconUrls = manifest.icons.map(icon => icon.src);
-                    await cache.addAll(iconUrls);
-                };
-                if (manifest.screenshots) {
-                    const screenshotUrls = manifest.screenshots.map(screenshot => screenshot.src);
-                    await cache.addAll(screenshotUrls);
+                if (navigator.onLine) {
+                    const response = await fetch(`manifest.json?version=${version}`);
+                    const manifest = await response.json();
+                    if (manifest.icons) {
+                        const iconUrls = manifest.icons.map(icon => icon.src);
+                        await cache.addAll(iconUrls);
+                    };
+                    if (manifest.screenshots) {
+                        const screenshotUrls = manifest.screenshots.map(screenshot => screenshot.src);
+                        await cache.addAll(screenshotUrls);
+                    };
                 };
             } catch (error) {
                 console.error('Error fetching or parsing manifest:', error);
@@ -88,6 +91,7 @@ self.addEventListener('fetch', event => {
                         return new Response('Network fetch error: 500', { status: 500 });
                     };
                 } else {
+                    alert(filename);
                     return new Response('No internet connection error: 503', { status: 503 });
                 };
             })()

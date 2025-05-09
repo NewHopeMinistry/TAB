@@ -1,4 +1,4 @@
-const version = '1.1.14';
+const version = '1.1.12';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 
 const urlsToCache = [
@@ -47,18 +47,27 @@ self.addEventListener('fetch', event => {
             (async () => {
                 const cache = await caches.open(CACHE_NAME);
                 const cachedResponse = await cache.match(event.request);
-                if (cachedResponse) { return cachedResponse };
-
+                if (cachedResponse) {
+                    const jsonBlob = await cachedResponse.blob();
+                    const decompressedBlob = await decompressBlob(jsonBlob);
+                    return new Response(decompressedBlob, {
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                };
                 if (navigator.onLine) {
-                    let newurl = event.request.url;
-                    newurl.search = '';
+                    let newurl = removeQueryString(event.request.url);
                     if (filename === 'TWFVerses.json') { newurl = `${newurl}?version=${version}`};
                     try {
                         const networkResponse = await fetch(newurl);
                         if (!networkResponse.ok) { throw new Error(networkResponse.status); };
                         const returnResponse = networkResponse.clone();
                         event.waitUntil((async () => {
-                            await cache.put(event.request, networkResponse.clone());
+                            const jsonData = await networkResponse.text();
+                            const compressedBlob = await compressJson(jsonData);
+                            const response = new Response(compressedBlob, {
+                                headers: { 'Content-Encoding': 'gzip', 'Content-Type': 'application/json' }
+                            });
+                            await cache.put(event.request, response.clone());
                         })());
                         return returnResponse;
                     } catch (error) {
@@ -78,8 +87,7 @@ self.addEventListener('fetch', event => {
                 if (response) { return response; };
                 if (navigator.onLine) {
                     try {
-                        const newurl = event.request.url;
-                        newurl.search = '';
+                        const newurl = removeQueryString(event.request.url);
                         const networkResponse = await fetch(`${newurl}?version=${version}`);
                         return networkResponse;
                     } catch (error) {
@@ -97,6 +105,13 @@ self.addEventListener('fetch', event => {
         );
     };
 });
+
+function removeQueryString(url) {
+
+    const questionMarkIndex = url.indexOf('?');
+    if (questionMarkIndex !== -1) { return url.substring(0, questionMarkIndex); };
+    return url;
+};
 
 //! gzip compression
     async function compressJson(jsonString) {

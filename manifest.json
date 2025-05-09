@@ -28,8 +28,24 @@
             "sizes": "256x256", "type": "image/png"
         },
         {
+            "src": "/images/icons/logo-300.png",
+            "sizes": "300x300", "type": "image/png"
+        },
+        {
             "src": "/images/icons/logo-512.png",
             "sizes": "512x512", "type": "image/png"
+        },
+        {
+            "src": "/images/icons/logo-600.png",
+            "sizes": "600x600", "type": "image/png"
+        },
+        {
+            "src": "/images/icons/logo-900.png",
+            "sizes": "900x900", "type": "image/png"
+        },
+        {
+            "src": "/images/icons/logo-1200.png",
+            "sizes": "1200x1200", "type": "image/png"
         }
     ],
     "screenshots": [

@@ -1,4 +1,4 @@
-const version = '1.1.0';
+const version = '1.1.4';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
 
@@ -33,13 +33,13 @@ self.addEventListener('activate', async (event) => {
 });
 
 self.addEventListener('fetch', event => {
+    const url = new URL(event.request.url);
+    const filename = url.pathname.split('/').pop();
 
-    event.respondWith(
-        (async () => {
-            const url = new URL(event.request.url);
-            const filename = url.pathname.split('/').pop();
-            if (filename !== 'manifest.json' && filename.endsWith('.json')) {
+    if (filename !== 'manifest.json' && filename.endsWith('.json')) {
 
+        event.respondWith(
+            (async () => {
                 const cache = await caches.open(CACHE_NAME);
                 const cachedResponse = await cache.match(event.request);
                 if (cachedResponse) { return cachedResponse };
@@ -64,24 +64,21 @@ self.addEventListener('fetch', event => {
                 } else {
                     return new Response(`${filename}: No internet connection error: 503-2`, { status: 503 });
                 };
-
-            } else {
+            })()
+        );
+    } else {
+        event.respondWith(
+            (async () => {
                 const cache = await caches.open(CACHE_NAME);
                 const response = await cache.match(event.request);
                 if (response) { return response; };
                 if (navigator.onLine) {
                     if (online === null) { online = await isOnline(); };
                     if (online) {
-                        var networkResponse;
-                        const newurl = event.request.url;
-                        newurl.search = '';
                         try {
-                            if (event.request.destination === 'image') {
-                                networkResponse = await fetch(newurl);
-                                await cache.put(event.request, networkResponse.clone());
-                            } else {
-                                networkResponse = await fetch(`${newurl}?version=${version}`);
-                            };
+                            const newurl = event.request.url;
+                            newurl.search = '';
+                            const networkResponse = await fetch(`${newurl}?version=${version}`);
                             return networkResponse;
                         } catch (error) {
                             return new Response('Network error: 500-1', { status: 500 });
@@ -102,11 +99,9 @@ self.addEventListener('fetch', event => {
                     if (response) { return response; };
                     return new Response(`${filename}: No internet connection error: 503-4`, { status: 503 });
                 };
-            };
-        })()
-    );
-
-
+            })()
+        );
+    };
 });
 
 async function isOnline() {

@@ -334,10 +334,10 @@ async function changeVersion() {
         let err = error.message;
         switch (error.message) {
             case '500':
-                err = 'Network error: 500';
+                err = 'Network fetch error: 500A';
                 break;
             case '503':
-                err = 'No internet connection error: 503';
+                err = 'No internet connection error: 503A';
                 break;
         }
         alert(err);

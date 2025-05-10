@@ -152,3 +152,17 @@ async function handleFetch(event) {
   }
 }
 
+
+function test() {
+
+  // Delete old version
+  const oldVersion = '1.1.0'
+  if (url.search.includes(oldVersion)) { cache.delete(request); };
+  // Delete no querystring
+  const url = new URL(request.url);
+  if (!url.search) { cache.delete(request); };
+};
+
+if (event.request.mode === 'navigate') {
+  const cachedResponse = await caches.match('/index.html');
+};

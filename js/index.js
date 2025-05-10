@@ -337,7 +337,7 @@ async function changeVersion() {
                 err = 'Network fetch error: 500A';
                 break;
             case '503':
-                err = 'No internet connection error: 503A';
+                err = 'No internet connection error: 503A.';
                 break;
         }
         alert(err);

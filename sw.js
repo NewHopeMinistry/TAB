@@ -1,4 +1,4 @@
-const version = '1.1.0';
+const version = '1.1.1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
 
@@ -14,8 +14,10 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', event => {
+
     event.waitUntil(
         (async () => {
+
             const cache = await caches.open(CACHE_NAME);
             await cache.addAll(urlsToCache);
             console.log(CACHE_NAME);
@@ -25,11 +27,16 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', async (event) => {
 
-    const cacheAllowList = [CACHE_NAME];
-    const keys = await caches.keys();
-    await Promise.all(keys.map(async (key) => {
-        if (!cacheAllowList.includes(key)) { await caches.delete(key); };
-    }));
+    event.waitUntil(
+        (async () => {
+
+            const cacheAllowList = [CACHE_NAME];
+            const keys = await caches.keys();
+            await Promise.all(keys.map(async (key) => {
+                if (!cacheAllowList.includes(key)) { await caches.delete(key); };
+            }));
+        })()
+    );
 });
 
 self.addEventListener('fetch', event => {
@@ -67,7 +74,12 @@ self.addEventListener('fetch', event => {
 
             } else {
                 const cache = await caches.open(CACHE_NAME);
-                const response = await cache.match(event.request);
+                var response = null;
+                if (event.request.mode === 'navigate') {
+                    response = await caches.match('/index.html');
+                } else {
+                    response = await cache.match(event.request);
+                };
                 if (response) { return response; };
                 if (navigator.onLine) {
                     if (online === null) { online = await isOnline(); };

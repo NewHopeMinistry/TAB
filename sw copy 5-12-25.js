@@ -70,6 +70,31 @@ self.addEventListener('fetch', event => {
             const url = new URL(event.request.url);
             const filename = url.pathname.split('/').pop();
             if (filename !== 'manifest.json' && filename.endsWith('.json')) {
+
+                // Remove this when TWF is finished
+                if (online === null) { online = await isOnline(); };
+                if (filename == 'TWFVerses.json' && navigator.onLine && online && twfCheck) {
+                    const cache = await caches.open(CACHE_NAME);
+                    const cachedResponse = await cache.match(event.request);
+                    twfCheck = false;
+                    if (today === 12 || today === 28) { event.waitUntil(await deleteCachedFile('TWFVerses.json')) };
+                    if (cachedResponse) {
+                        return cachedResponse
+                    } else {
+                        let newurl = event.request.url;
+                        newurl.search = '';
+                        newurl = `${newurl}?version=${version}`;
+                        try {
+                            const networkResponse = await fetch(newurl);
+                            if (!networkResponse.ok) { throw new Error(networkResponse.status); };
+                            await cache.put(event.request, networkResponse.clone());
+                            return networkResponse;
+                        } catch (error) {
+                            return new Response('Network fetch error: 500', { status: 500 });
+                        };
+                    };
+                } else {
+                // End of Remove this when TWF is finished
                     //Keep code from Here
                     const cache = await caches.open(CACHE_NAME);
                     const cachedResponse = await cache.match(event.request);
@@ -95,7 +120,7 @@ self.addEventListener('fetch', event => {
                         return new Response(`${filename}: No internet connection error: 503-2`, { status: 503 });
                     };
                     // To End here
-
+                };
             } else {
                 const cache = await caches.open(CACHE_NAME);
                 var response = null;

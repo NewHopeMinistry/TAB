@@ -1,4 +1,4 @@
-const version = '1.1.3';
+const version = '1.1.5';
 var twfCheck = true;
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
@@ -182,7 +182,7 @@ self.addEventListener('fetch', event => {
 async function isOnline() {
   try {
     const response = await fetch('status/204', { mode: 'cors', cache: 'no-store' });
-    return response;
+    if (response.ok) { return true; };
   } catch (error) {
     return false;
   }

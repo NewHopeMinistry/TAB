@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/icons/favicon-16.png">
-    
+
     <title>The Ark Bible</title>
     <link async rel="stylesheet" type="text/css" href="css/index.css">
     <link defer rel="stylesheet" type="text/css" href="css/lateload.css">
@@ -24,7 +24,6 @@
                     try {
                         const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
                         console.log('Service Worker registered with scope:', registration.scope);
-                        console.log(`Version: ${version}`)
                     } catch (error) {
                         console.log('Service Worker registration failed:', error);
                     }
@@ -125,19 +124,14 @@
                 <br><br>
                 <a class="cs-glossaryLink" href="html/twfabout.html">About Twenty-First Century Version</a>
                 <br><br>
-                <a class="cs-glossaryLink" href="html/license.html">Licenses</a><br><br>
-
+                <a class="cs-glossaryLink" href="html/license.html">Licenses</a>
+                <br><br>
+                <a class="cs-glossaryLink" href="html/history.html">Versions History</a>
+                <br><br>
                 <a id="id-help" class="cs-help cs-glossaryLink"  href="html/help.html" title="Help for The Ark Bible">Help</a>
             </div>
 
             <div id="id-col2" class="cs-glossary">
-                <h4 class="cs-glossaryHeaders">Other</h4>
-                <!-- Use .cs-hide to hide links-->
-                <a class="cs-glossaryLink" href="html/movies.html">Good Movies<br><br></a>
-
-                <a class="cs-glossaryLink" href="html/shows.html">Good TV Shows<br><br></a>
-
-                <a class="cs-glossaryLink" href="html/history.html">Versions History<br><br></a>
 
                 <h4 class="cs-glossaryHeaders">Settings</h4>
                 <div>
@@ -188,7 +182,7 @@
     <div id="id-end" class="cs-end">
         <br>
         <p id="id-endLine" class="cs-endLine">
-            By clicking OK, you agree to allow the app to use local storage to store Bible verse files locally to improve performance. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel no data will be saved locally. If you change your mind later, this can all be reset by clicking the reset defaults button at the bottom of the page, and refreshing the page.
+            By clicking OK, you agree to allow the app to use local storage to store Bible verse files locally to improve performance. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel no data will be saved locally. If you change your mind later, this can all be reset by clicking the reset defaults button at the bottom of the page, and refreshing the page. More information about the files and data saved can be found if you click on the help link at the bottom of the page.
         </p>
         <br>
         <div class="cs-endBtnLine">

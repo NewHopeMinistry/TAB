@@ -1,4 +1,4 @@
-const version = '1.1.1';
+const version = '1.1.2';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
 
@@ -10,14 +10,22 @@ const urlsToCache = [
     'js/variables.js',
     'js/index.js',
     'js/lateload.js',
-    'js/searcher.js'
+    'js/searcher.js',
+    'html/css/html.css',
+    'html/js/htmlvariables.js',
+    'html/about.html',
+    'html/help.html',
+    'html/history.html',
+    'html/license.html',
+    'html/statement.html',
+    'html/twfabout.html',
+    'html/images/icons/clear-yellow-logo1-512.png',
 ];
 
 self.addEventListener('install', event => {
 
     event.waitUntil(
         (async () => {
-
             const cache = await caches.open(CACHE_NAME);
             await cache.addAll(urlsToCache);
             console.log(CACHE_NAME);
@@ -76,7 +84,21 @@ self.addEventListener('fetch', event => {
                 const cache = await caches.open(CACHE_NAME);
                 var response = null;
                 if (event.request.mode === 'navigate') {
-                    response = await caches.match('/index.html');
+                    if (event.request.url.includes('/html/')) {
+                        response = await cache.match(event.request);
+                    } else {
+                        if (filename === 'index.html') {
+                            response = await caches.match('/index.html');
+                        } else {
+                            response = await cache.match(event.request);
+                        };
+                    };
+                    /*
+                    if (filename === 'index.html') {
+                        response = await caches.match('/index.html');
+                    } else {
+                        response = await cache.match(event.request);
+                    };*/
                 } else {
                     response = await cache.match(event.request);
                 };
@@ -90,10 +112,11 @@ self.addEventListener('fetch', event => {
                         try {
                             if (event.request.destination === 'image') {
                                 networkResponse = await fetch(newurl);
-                                await cache.put(event.request, networkResponse.clone());
                             } else {
                                 networkResponse = await fetch(`${newurl}?version=${version}`);
                             };
+                            if (filename !== 'index.html') { await cache.put(event.request, networkResponse.clone()); };
+
                             return networkResponse;
                         } catch (error) {
                             return new Response('Network error: 500-1', { status: 500 });

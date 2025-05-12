@@ -113,60 +113,6 @@ p { font-size: 1.06rem; }
 .cs-glossary { position: relative; margin-top: 1.2em; margin-bottom: 1.2em; color: var(--whiteText); width: 99%; }
 .cs-chat { display: flex; text-decoration: none; height: 2em; width: 20em; background-color: #ba0e0e; color: white; border-radius: 6px; margin: auto; justify-content:center; align-items: center; }
 
-.cs-iconLink { float: left; width: 3%; margin-right: 1em; height: auto; border-radius: 8px; padding-bottom: .3em; }
-.cs-iconLink:hover { background-color: #eeeea5; }
-.cs-pagesBody { background-color: var(--mainBackground); }
-.cs-title { display: inline-block; font-size: 1.2; font-weight: 550; padding-bottom: .5em; }
-
-.cs-showBox,
-.cs-movieBox,
-.cs-historyBox { height: max-content; width: 100%; margin: auto; }
-.cs-contentsTitle { color: var(--greenEmphasis); width: 100%; }
-
-.cs-showImg,
-.cs-movieImg { float: left; margin-right: .5em; height: auto; max-width: 10%;  border-radius: 6px;  border: 4px solid var(--lightGrayEmphasis); }
-.cs-showTagImg,
-.cs-movieTagImg { text-decoration: none; }
-
-.cs-showTitle,
-.cs-movieTitle,
-.cs-historyTitle,
-.cs-movieCollection { color: var(--lightMaroonEmphasis); font-size: 1.1em; text-decoration: none; }
-
-.cs-underline { text-decoration: underline; font-size: 1em; }
-
-.cs-showTitleWiki,
-.cs-movieCollection,
-.cs-showTitle:visited,
-.cs-showTitleWiki:visited,
-.cs-movieTitleWiki:visited,
-.cs-movieTitle:visited,
-.cs-movieTitleWiki:visited,
-.cs-historyTitleWiki,
-.cs-historyTitle:visited,
-.cs-historyTitleWiki:visited { color: var(--lightMaroonEmphasis); }
-
-.cs-showTitle:hover,
-.cs-movieCollection:hover,
-.cs-showTitleWiki:hover,
-.cs-movieTitle:hover,
-.cs-movieTitleWiki:hover,
-.cs-historyTitle:hover,
-.cs-historyTitleWiki:hover { color: var(--navyEmphasis); }
-.cs-movieCollection:hover { cursor: pointer; }
-
-.cs-movieCollections { display: none; width: 80%; margin: auto; }
-
-.cs-showCopyrights,
-.cs-movieCopyrights { width: 90%; margin: auto; text-align: center; font-size: .5rem; }
-
-.cs-aMovieBox { display: none; }
-
-table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid black; padding: .2em; text-align: left; }
-th { background-color: var(--bannerBackground); color: var(--whiteText)}
-tr:nth-child(even) { background-color: #f2f2f2; }
-
 .cs-svgTheme { left: 0; height: 1.2em; width: 1.2em; background-color: var(--bannerBackground); }
 .cs-svgTheme1 { position: absolute; left: 0; visibility: hidden; }
 .cs-themeNote { position: absolute; padding-left: 1.5em; vertical-align: middle; text-decoration: underline; font-size: .9rem; }
@@ -311,13 +257,6 @@ tr:nth-child(even) { background-color: #f2f2f2; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.8em; }
     .cs-searchBtn { width: 20%; }
-}
-
-@media (max-width: 432px) {
-    /*Images for mobile movies and shows pages*/
-    .cs-showImg,
-    .cs-movieImg { max-width: 28%; }
-    .cs-iconLink { width: 15%; }
 }
 
 @media (min-width: 431px) and (max-width: 540px) {

@@ -1,6 +1,10 @@
-const version = '1.1.2';
+const version = '1.1.3';
+var twfCheck = true;
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
+const adate = new Date();
+const today = adate.getDate();
+
 
 const urlsToCache = [
     'index.html',
@@ -47,6 +51,18 @@ self.addEventListener('activate', async (event) => {
     );
 });
 
+async function deleteCachedFile(fileName) {
+    const cache = await caches.open(CACHE_NAME);
+    const keys = await cache.keys();
+
+    for (const request of keys) {
+        if (request.url.endsWith(fileName)) {
+            await cache.delete(request);
+        }
+    };
+    return Promise.resolve(true);
+}
+
 self.addEventListener('fetch', event => {
 
     event.respondWith(
@@ -55,16 +71,19 @@ self.addEventListener('fetch', event => {
             const filename = url.pathname.split('/').pop();
             if (filename !== 'manifest.json' && filename.endsWith('.json')) {
 
-                const cache = await caches.open(CACHE_NAME);
-                const cachedResponse = await cache.match(event.request);
-                if (cachedResponse) { return cachedResponse };
-
-                if (navigator.onLine) {
-                    if (online === null) { online = await isOnline(); };
-                    if (online) {
+                // Remove this when TWF is finished
+                if (online === null) { online = await isOnline(); };
+                if (filename == 'TWFVerses.json' && navigator.onLine && online && twfCheck) {
+                    const cache = await caches.open(CACHE_NAME);
+                    const cachedResponse = await cache.match(event.request);
+                    twfCheck = false;
+                    if (today === 12 || today === 28) { event.waitUntil(await deleteCachedFile('TWFVerses.json')) };
+                    if (cachedResponse) {
+                        return cachedResponse
+                    } else {
                         let newurl = event.request.url;
                         newurl.search = '';
-                        if (filename === 'TWFVerses.json') { newurl = `${newurl}?version=${version}`};
+                        newurl = `${newurl}?version=${version}`;
                         try {
                             const networkResponse = await fetch(newurl);
                             if (!networkResponse.ok) { throw new Error(networkResponse.status); };
@@ -73,13 +92,35 @@ self.addEventListener('fetch', event => {
                         } catch (error) {
                             return new Response('Network fetch error: 500', { status: 500 });
                         };
-                    } else {
-                        return new Response(`${filename}: No internet connection error: 503-1`, { status: 503 });
                     };
                 } else {
-                    return new Response(`${filename}: No internet connection error: 503-2`, { status: 503 });
+                // End of Remove this when TWF is finished
+                    //Keep code from Here
+                    const cache = await caches.open(CACHE_NAME);
+                    const cachedResponse = await cache.match(event.request);
+                    if (cachedResponse) { return cachedResponse };
+                    if (navigator.onLine) {
+                        if (online === null) { online = await isOnline(); };
+                        if (online) {
+                            let newurl = event.request.url;
+                            newurl.search = '';
+                            if (filename === 'TWFVerses.json') { newurl = `${newurl}?version=${version}`};
+                            try {
+                                const networkResponse = await fetch(newurl);
+                                if (!networkResponse.ok) { throw new Error(networkResponse.status); };
+                                await cache.put(event.request, networkResponse.clone());
+                                return networkResponse;
+                            } catch (error) {
+                                return new Response('Network fetch error: 500', { status: 500 });
+                            };
+                        } else {
+                            return new Response(`${filename}: No internet connection error: 503-1`, { status: 503 });
+                        };
+                    } else {
+                        return new Response(`${filename}: No internet connection error: 503-2`, { status: 503 });
+                    };
+                    // To End here
                 };
-
             } else {
                 const cache = await caches.open(CACHE_NAME);
                 var response = null;
@@ -93,12 +134,6 @@ self.addEventListener('fetch', event => {
                             response = await cache.match(event.request);
                         };
                     };
-                    /*
-                    if (filename === 'index.html') {
-                        response = await caches.match('/index.html');
-                    } else {
-                        response = await cache.match(event.request);
-                    };*/
                 } else {
                     response = await cache.match(event.request);
                 };

@@ -309,6 +309,7 @@ function JesusQuote(aVerse, vNum) {
     return `<span class="cs-verseNumber">${vNum}</span>${aVerse}`;
 };
 
+
 async function changeVersion() {
 
     let id = this.event.target.id;

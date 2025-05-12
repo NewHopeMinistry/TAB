@@ -1,4 +1,4 @@
-const version = '1.1.5';
+const version = '1.1.10';
 var twfCheck = true;
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;

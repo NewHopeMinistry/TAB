@@ -1,10 +1,6 @@
-const version = '1.1.10';
-var twfCheck = true;
+const version = '1.1.14';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
-const adate = new Date();
-const today = adate.getDate();
-
 
 const urlsToCache = [
     'index.html',
@@ -103,7 +99,7 @@ self.addEventListener('fetch', event => {
                     if (event.request.url.includes('/html/')) {
                         response = await cache.match(event.request);
                     } else {
-                        if (filename === 'index.html') {
+                        if (filename === 'index.html' || filename === '') {
                             response = await caches.match('/index.html');
                         } else {
                             response = await cache.match(event.request);

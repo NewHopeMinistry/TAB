@@ -6,6 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/icons/favicon-16.png">
+    <link rel="icon shortcut" type="image/png" href="images/icons/logo-32.png">
+    <link rel="icon shortcut" type="image/png" href="images/icons/logo-64.png">
+    <link rel="icon shortcut" type="image/png" href="images/icons/logo-96.png">
+    <link rel="icon shortcut" type="image/png" href="images/icons/logo-128.png">
+    <link rel="icon shortcut" type="image/png" href="images/icons/logo-256.png">
+    
 
     <title>The Ark Bible</title>
     <link async rel="stylesheet" type="text/css" href="css/index.css">
@@ -18,25 +24,6 @@
     <script defer src="js/searcher.js"></script>
 
     <script>
-        async function saveLocal() {
-            if ('serviceWorker' in navigator) {   //This goes in the client side javascript
-                (async () => {
-                    try {
-                        const registration = await navigator.serviceWorker.register('sw.js', { scope: '/' });
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    } catch (error) {
-                        console.log('Service Worker registration failed:', error);
-                    }
-                })();
-            };
-            document.getElementById('id-end').style.display = 'none';
-            localStorage.setItem("savedLocal", true);
-        };
-
-        function closeSave() {
-            document.getElementById('id-end').style.display = 'none';
-            localStorage.setItem("savedLocal", true);
-        };
         function closeTWF() {
             document.getElementById('id-TWFcontainer').style.display = 'none';
             TWFopen = false;
@@ -177,19 +164,6 @@
             <br><br>
 
         </div>
-    </div>
-
-    <div id="id-end" class="cs-end">
-        <br>
-        <p id="id-endLine" class="cs-endLine">
-            By clicking OK, you agree to allow the app to use local storage to store Bible verse files locally to improve performance. The Ark Bible app does not collect or store any personal or tracking data. If you click Cancel no data will be saved locally. If you change your mind later, this can all be reset by clicking the reset defaults button at the bottom of the page, and refreshing the page. More information about the files and data saved can be found if you click on the help link at the bottom of the page.
-        </p>
-        <br>
-        <div class="cs-endBtnLine">
-            <button class="cs-endBtn" onclick="saveLocal()">OK</button>
-            <button class="cs-endBtn" onclick="closeSave()">Cancel</button>
-        </div>
-        <br><br>
     </div>
 
 </body>

@@ -4,7 +4,6 @@ window.addEventListener("load", async () => {
 
     let rec = false;
     rec = getDefaults();
-    if (rec) { if(savedLocal) { document.getElementById('id-end').style.display = 'none'; } };
     if (rec) { rec = false; rec = loadVersions(); };
     if (rec) { rec = false; rec = LoadBooks(); };
     if (rec) { rec = false; rec = loadChapters(); };
@@ -23,8 +22,30 @@ window.addEventListener("load", async () => {
             darkTheme();
             rotateTheme = false;
         };
+        unregisterServiceWorkers();
     };
 });
+
+async function unregisterServiceWorkers() {
+
+    localStorage.removeItem('savedLocal');
+    const keys = await caches.keys();
+    await Promise.all(keys.map(async (key) => { await caches.delete(key); }));
+    if ('serviceWorker' in navigator) {
+            try {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                if (registrations.length > 0) {
+                    
+                    for (const registration of registrations) {
+                        const unregistered = await registration.unregister();
+                        console.log('Service worker unregistered:', unregistered);
+                    };
+                };
+            } catch (error) {
+                console.error('Error during unregistering:', error);
+            };
+    };
+};
 
 async function getDefaults() {
 

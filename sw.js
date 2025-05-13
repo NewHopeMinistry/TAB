@@ -1,4 +1,4 @@
-const version = '1.1.14';
+const version = '1';
 const CACHE_NAME = `ARK-cache-version: ${version}`;
 var online = null;
 

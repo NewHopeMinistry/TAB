@@ -242,7 +242,7 @@ function updateQueryParams(removeParams, addParams) {
     // Update the URL without reloading the page
     window.history.replaceState({}, '', url);
 };
-
+/*
 async function unregisterServiceWorkers() {
 
     if ('serviceWorker' in navigator) {
@@ -261,7 +261,7 @@ async function unregisterServiceWorkers() {
                 console.error('Error during unregistering:', error);
             };
     };
-};
+};*/
 
 function resetDefaults() {
 
@@ -291,7 +291,7 @@ function resetDefaults() {
     activeChapterID = defaultChapterID;
     changeVersion();
     document.getElementById('top').scrollIntoView({ block: 'start' });
-    unregisterServiceWorkers();
+
 };
 
 function readRandomChapter() {

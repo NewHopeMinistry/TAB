@@ -54,10 +54,10 @@ async function deleteCachedFile(fileName) {
     for (const request of keys) {
         if (request.url.endsWith(fileName)) {
             await cache.delete(request);
-        }
+        };
     };
     return Promise.resolve(true);
-}
+};
 
 self.addEventListener('fetch', event => {
 

@@ -34,7 +34,7 @@ html::-webkit-scrollbar,
 .cs-statement:hover,
 .cs-searchResults:hover { color: red; cursor: pointer; }
 
-.cs-sortHeader:hover,
+#id-sortHeader:hover,
 .cs-adjustFont1:hover { background-color: #82b4fe; color: white; cursor: pointer; }
 
 .cs-book:hover,

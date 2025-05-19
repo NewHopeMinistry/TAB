@@ -186,7 +186,6 @@ function darkTheme() {
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
     document.documentElement.style.setProperty('--gradientLight', '#5d656e');
     document.documentElement.style.setProperty('--gradientDark', '#010914');
-    document.getElementById('id-endLine').style.color = '#010914';
 };
 
 function changeTheme() {
@@ -229,7 +228,7 @@ function changeFontSize(direction) {
     localStorage.setItem("activeFontSizeCount", activeFontSizeCount);
     localStorage.setItem("activeFontSize", activeFontSize);
 
-    const bottom = document.getElementById("id-end");
+    const bottom = document.getElementById("id-endFontScroll");
     bottom.scrollIntoView({ behavior: "instant", block: "end" });
 };
 
@@ -255,8 +254,8 @@ async function unregisterServiceWorkers() {
                         const unregistered = await registration.unregister();
                         console.log('Service worker unregistered:', unregistered);
                     };
-                    alert('Changes to your data storage will take effect after you restart the browser with an active internet connection!');
                 };
+                alert('Changes to your data storage will take effect after you restart the browser with an active internet connection!');
             } catch (error) {
                 console.error('Error during unregistering:', error);
             };
@@ -291,7 +290,6 @@ function resetDefaults() {
     activeChapterID = defaultChapterID;
     changeVersion();
     document.getElementById('top').scrollIntoView({ block: 'start' });
-
 };
 
 function readRandomChapter() {

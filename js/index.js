@@ -35,7 +35,7 @@ async function unregisterServiceWorkers() {
             try {
                 const registrations = await navigator.serviceWorker.getRegistrations();
                 if (registrations.length > 0) {
-                    
+
                     for (const registration of registrations) {
                         const unregistered = await registration.unregister();
                         console.log('Service worker unregistered:', unregistered);
@@ -161,22 +161,36 @@ async function LoadBooks() {
     let ii = 0;
     let div;
     let div1
-    let menuBooks = document.getElementById('id-books');
 
     removeElements('id-books');
+    let menuBooks = document.getElementById('id-books');
+
     div = document.createElement('div');
     div.classList.add('cs-bookHeader');
     div.textContent = 'Books';
 
     let spa = document.createElement("span");
+    spa.id = 'id-sortHeader';
+    spa.classList.add('cs-sortHeader');
     spa.addEventListener("click", () => {
         sortBooks();
         this.event.preventDefault();
         this.event.stopPropagation();
         this.event.stopImmediatePropagation();
     });
-    spa.classList.add('cs-sortHeader');
     spa.textContent = 'SORT';
+
+    spa.style.position = "absolute";
+    spa.style.left = "42%";
+    spa.style.transform = "transform: translate(-50%)";
+    spa.style.padding = ".23em";
+    spa.style.fontSize = ".56em";
+    spa.style.fontWeight = "500";
+    spa.style.backgroundColor = "var(--whiteText)";
+    spa.style.color = "var(--bannerBackground)";
+    spa.style.borderRadius = "5px";
+    spa.style.width = "max-content";
+
     if (bookSort) { spa.title = 'Sort Biblically';
     } else { spa.title = 'Sort Alphabetically'; };
     div.appendChild(spa);

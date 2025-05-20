@@ -428,7 +428,7 @@ async function getChapter() {
     let vNum;
 
     verseCount = 0;
-    while (i < verses.length && verses[i].cn === activeChapter) {
+    while (i < verses.length && verses[i].cn === activeChapter && verses[i].bid === activeBook) {
         p = document.createElement('p');
         p.id = `p${verses[i].vid}`;
         pn = verses[i].pn;

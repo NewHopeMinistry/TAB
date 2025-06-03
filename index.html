@@ -6,29 +6,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/icons/favicon-16.png">
-    <link rel="icon shortcut" type="image/png" href="images/icons/logo-32.png">
-    <link rel="icon shortcut" type="image/png" href="images/icons/logo-64.png">
-    <link rel="icon shortcut" type="image/png" href="images/icons/logo-96.png">
-    <link rel="icon shortcut" type="image/png" href="images/icons/logo-128.png">
-    <link rel="icon shortcut" type="image/png" href="images/icons/logo-256.png">
 
     <title>The Ark Bible</title>
     <link async rel="stylesheet" type="text/css" href="css/index.css">
     <link defer rel="stylesheet" type="text/css" href="css/lateload.css">
-    <!--<link rel="manifest" href="manifest.json">-->
+    <!--<link rel="manifest" href="manifest.json"> ! delete when testing the serviceworker-->
+    <link rel="manifest" href="manifest.json">
 
+    <script src="html/js/htmlvariables.js"></script>
     <script async src="js/variables.js"></script>
-    <script async src="html/js/htmlvariables.js"></script>
     <script async src="js/index.js"></script>
     <script defer src="js/lateload.js"></script>
     <script defer src="js/searcher.js"></script>
 
     <script>
+
+        const scope = '/';
+        //const scope = '/TAB-Tester/';
+
+        async function saveLocal() {
+            if ('serviceWorker' in navigator) {   //This goes in the client side javascript
+                (async () => {
+                    try {
+                        const registration = await navigator.serviceWorker.register('sw.js', { scope: scope });
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    } catch (error) {
+                        console.log('Service Worker registration failed:', error);
+                    }
+                })();
+            };
+            document.getElementById('id-end').style.display = 'none';
+            localStorage.setItem("savedLocal", true);
+        };
+        function closeSave() {
+            document.getElementById('id-end').style.display = 'none';
+            localStorage.setItem("savedLocal", true);
+        };
+
         function closeTWF() {
             document.getElementById('id-TWFcontainer').style.display = 'none';
             TWFopen = false;
         };
+
     </script>
+
 </head>
 
 <body>
@@ -115,7 +136,7 @@
                 <br><br>
                 <a class="cs-glossaryLink" href="html/history.html">Versions History</a>
                 <br><br>
-                <a id="id-help" class="cs-help cs-glossaryLink" href="html/help.html" title="Help for The Ark Bible">Help</a>
+                <a id="id-help" class="cs-help cs-glossaryLink"  href="html/help.html" title="Help for The Ark Bible">Help</a>
             </div>
 
             <div id="id-col2" class="cs-glossary">
@@ -146,6 +167,8 @@
 
                 <div id="id-paragraphLayout" class="cs-paragraphLayout" onclick="paragraphLayout()" title="Set format of text layout - Paragraph or Single Line">Paragraph Layout</div>
 
+                <div id="id-resetData" class="cs-resetData" onclick="deleteData()" title="Reset Local Data Storage">Delete Local Data</div>
+
                 <div id="id-resetDefaults" class="cs-resetDefaults" onclick="resetDefaults()" title="Reset Defaults to Original">Reset Defaults</div>
 
             </div>
@@ -163,6 +186,7 @@
             <br>
             <a href="./html/license.html" class="cs-copyright">Copyright ©2024 New Hope Ministries <span class="cs-copySign">●</span> MIT License <span class="cs-copySign">●</span> Public Domain</a>
             <br><br>
+
         </div>
     </div>
 

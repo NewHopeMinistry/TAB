@@ -58,6 +58,7 @@ function openBoxes() {
         closeBoxes();
     } else {
         boxesOpen = true;
+        locateMenus(id);
         document.getElementById(id).style.display = 'block';
     };
 };
@@ -186,6 +187,7 @@ function darkTheme() {
     document.documentElement.style.setProperty('--searchResults', '#fa4d4d');
     document.documentElement.style.setProperty('--gradientLight', '#5d656e');
     document.documentElement.style.setProperty('--gradientDark', '#010914');
+    document.getElementById('id-endLine').style.color = '#010914';
 };
 
 function changeTheme() {
@@ -212,7 +214,7 @@ function changeTheme() {
 function changeFontSize(direction) {
 
     if (direction === '+') {
-        if (activeFontSizeCount > 3) { return; };
+        if (activeFontSizeCount > 8) { return; };
         activeFontSize = activeFontSize * 1.15;
         activeFontSizeCount++;
     } else if (direction === '-') {
@@ -241,7 +243,7 @@ function updateQueryParams(removeParams, addParams) {
     // Update the URL without reloading the page
     window.history.replaceState({}, '', url);
 };
-/*
+
 async function unregisterServiceWorkers() {
 
     if ('serviceWorker' in navigator) {
@@ -255,14 +257,26 @@ async function unregisterServiceWorkers() {
                         console.log('Service worker unregistered:', unregistered);
                     };
                 };
-                alert('Changes to your data storage will take effect after you restart the browser with an active internet connection!');
             } catch (error) {
                 console.error('Error during unregistering:', error);
             };
     };
-};*/
+};
+
+function deleteData() {
+
+    let confirmed = confirm('Changes to your default data storage settings will take effect immediately. When you restart the browser you must have an active internet connection to use The Ark Bible, click OK to continue or Cancel to abort!');
+    if (!confirmed) { return; };
+
+    localStorage.removeItem('savedLocal');
+    document.getElementById('top').scrollIntoView({ block: 'start' });
+    unregisterServiceWorkers();
+};
 
 function resetDefaults() {
+
+    let confirmed = confirm('Changes to The Ark Bible settings will take effect immediately! All settings will be reset to their default values, click OK to continue or Cancel to abort!');
+    if (!confirmed) { return; };
 
     const svg = document.getElementById('id-svg');
     const svg1 = document.getElementById('id-svgRotate');
@@ -272,7 +286,6 @@ function resetDefaults() {
     rotateTheme = true;
     changeFontSize('d');
     localStorage.removeItem('setTheme');
-    localStorage.removeItem('savedLocal');
     localStorage.removeItem('activeFontSizeCount');
     localStorage.removeItem('activeFontSize');
     localStorage.removeItem('activeBookID');
@@ -290,6 +303,7 @@ function resetDefaults() {
     activeChapterID = defaultChapterID;
     changeVersion();
     document.getElementById('top').scrollIntoView({ block: 'start' });
+
 };
 
 function readRandomChapter() {
@@ -331,3 +345,7 @@ function paragraphLayout() {
     getChapter();
     localStorage.setItem("paragraphLayout", paragraphLayoutDefault);
 };
+
+
+
+

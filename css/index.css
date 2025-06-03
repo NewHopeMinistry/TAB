@@ -37,7 +37,7 @@ p { font-size: 1.06rem; }
 
 .cs-header1 { position: fixed; top: 0; left: 0; width: 100%; height: 13%; background-color: var(--bannerBackground); color: var(--whiteText); padding: 0; padding-left: 2em; overflow: hidden; z-index: 1; user-select: none; border-bottom: 5px solid dimgray; }
 /* .cs-headerTitle { margin:0; position: absolute; top: 50%; transform: translateY(-50%); } */
-.cs-headerTitle { margin:0; position: absolute; font-size: 2rem; top: 15%; }
+.cs-headerTitle { margin:0; position: absolute; font-size: 1.3rem; top: 15%; }
 .cs-search { position: absolute; right: 8%; top: 50%; height: 1.4rem; width: 1.4rem; transform: translateY(-50%); }
 .cs-menu { position: absolute; left: 0; bottom: 1em; display: flex; width: 100%; height: 25%; z-index: 1; }
 .cs-menu1 { position: absolute; left: 50%; transform: translate(-50%); }
@@ -54,17 +54,17 @@ p { font-size: 1.06rem; }
 .cs-strongsHeader { position: sticky; top: 0; padding: .35em; padding-left: .8em; font-size: 1.3em; font-weight: 550; background-color: var(--headerBackground); color: var(--whiteText); user-select: none; width: 100%; z-index: 1; }
 
 .cs-strongsHeader,
-.cs-nonEnglishHeader { position: relative; };
+.cs-nonEnglishHeader {position: relative };
 
-.cs-sortHeader { position: absolute; left: 42%; transform: translate(-50%); padding: .23em; font-size: .56em; font-weight: 500; background-color: var(--whiteText); color: var(--bannerBackground); border-radius: 5px; width: max-content; }
+.cs-sortHeader { position: absolute; left: 50%; transform: translate(-50%); padding: .23em; font-size: .56em; font-weight: 500; background-color: var(--whiteText); color: var(--bannerBackground); border-radius: 5px; width: max-content; }
 
 .cs-books,
 .cs-verses,
 .cs-chapters,
-.cs-versions { display: none; position: absolute; top: 13%; left: 50%; height: 69%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 1; }
-.cs-books { width: 26%; }
+.cs-versions { display: none; position: absolute; left: 50%; height: 69%; transform: translate(-50%); background-color: #f1f1f1; color: black; box-shadow: 0px 8px 16px 0px var(--shadowColor); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 1; }
+.cs-books { width: 28%; }
 .cs-verses,
-.cs-chapters { height: max-content; max-height: 80%; width: 17%; overflow: hidden; overflow-y: scroll; }
+.cs-chapters { height: max-content; max-height: 80%; width: 21%; overflow: hidden; overflow-y: scroll; }
 
 .cs-book,
 .cs-version { padding: .3em; padding-left: .6em; padding-right: .6em; font-size: 1.3rem; }
@@ -119,11 +119,13 @@ p { font-size: 1.06rem; }
 
 .cs-font,
 .cs-redLetter,
+.cs-resetData,
 .cs-resetDefaults,
 .cs-paragraphLayout { width: max-content; margin-top: 1em; background-color: var(--bannerBackground); color: var(--whiteText); user-select: none; }
 
 .cs-adjustFont,
 .cs-redLetter,
+.cs-resetData,
 .cs-resetDefaults,
 .cs-paragraphLayout { padding-left: 1.5em; padding-right: 1.5em; text-decoration: underline; font-size: .9rem; }
 .cs-adjustFont1 { display: inline-block; height: 1.2rem; width: 1.2rem; border-radius: 50%; background-color: var(--whiteText); color: var(--bannerBackground); text-align: center; line-height: 1.2em; font-size: 1.1em; vertical-align: middle; font-weight: 550; }
@@ -161,19 +163,24 @@ p { font-size: 1.06rem; }
 .cs-randomChapter { display: none; width: max-content; margin: auto; font-size: 1.2em; background-color: #ba0e0e; color: white; border-radius: 6px; padding: 1.1em; }
 
 /* Media Queries */
-/*! Width breakpoints */
+@media (max-width: 330px) {
+    .cs-menu1 { position: absolute; left: 20%; transform: translate(-25%); }
+}
+@media (max-width: 530px) {
+    .cs-menu1 { position: absolute; left: 25%; transform: translate(-25%); }
+    .cs-menuBtn { font-size: .95rem; }
+}
 
 @media (max-width: 344px) {
     .cs-header1 { height: 11%; }
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 5.8em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 11%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 11%; width: 80%; }
+    .cs-chapters { width: 80%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
@@ -181,14 +188,13 @@ p { font-size: 1.06rem; }
 
 @media (min-width: 345px) and (max-width: 360px) {
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 5.75em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 13%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 13%; width: 75%; }
+    .cs-chapters { width: 75%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.2em; }
     .cs-searchBtn { width: 20%; }
@@ -196,16 +202,14 @@ p { font-size: 1.06rem; }
 
 @media (min-width: 361px) and (max-width: 376px) {
     .cs-header1 { height: 12%; }
-    .cs-headerTitle { font-size: 1.5rem; top: 15%; transform: none; }
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 4.9em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 12%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 12%; width: 73%; }
+    .cs-chapters { width: 73%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
@@ -214,14 +218,13 @@ p { font-size: 1.06rem; }
 @media (min-width: 377px) and (max-width: 390px) {
     .cs-header1 { height: 12%; }
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 6.1em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 12%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 12%; width: 73%; }
+    .cs-chapters { width: 73%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.9em; }
     .cs-searchBtn { width: 20%; }
@@ -230,14 +233,13 @@ p { font-size: 1.06rem; }
 @media (min-width: 391px) and (max-width: 414px) {
     .cs-header1 { height: 10%; }
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 5.45em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 10%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 10%; width: 67%; }
+    .cs-chapters { width: 67%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.8em; }
     .cs-searchBtn { width: 20%; }
@@ -246,34 +248,31 @@ p { font-size: 1.06rem; }
 @media (min-width: 415px) and (max-width: 430px) {
     .cs-header1 { height: 11%; }
     .cs-search { right: 15%; }
-    .cs-menu1 { font-size: 1rem; width: 99%; left: 8%; transform: none; }
     .cs-pageContainer { margin-top: 6.15em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 10.9%; width: 100%; }
+    .cs-books { width: 100%; }
     .cs-verses,
-    .cs-chapters { top: 10.9%; width: 64%; }
+    .cs-chapters { width: 64%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.8em; }
     .cs-searchBtn { width: 20%; }
 }
 
 @media (min-width: 431px) and (max-width: 540px) {
-    .cs-headerTitle { font-size: 1.4rem; }
     .cs-header1 { height: 11%; }
     .cs-search { right: 15%; }
     .cs-pageContainer { margin-top: 5.7em; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 10%; width: 82%; }
+    .cs-books { width: 82%; }
     .cs-verses,
-    .cs-chapters { top: 10%; width: 63%; }
+    .cs-chapters { width: 63%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.5em; }
     .cs-searchBtn { width: 20%; }
-    .cs-menu1 { position: absolute; left: 20%; transform: translate(-20%); }
 }
 
 @media (max-width: 768px) { .cs-endLine { width: 85%; } .cs-TWF { position: relative; width: 90%; top: 1em; } .cs-tbl { font-size: .7em; width: 99%; } }
@@ -285,9 +284,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 9.2%; width: 52%; }
+    .cs-books { width: 52%; }
     .cs-verses,
-    .cs-chapters { top: 9.2%; width: 38%; }
+    .cs-chapters { width: 38%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
@@ -300,9 +299,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 8.3%; width: 52%; }
+    .cs-books { width: 52%; }
     .cs-verses,
-    .cs-chapters { top: 8.3%; width: 35%; }
+    .cs-chapters { width: 35%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5.1em; }
     .cs-searchBtn { width: 20%; }
@@ -315,9 +314,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 8%; width: 50%; }
+    .cs-books { width: 50%; }
     .cs-verses,
-    .cs-chapters { top: 8%; width: 34%; }
+    .cs-chapters { width: 34%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5.6em; }
     .cs-searchBtn { width: 20%; }
@@ -330,9 +329,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 100%; border-radius: 0; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 8%; width: 45%; }
+    .cs-books { width: 45%; }
     .cs-verses,
-    .cs-chapters { top: 8%; width: 32%; }
+    .cs-chapters { width: 32%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 6em; }
     .cs-searchBtn { width: 20%; }
@@ -345,9 +344,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 90%; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 13%; width: 40%; }
+    .cs-books { width: 40%; }
     .cs-verses,
-    .cs-chapters { top: 13%; width: 28%; }
+    .cs-chapters { width: 28%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 4.9em; }
     .cs-searchBtn { width: 20%; }
@@ -360,9 +359,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 90%; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 7%; width: 40%; }
+    .cs-books { width: 40%; }
     .cs-verses,
-    .cs-chapters { top: 7%; width: 28%; }
+    .cs-chapters { width: 28%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5.9em; }
     .cs-searchBtn { width: 20%; }
@@ -376,9 +375,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 70%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 12.2%; width: 32%; }
+    .cs-books { width: 32%; }
     .cs-verses,
-    .cs-chapters { top: 12.2%; width: 22%; }
+    .cs-chapters { width: 22%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 80%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
@@ -392,9 +391,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 70%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 13.1%; width: 32%; }
+    .cs-books { width: 32%; }
     .cs-verses,
-    .cs-chapters { top: 13.1%; width: 22.5%; }
+    .cs-chapters { width: 22.5%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 80%; margin-top: 5.7em; }
     .cs-searchBtn { width: 20%; }
@@ -408,9 +407,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 70%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 12.2%; width: 32%; }
+    .cs-books { width: 32%; }
     .cs-verses,
-    .cs-chapters { top: 12.2%; width: 21%; }
+    .cs-chapters { width: 21%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5.4em; }
     .cs-searchBtn { width: 20%; }
@@ -424,9 +423,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 70%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 10.2%; width: 28%; }
+    .cs-books { width: 28%; }
     .cs-verses,
-    .cs-chapters { top: 10.2%; width: 20%; }
+    .cs-chapters { width: 20%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 6.5em; }
     .cs-searchBtn { width: 20%; }
@@ -441,9 +440,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 60%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 11.2%; width: 28%; }
+    .cs-books { width: 28%; }
     .cs-verses,
-    .cs-chapters { top: 11.2%; width: 19%; }
+    .cs-chapters { width: 19%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5.2m; }
     .cs-searchBtn { width: 20%; }
@@ -457,9 +456,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 60%; border-radius: 8px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 9.2%; width: 21%; }
+    .cs-books { width: 21%; }
     .cs-verses,
-    .cs-chapters { top: 9.2%; width: 15%; }
+    .cs-chapters { width: 15%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 5em; }
     .cs-searchBtn { width: 20%; }
@@ -473,9 +472,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 60%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 9.3%; width: 21%; }
+    .cs-books { width: 21%; }
     .cs-verses,
-    .cs-chapters { top: 9.3%; width: 15%; }
+    .cs-chapters { width: 15%; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 6.3em; }
     .cs-searchBtn { width: 20%; }
@@ -490,9 +489,9 @@ p { font-size: 1.06rem; }
     .cs-mainPage { width: 60%; border-radius: 6px; }
     .cs-page { margin-top: 2em; width: 90%; }
     .cs-versions,
-    .cs-books { top: 9.3%; width: 17%; }
+    .cs-books { width: 17%; }
     .cs-verses,
-    .cs-chapters { top: 9.3%; width: 11.5%; }
+    .cs-chapters { width: 11.5%; }
     .cs-chapter { font-size: 1.3rem; }
     .cs-searchPage { width: 95%; }
     .cs-searchContainer { width: 100%; margin-top: 7.3em; }

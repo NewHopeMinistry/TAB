@@ -468,11 +468,6 @@ var versions = [
         "t": "Young's Literal Translation"
     },
     // Non-English Versions begin at 2000
-        {
-        "ar": "AFR",
-        "id": 2001,
-        "t": "Afrikaans Bible (1953)"
-    },
     {
         "ar": "ALB",
         "id": 2002,
@@ -614,19 +609,14 @@ var versions = [
         "t": "Maori Bible Version"
     },
     {
-        "ar": "PAT",
+        "ar": "OPT",
         "id": 2033,
-        "t": "Persian Old Translation (1895)"
+        "t": "Old Persian Translation (1895)"
     },
     {
         "ar": "PBN",
         "id": 2034,
         "t": "Polish NOWEJ BIBLII GDANSKIEJ (2012)"
-    },
-    {
-        "ar": "PBU",
-        "id": 2035,
-        "t": "Polish Uwspółcześniona Biblia Gdańska (2017)"
     },
     {
         "ar": "PBV",
@@ -652,11 +642,6 @@ var versions = [
         "ar": "RCV",
         "id": 2040,
         "t": "Romanian Cornilescu Version"
-    },
-    {
-        "ar": "RFB",
-        "id": 2041,
-        "t": "Romanian Fidela Biblia în limba română (2011/2016)"
     },
     {
         "ar": "RSB",

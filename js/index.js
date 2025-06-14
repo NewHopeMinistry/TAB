@@ -113,7 +113,7 @@ async function loadVersions() {
     menuVersions.appendChild(div);
     for (const version of versions) {
 
-        if (Number(version.id) > 200 && nonEnglish) {
+        if (Number(version.id) > 2000 && nonEnglish) {
             let div = document.createElement("div");
             div.id = 'id-nonEnglishHeader';
             div.classList.add("cs-nonEnglishHeader");
@@ -122,7 +122,7 @@ async function loadVersions() {
             nonEnglish = false;
         };
 
-        if (Number(version.id) > 300 && strongs) {
+        if (Number(version.id) > 3000 && strongs) {
             let div = document.createElement("div");
             div.id = 'id-strongshHeader';
             div.classList.add("cs-strongsHeader");

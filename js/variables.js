@@ -479,16 +479,6 @@ var versions = [
         "t": "Arabic (العربية) Smith Van Dyke"
     },
     {
-        "ar": "CKS",
-        "id": 2004,
-        "t": "Chinese KJV (Simplified) Shangdi 中文英皇钦定本上帝版 - 简体中文"
-    },
-    {
-        "ar": "CKT",
-        "id": 2005,
-        "t": "Chinese KJV (Traditional) Shangdi 中文英皇欽定本上帝版 - 繁體中文"
-    },
-    {
         "ar": "CUS",
         "id": 2006,
         "t": "Chinese Union (Simplified)"
@@ -631,7 +621,7 @@ var versions = [
     {
         "ar": "PTA",
         "id": 2038,
-        "t": "Portuguese Tradução de João Ferreira de Almeida (Versão Revista e Atualizada)"
+        "t": "Portuguese Tradução de João Ferreira de Almeida Revista e Atualizada"
     },
     {
         "ar": "PTC",

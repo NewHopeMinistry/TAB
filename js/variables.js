@@ -378,11 +378,6 @@ var TWF = {
 };
 var versions = [
     {
-        "ar": "AKJ",
-        "id": 1,
-        "t": "American King James Version"
-    },
-    {
         "ar": "ASV",
         "id": 2,
         "t": "American Standard Version"

@@ -339,7 +339,7 @@ var versions = [
             "ar": "OPT",
             "id": 2027,
             "rdl": 0,
-            "sch": 1,
+            "sch": 0,
             "t": "Old Persian Translation (1895)"
         },
         {
